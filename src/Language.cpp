@@ -33,9 +33,9 @@ bool LoadLanguage()
 	FILE *lFile;
 	char *path;
 	
-	path = "C:\\Users\\Ted\\Documents\\Populous\\OpenPop\\bin\\language\\lang00.dat";
+	path = "language\\lang00.dat";
 	//path = "language\\lang00.dat";
-	lFile = fopen(path, "r");
+	lFile = fopen(path, "rb");
 	if (lFile != NULL) {
 		//Get file size
 		fseek(lFile, 0, SEEK_END);
@@ -45,7 +45,7 @@ bool LoadLanguage()
 		lang_buffer = (wchar_t*)malloc(buffer_size);
 
 		//Read the file into the buffer
-		fseek(lFile, 0, SEEK_SET);
+		rewind(lFile);
 		fread(lang_buffer, buffer_size, 1, lFile);
 
 		//Close the file

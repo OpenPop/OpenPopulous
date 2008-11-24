@@ -15,29 +15,18 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _SPRITES_H_
-#define _SPRITES_H_
+#ifndef _OPENPOP_H_
+#define _OPENPOP_H_
 
-struct PopPalette
-{
-	unsigned int		entry[256];
-};
+#include <windows.h>
 
-struct SpriteCollection
-{
-	unsigned int		num_sprites;
-	unsigned int		*offsets;
-	unsigned short		*widths;
-	unsigned short		*heights;
-	unsigned int		buffer_size;
-	char				*buffer;
-};
+void Initialization();
+void GameLoop();
+void Deinitalization();
 
-extern PopPalette *pal;
-extern SpriteCollection *hfx, *hspr;
+void QuitGame();
 
-void LoadSpriteCollections();
-void FreeSpriteCollections();
-void DrawSprite(int destX, int destY, const SpriteCollection *collection, int sprite);
+//Windows main
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 
 #endif

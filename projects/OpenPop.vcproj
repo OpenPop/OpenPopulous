@@ -58,6 +58,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="sdl.lib"
 				OutputFile="..\bin\$(ProjectName)_$(ConfigurationName).exe"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
@@ -163,15 +164,23 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\Input.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Language.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\main.cpp"
+				RelativePath="..\src\OpenPop.cpp"
 				>
 			</File>
 			<File
 				RelativePath="..\src\Sprites.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Video.cpp"
 				>
 			</File>
 		</Filter>
@@ -181,11 +190,23 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\src\Input.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Language.h"
 				>
 			</File>
 			<File
+				RelativePath="..\src\OpenPop.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Sprites.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Video.h"
 				>
 			</File>
 		</Filter>

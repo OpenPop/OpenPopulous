@@ -19,23 +19,33 @@
 #include <cstdio>
 #include <cstring>
 
+#include <sdl/sdl.h>
+
 #include "Sprites.h"
+#include "Video.h"
+
+PopPalette *pal;
+SpriteCollection *hfx, *hspr;
 
 bool LoadSpriteCollection(const char *path, SpriteCollection *collection);
 void FreeSpriteCollection(SpriteCollection *collection);
+bool LoadPopPalette(const char *path, PopPalette *palette);
 
 void LoadSpriteCollections()
 {
-	SpriteCollection c;
-	char *path = "C:\\Users\\Ted\\Documents\\Populous\\OpenPop\\bin\\data\\hfx0-0.dat";
-	LoadSpriteCollection(path, &c);
+	pal = new PopPalette();
+	hfx  = new SpriteCollection();
+	hspr = new SpriteCollection();
 
-	FreeSpriteCollection(&c);
+	LoadPopPalette("data\\pal0-c.dat", pal);
+	LoadSpriteCollection("data\\hfx0-0.dat", hfx);
+	LoadSpriteCollection("data\\hspr0-0.dat", hspr);
 }
 
 void FreeSpriteCollections()
 {
-	
+	FreeSpriteCollection(hfx);
+	FreeSpriteCollection(hspr);
 }
 
 bool LoadSpriteCollection(const char *path, SpriteCollection *collection)
@@ -44,7 +54,7 @@ bool LoadSpriteCollection(const char *path, SpriteCollection *collection)
 	int bsize;
 	char *buffer;
 
-	sFile = fopen(path, "r");
+	sFile = fopen(path, "rb");
 	if (sFile == NULL) {
 		//Unable to load sprite collection file
 		return false;
@@ -58,7 +68,7 @@ bool LoadSpriteCollection(const char *path, SpriteCollection *collection)
 	buffer = (char*)malloc(bsize);
 
 	//Read the file into the buffer
-	fseek(sFile, 0, SEEK_SET);
+	rewind(sFile);
 	fread(buffer, bsize, 1, sFile);
 
 	//Close the file
@@ -67,6 +77,8 @@ bool LoadSpriteCollection(const char *path, SpriteCollection *collection)
 	//Check file signature
 	if (*((unsigned int*)(&buffer[0])) != 0x42465350)
 		return false;
+
+	memset(collection, 0, sizeof(SpriteCollection));
 
 	//Get number of sprites
 	collection->num_sprites = *((unsigned int*)(&buffer[4]));
@@ -104,4 +116,81 @@ void FreeSpriteCollection(SpriteCollection *collection)
 		delete collection->offsets;
 
 	memset(collection, 0, sizeof(SpriteCollection));
+}
+
+bool LoadPopPalette(const char *path, PopPalette *palette)
+{
+	FILE *pFile;
+	int bsize;
+	char *buffer;
+
+	pFile = fopen(path, "rb");
+	if (pFile == NULL) {
+		//Unable to load palette file
+		return false;
+	}
+
+	//Get file size
+	fseek(pFile, 0, SEEK_END);
+	bsize = ftell(pFile);
+
+	//Check for the correct length
+	if (bsize != sizeof(PopPalette)) {
+		return false;
+	}
+
+	//Read the file into the buffer
+	rewind(pFile);
+	fread(palette, bsize, 1, pFile);
+
+	//Close the file
+	fclose(pFile);
+
+	//Return successfully
+	return true;
+}
+
+void DrawSprite(int destX, int destY, const SpriteCollection *collection, int sprite)
+{
+	//Get sprite info.
+	int offset = collection->offsets[sprite];
+	int width = collection->widths[sprite];
+	int height = collection->heights[sprite];
+
+	//Draw sprite with transparancy
+	char *sbuffer = collection->buffer;
+	int pos = offset;
+	signed char counter;
+	for (int y = destY; y < destY + height; y++) {
+		//Set x to the start of destX
+		int x = destX;
+
+		//Loop through the pixels
+		do {
+			//Read the counter byte
+			counter = sbuffer[pos];
+
+			//Increment pos
+			pos++;
+
+			//Check if counter is positive
+			if (counter > 0) {
+				for (int i = 0; i < counter; i++) {
+					//Draw so many of the next pixels
+					DrawPixel(x, y, pal->entry[(unsigned char)sbuffer[pos]]);
+
+					//Increment position
+					pos++;
+
+					//Add a pixel onto x
+					x++;
+				}
+			} else if (counter < 0) {
+				//Counter is negative therfore a transparant line of pixels
+				x += -counter;
+			}
+			
+			//Reloop if counter is not equal to 0
+		} while (counter != 0);
+	}
 }
