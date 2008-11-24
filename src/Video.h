@@ -15,29 +15,15 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _SPRITES_H_
-#define _SPRITES_H_
+#ifndef _VIDEO_H_
+#define _VIDEO_H_
 
-struct PopPalette
-{
-	unsigned int		entry[256];
-};
+#include <sdl/sdl.h>
 
-struct SpriteCollection
-{
-	unsigned int		num_sprites;
-	unsigned int		*offsets;
-	unsigned short		*widths;
-	unsigned short		*heights;
-	unsigned int		buffer_size;
-	char				*buffer;
-};
+bool InitVideo();
+void TestDraw();
+void DrawPixel(int x, int y, int col);
 
-extern PopPalette *pal;
-extern SpriteCollection *hfx, *hspr;
-
-void LoadSpriteCollections();
-void FreeSpriteCollections();
-void DrawSprite(int destX, int destY, const SpriteCollection *collection, int sprite);
+extern SDL_Surface *main_screen;
 
 #endif
