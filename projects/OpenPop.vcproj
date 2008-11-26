@@ -58,7 +58,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="sdl.lib"
+				AdditionalDependencies="sdl.lib opengl32.lib glu32.lib"
 				OutputFile="..\bin\$(ProjectName)_$(ConfigurationName).exe"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
@@ -215,6 +215,26 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+		</Filter>
+		<Filter
+			Name="Game"
+			>
+			<Filter
+				Name="Header Files"
+				>
+				<File
+					RelativePath="..\src\Unit.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				>
+				<File
+					RelativePath="..\src\Unit.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>
