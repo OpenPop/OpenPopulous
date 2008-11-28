@@ -18,11 +18,54 @@
 #ifndef _UNIT_H_
 #define _UNIT_H_
 
-class Unit
+#include <vector>
+
+#include "Object.h"
+
+//These are the types of instructions that units can have
+enum INSTRUCTIONS
+{
+	INSTRUCTION_CAST_SPELL,			//Shaman: Cast spell (spell prob. be in player class)
+	INSTRUCTION_MOVE,				//Move to the specified x, y
+	INSTRUCTION_OBJECT_ACTION,		//The default action for the specified object
+};
+
+//Structure for a single unit instruction
+struct UnitInstruction
+{
+	int action;
+	float x, y;				//Used for walk commands
+	Object *object;			//Used for object commands (E.g. Cut tree, attack unit/building)
+};
+
+typedef std::vector<UnitInstruction> InstructionList;
+
+//Unit flags
+enum UNIT_FLAGS
+{
+	UNIT_IDLE			=	2^0,
+	UNIT_PATROLLING		=	2^1,
+	UNIT_ATTACKING		=	2^2,
+	UNIT_DEAD			=	2^3,
+	UNIT_GHOST			=	2^4,
+	UNIT_SHIELDED		=	2^5,
+	UNIT_INVISIBLE		=	2^6,
+};
+
+//The unit class which will be inherited by unit type classes
+class Unit : public Object
 {
 public:
-	float		mAngle;
-	float		mX, mY, mZ;
+	int					mFlags;
+	int					mGhostTime;			//How long before the ghost disappears (game turns)
+	int					mInvisibleTime;		//How long the unit's invisibillity has left (game turns)
+	int					mShieldTime;		//How long the unit's shield has left (game turns)
+	int					mHealth;			//The unit's health
+	int					mMaxHealth;			//The unit's maximum health
+	int					mStrength;			//How good the unit is in combat
+	int					mManaProduceAmount;	//How much mana they produce
+	int					mSpeed				//How fast the unit walks
+	InstructionList		mInstructions;		//The unit's instruction line
 
 public:
 	Unit();
@@ -31,5 +74,7 @@ public:
 	virtual void Draw();
 	virtual void Update();
 };
+
+typedef std::vector<Unit*> UnitList;
 
 #endif
