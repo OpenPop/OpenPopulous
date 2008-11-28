@@ -223,6 +223,10 @@
 				Name="Header Files"
 				>
 				<File
+					RelativePath="..\src\Object.h"
+					>
+				</File>
+				<File
 					RelativePath="..\src\Unit.h"
 					>
 				</File>
@@ -230,6 +234,10 @@
 			<Filter
 				Name="Source Files"
 				>
+				<File
+					RelativePath="..\src\Object.cpp"
+					>
+				</File>
 				<File
 					RelativePath="..\src\Unit.cpp"
 					>
