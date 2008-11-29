@@ -23,6 +23,47 @@
 #include "Object.h"
 #include "Unit.h"
 
+//Building types
+enum BUILDING
+{
+	BUILDING_SMALL_HUT		=	2^0,
+	BUILDING_MEDIUM_HUT		=	2^1,
+	BUILDING_LARGE_HUT		=	2^2,
+	BUILDING_GUARD_TOWER	=	2^3,
+	BUILDING_WARRIOR		=	2^4,
+	BUILDING_TEMPLE			=	2^5,
+	BUILDING_FIREWARRIOR	=	2^6,
+	BUILDING_SPY			=	2^7,
+	BUILDING_BOAT			=	2^8,
+	BUILDING_BALLOON		=	2^9,
+
+	MAX_BUILDINGS			=	10,
+};
+
+struct BuildingAvailability
+{
+	int Buildings;
+
+	inline void SetBuilding(BUILDING b, bool state)
+	{
+		if (state)
+			Buildings |= b;
+		else
+			Buildings &= ~b;
+	}
+
+	inline bool IsBuildingOn(BUILDING b)
+	{
+		return (Buildings & b);
+	}
+};
+
+struct BuildingStatus
+{
+	BuildingAvailability	AvailableBuildings;
+	char					BuildingShots[MAX_BUILDINGS];
+};
+
 //Building flags
 enum BUILDING_FLAGS
 {
@@ -51,5 +92,7 @@ public:
 	virtual void Draw();
 	virtual void Update();
 };
+
+typedef std::vector<Building*> BuildingList;
 
 #endif
