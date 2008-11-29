@@ -64,7 +64,7 @@ public:
 	int					mMaxHealth;			//The unit's maximum health
 	int					mStrength;			//How good the unit is in combat
 	int					mManaProduceAmount;	//How much mana they produce
-	int					mSpeed				//How fast the unit walks
+	int					mSpeed;				//How fast the unit walks
 	InstructionList		mInstructions;		//The unit's instruction line
 
 public:

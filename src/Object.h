@@ -18,6 +18,17 @@
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
 
+//global structs definitions
+
+//vector type for 3d coords (rename someday)
+typedef struct{
+    float x;
+    float y;
+    float z;
+}t_vector;
+
+//Object class, root of the class tree
+
 class Object
 {
 public:
