@@ -4,6 +4,7 @@
 #include "OpenPop.h"
 #include "Sprites.h"
 #include "Video.h"
+#include "Camera.h"
 
 #include <math.h>
 #include <gl\glut.h>
@@ -17,6 +18,8 @@
 
 int pressed_button;
 
+//camera object
+Camera cam;
 
 //Ted's ////////////////////////////////////
 
@@ -95,44 +98,6 @@ GLfloat cGreen[] = {0.2,0.7,0.2,1.0};
 GLfloat cGrey[] = {0.1,0.1,0.1,1.0};
 GLfloat cLightGrey[] = {0.9,0.9,0.9,1.0};
 
-//camera stuff - put it on a class!
-
-typedef struct{
-    float x;
-    float y;
-    float z;
-}t_vector;
-
-//sets the contents of a vector
-t_vector setVector(float x, float y, float z){
-    t_vector temp;
-    temp.x = x;
-    temp.y = y;
-    temp.z = z;
-    return temp;
-}
-
-//cam variables
-t_vector mPosition;
-t_vector mView;
-t_vector mUp;
-
-
-void positionCam(float positionX, float positionY, float positionZ,
-		    float viewX,     float viewY,     float viewZ,
-		    float upVectorX, float upVectorY, float upVectorZ)
-{
-	t_vector position = setVector(positionX, positionY, positionZ);
-	t_vector view	  = setVector(viewX, viewY, viewZ);
-	t_vector up       = setVector(upVectorX, upVectorY, upVectorZ);
-
-	// The code above just makes it cleaner to set the variables.
-	// Otherwise we would have to set each variable x y and z.
-
-	mPosition = position;					// Assign the position
-	mView     = view;						// Assign the view
-	mUp       = up;					// Assign the up vector
-}
 
 
 
@@ -163,9 +128,9 @@ void init(void)
 
     //showCursor(false); //hide the cursor
 
-	positionCam(10.0, 10.0, 10.0,
-                0.0, 0.0, 0.0, 
-                0.0, 1.0, 0.0);
+	cam.setCam(10.0, 10.0, 10.0,
+               0.0, 0.0, 0.0, 
+               0.0, 1.0, 0.0);
 }
 
 
@@ -274,15 +239,14 @@ void display(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLightfv(GL_LIGHT0,GL_POSITION,lPosition);
 
-
     //store vis. matrix
     //	glPushMatrix();
 
 	//locate cam correctly
     
-	gluLookAt(mPosition.x, mPosition.y, mPosition.z,	
-			  mView.x,	  mView.y,     mView.z,	
-			  mUp.x, mUp.y, mUp.z);
+	gluLookAt(cam.mPosition.x, cam.mPosition.y, cam.mPosition.z,	
+			  cam.mView.x,	   cam.mView.y,     cam.mView.z,	
+			  cam.mUp.x,       cam.mUp.y,       cam.mUp.z);
 
 		
 	glTranslatef(0.0, 0.0, 0.0);
@@ -342,12 +306,21 @@ void teclado (unsigned char key, int x, int y)
 	switch (key) {
 
 		case 'w':{
-			//move cam
+			cam.setOffset(0.0, 0.0, 0.1);
 		break;}
 
 		case's' :{
-			//move cam
+			cam.setOffset(0.0, 0.0, -0.1);
+ 		break;}
+		
+		case 'a':{
+			cam.setOffset(0.1, 0.0, 0.0);
+ 		break;}
+		
+        case'd' :{
+			cam.setOffset(-0.1, 0.0, 0.0);
 		break;}
+
 
 		case 27:{
 			exit(-1);
