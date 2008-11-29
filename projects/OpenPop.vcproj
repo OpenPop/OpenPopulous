@@ -223,7 +223,27 @@
 				Name="Header Files"
 				>
 				<File
+					RelativePath="..\src\Building.h"
+					>
+				</File>
+				<File
+					RelativePath="..\src\Game.h"
+					>
+				</File>
+				<File
+					RelativePath="..\src\Map.h"
+					>
+				</File>
+				<File
 					RelativePath="..\src\Object.h"
+					>
+				</File>
+				<File
+					RelativePath="..\src\Player.h"
+					>
+				</File>
+				<File
+					RelativePath="..\src\Spell.h"
 					>
 				</File>
 				<File
@@ -235,7 +255,23 @@
 				Name="Source Files"
 				>
 				<File
+					RelativePath="..\src\Building.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\Game.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\Map.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\src\Object.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\Player.cpp"
 					>
 				</File>
 				<File
