@@ -61,6 +61,8 @@
 				AdditionalDependencies="sdl.lib opengl32.lib glu32.lib"
 				OutputFile="..\bin\$(ProjectName)_$(ConfigurationName).exe"
 				GenerateDebugInformation="true"
+				SubSystem="1"
+				EntryPointSymbol=""
 				TargetMachine="1"
 			/>
 			<Tool
@@ -164,6 +166,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\Camera.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Input.cpp"
 				>
 			</File>
@@ -180,6 +186,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\Startup.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Video.cpp"
 				>
 			</File>
@@ -189,6 +199,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\src\Camera.h"
+				>
+			</File>
 			<File
 				RelativePath="..\src\Input.h"
 				>
