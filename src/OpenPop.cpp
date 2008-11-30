@@ -1,3 +1,4 @@
+
 #include <windows.h>
 
 #include "Input.h"
@@ -347,7 +348,7 @@ void mouse (int button, int state, int x, int y)
 }
 
 //main function
-int main(int argc, char** argv)
+int StartOpenPop(int argc, char* argv[])
 {
 
 	// Inicializamos GLUT y su modo de funcionamiento

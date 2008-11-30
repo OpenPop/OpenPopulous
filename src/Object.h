@@ -18,6 +18,8 @@
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
 
+#include <vector>
+
 //global structs definitions
 
 //vector type for 3d coords (rename someday)
@@ -43,5 +45,7 @@ public:
 	virtual void Draw();
 	virtual void Update();
 };
+
+typedef std::vector<Object*> ObjectList;
 
 #endif
