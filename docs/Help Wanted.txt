@@ -1,0 +1,7 @@
+OpenPop is an open source clone of Populous 3: The Beginning. It tries to provide the same experience but also adding new features to the game.
+
+OpenPop needs a 3D globe engine written in OpenGL and C++. If you are experienced in those areas or have some idea then contact us if you would like to work with our other developers on OpenPop.
+
+Other areas of development use physics, 2D and 3D rendering.
+
+If you have not played Populous then look around for Populous fan sites where you can find out how to get it. It is basically a 1998 god game where you control a tribe of people, build your settlement and fight other tribes using your Shaman who can cast magical spells such as Tornadoes, Earthquakes and Volcanoes which can destroy their huts.

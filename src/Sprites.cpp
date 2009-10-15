@@ -21,176 +21,180 @@
 
 #include <sdl/sdl.h>
 
+#include "Graphics.h"
 #include "Sprites.h"
 #include "Video.h"
 
-PopPalette *pal;
-SpriteCollection *hfx, *hspr;
-
-bool LoadSpriteCollection(const char *path, SpriteCollection *collection);
-void FreeSpriteCollection(SpriteCollection *collection);
-bool LoadPopPalette(const char *path, PopPalette *palette);
-
-void LoadSpriteCollections()
+namespace Sprites
 {
-	pal = new PopPalette();
-	hfx  = new SpriteCollection();
-	hspr = new SpriteCollection();
+	PopPalette *pal;
+	SpriteCollection *hfx, *hspr;
 
-	LoadPopPalette("data\\pal0-c.dat", pal);
-	LoadSpriteCollection("data\\hfx0-0.dat", hfx);
-	LoadSpriteCollection("data\\hspr0-0.dat", hspr);
-}
+	bool LoadSpriteCollection(const char *path, SpriteCollection *collection);
+	void FreeSpriteCollection(SpriteCollection *collection);
+	bool LoadPopPalette(const char *path, PopPalette *palette);
 
-void FreeSpriteCollections()
-{
-	FreeSpriteCollection(hfx);
-	FreeSpriteCollection(hspr);
-}
+	void LoadSpriteCollections()
+	{
+		pal = new PopPalette();
+		hfx  = new SpriteCollection();
+		hspr = new SpriteCollection();
 
-bool LoadSpriteCollection(const char *path, SpriteCollection *collection)
-{
-	FILE *sFile;
-	int bsize;
-	char *buffer;
-
-	sFile = fopen(path, "rb");
-	if (sFile == NULL) {
-		//Unable to load sprite collection file
-		return false;
+		LoadPopPalette("data\\pal0-c.dat", pal);
+		LoadSpriteCollection("data\\hfx0-0.dat", hfx);
+		LoadSpriteCollection("data\\hspr0-0.dat", hspr);
 	}
 
-	//Get file size
-	fseek(sFile, 0, SEEK_END);
-	bsize = ftell(sFile);
-
-	//Allocate new memory for the buffer
-	buffer = (char*)malloc(bsize);
-
-	//Read the file into the buffer
-	rewind(sFile);
-	fread(buffer, bsize, 1, sFile);
-
-	//Close the file
-	fclose(sFile);
-
-	//Check file signature
-	if (*((unsigned int*)(&buffer[0])) != 0x42465350)
-		return false;
-
-	memset(collection, 0, sizeof(SpriteCollection));
-
-	//Get number of sprites
-	collection->num_sprites = *((unsigned int*)(&buffer[4]));
-
-	//Fill in sprite header details
-	collection->widths = new unsigned short[collection->num_sprites];
-	collection->heights = new unsigned short[collection->num_sprites];
-	collection->offsets = new unsigned int[collection->num_sprites];
-
-	for (int i = 0; i < collection->num_sprites; i++) {
-		collection->widths[i] = *((unsigned short*)(&buffer[(i * 8) + 8]));
-		collection->heights[i] = *((unsigned short*)(&buffer[(i * 8) + 10]));
-		collection->offsets[i] = *((unsigned int*)(&buffer[(i * 8) + 12]));
+	void FreeSpriteCollections()
+	{
+		FreeSpriteCollection(hfx);
+		FreeSpriteCollection(hspr);
 	}
 
-	collection->buffer_size = bsize;
-	collection->buffer = buffer;
+	bool LoadSpriteCollection(const char *path, SpriteCollection *collection)
+	{
+		FILE *sFile;
+		int bsize;
+		char *buffer;
 
-	//Return successfully
-	return true;
-}
+		sFile = fopen(path, "rb");
+		if (sFile == NULL) {
+			//Unable to load sprite collection file
+			return false;
+		}
 
-void FreeSpriteCollection(SpriteCollection *collection)
-{
-	if (collection->buffer != NULL)
-		delete collection->buffer;
+		//Get file size
+		fseek(sFile, 0, SEEK_END);
+		bsize = ftell(sFile);
 
-	if (collection->widths != NULL)
-		delete collection->widths;
+		//Allocate new memory for the buffer
+		buffer = (char*)malloc(bsize);
 
-	if (collection->heights != NULL)
-		delete collection->heights;
+		//Read the file into the buffer
+		rewind(sFile);
+		fread(buffer, bsize, 1, sFile);
 
-	if (collection->offsets != NULL)
-		delete collection->offsets;
+		//Close the file
+		fclose(sFile);
 
-	memset(collection, 0, sizeof(SpriteCollection));
-}
+		//Check file signature
+		if (*((unsigned int*)(&buffer[0])) != 0x42465350)
+			return false;
 
-bool LoadPopPalette(const char *path, PopPalette *palette)
-{
-	FILE *pFile;
-	int bsize;
-	char *buffer;
+		memset(collection, 0, sizeof(SpriteCollection));
 
-	pFile = fopen(path, "rb");
-	if (pFile == NULL) {
-		//Unable to load palette file
-		return false;
+		//Get number of sprites
+		collection->num_sprites = *((unsigned int*)(&buffer[4]));
+
+		//Fill in sprite header details
+		collection->widths = new unsigned short[collection->num_sprites];
+		collection->heights = new unsigned short[collection->num_sprites];
+		collection->offsets = new unsigned int[collection->num_sprites];
+
+		for (int i = 0; i < collection->num_sprites; i++) {
+			collection->widths[i] = *((unsigned short*)(&buffer[(i * 8) + 8]));
+			collection->heights[i] = *((unsigned short*)(&buffer[(i * 8) + 10]));
+			collection->offsets[i] = *((unsigned int*)(&buffer[(i * 8) + 12]));
+		}
+
+		collection->buffer_size = bsize;
+		collection->buffer = buffer;
+
+		//Return successfully
+		return true;
 	}
 
-	//Get file size
-	fseek(pFile, 0, SEEK_END);
-	bsize = ftell(pFile);
+	void FreeSpriteCollection(SpriteCollection *collection)
+	{
+		if (collection->buffer != NULL)
+			delete collection->buffer;
 
-	//Check for the correct length
-	if (bsize != sizeof(PopPalette)) {
-		return false;
+		if (collection->widths != NULL)
+			delete collection->widths;
+
+		if (collection->heights != NULL)
+			delete collection->heights;
+
+		if (collection->offsets != NULL)
+			delete collection->offsets;
+
+		memset(collection, 0, sizeof(SpriteCollection));
 	}
 
-	//Read the file into the buffer
-	rewind(pFile);
-	fread(palette, bsize, 1, pFile);
+	bool LoadPopPalette(const char *path, PopPalette *palette)
+	{
+		FILE *pFile;
+		int bsize;
+		char *buffer;
 
-	//Close the file
-	fclose(pFile);
+		pFile = fopen(path, "rb");
+		if (pFile == NULL) {
+			//Unable to load palette file
+			return false;
+		}
 
-	//Return successfully
-	return true;
-}
+		//Get file size
+		fseek(pFile, 0, SEEK_END);
+		bsize = ftell(pFile);
 
-void DrawSprite(int destX, int destY, const SpriteCollection *collection, int sprite)
-{
-	//Get sprite info.
-	int offset = collection->offsets[sprite];
-	int width = collection->widths[sprite];
-	int height = collection->heights[sprite];
+		//Check for the correct length
+		if (bsize != sizeof(PopPalette)) {
+			return false;
+		}
 
-	//Draw sprite with transparancy
-	char *sbuffer = collection->buffer;
-	int pos = offset;
-	signed char counter;
-	for (int y = destY; y < destY + height; y++) {
-		//Set x to the start of destX
-		int x = destX;
+		//Read the file into the buffer
+		rewind(pFile);
+		fread(palette, bsize, 1, pFile);
 
-		//Loop through the pixels
-		do {
-			//Read the counter byte
-			counter = sbuffer[pos];
+		//Close the file
+		fclose(pFile);
 
-			//Increment pos
-			pos++;
+		//Return successfully
+		return true;
+	}
 
-			//Check if counter is positive
-			if (counter > 0) {
-				for (int i = 0; i < counter; i++) {
-					//Draw so many of the next pixels
-					DrawPixel(x, y, pal->entry[(unsigned char)sbuffer[pos]]);
+	void DrawSprite(int destX, int destY, const SpriteCollection *collection, int sprite)
+	{
+		//Get sprite info.
+		int offset = collection->offsets[sprite];
+		int width = collection->widths[sprite];
+		int height = collection->heights[sprite];
 
-					//Increment position
-					pos++;
+		//Draw sprite with transparancy
+		char *sbuffer = collection->buffer;
+		int pos = offset;
+		signed char counter;
+		for (int y = destY; y < destY + height; y++) {
+			//Set x to the start of destX
+			int x = destX;
 
-					//Add a pixel onto x
-					x++;
+			//Loop through the pixels
+			do {
+				//Read the counter byte
+				counter = sbuffer[pos];
+
+				//Increment pos
+				pos++;
+
+				//Check if counter is positive
+				if (counter > 0) {
+					for (int i = 0; i < counter; i++) {
+						//Draw so many of the next pixels
+						Graphics::DrawPixel(x, y, pal->entry[(unsigned char)sbuffer[pos]]);
+
+						//Increment position
+						pos++;
+
+						//Add a pixel onto x
+						x++;
+					}
+				} else if (counter < 0) {
+					//Counter is negative therfore a transparant line of pixels
+					x += -counter;
 				}
-			} else if (counter < 0) {
-				//Counter is negative therfore a transparant line of pixels
-				x += -counter;
-			}
-			
-			//Reloop if counter is not equal to 0
-		} while (counter != 0);
+				
+				//Reloop if counter is not equal to 0
+			} while (counter != 0);
+		}
 	}
 }

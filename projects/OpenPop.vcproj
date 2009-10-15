@@ -42,7 +42,7 @@
 				Optimization="0"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="1"
+				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(TargetName).pdb"
 				WarningLevel="3"
 				DebugInformationFormat="4"
@@ -61,7 +61,7 @@
 				AdditionalDependencies="sdl.lib opengl32.lib glu32.lib"
 				OutputFile="..\bin\$(ProjectName)_$(ConfigurationName).exe"
 				GenerateDebugInformation="true"
-				SubSystem="1"
+				SubSystem="2"
 				EntryPointSymbol=""
 				TargetMachine="1"
 			/>
@@ -186,10 +186,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\Startup.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\Video.cpp"
 				>
 			</File>
@@ -253,6 +249,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\src\PathFinder.h"
+					>
+				</File>
+				<File
 					RelativePath="..\src\Player.h"
 					>
 				</File>
@@ -285,6 +285,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\src\PathFinder.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\src\Player.cpp"
 					>
 				</File>
@@ -293,6 +297,18 @@
 					>
 				</File>
 			</Filter>
+		</Filter>
+		<Filter
+			Name="Video"
+			>
+			<File
+				RelativePath="..\src\Graphics.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Graphics.h"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

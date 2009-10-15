@@ -1,0 +1,27 @@
+﻿Build started 15/10/2009 12:54:03.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 3 (build target(s)).
+       Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
+     1>_PrepareForBuild:
+         Touching "..\objs\Debug\lastbuild.timestamp".
+       ClCompile:
+         Skipping task because its outputs are up-to-date.
+       Link:
+         Microsoft (R) Incremental Linker Version 10.00.20506.01
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         "/OUT:..\bin\OpenPop_Debug.exe" sdl.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST "/ManifestFile:..\objs\Debug\OpenPop_Debug.exe.intermediate.manifest" "/MANIFESTUAC:level='asInvoker' uiAccess='false'" /DEBUG "/PDB:..\bin\OpenPop_Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT ..\objs\Debug\Building.obj ..\objs\Debug\Camera.obj ..\objs\Debug\Game.obj ..\objs\Debug\Graphics.obj ..\objs\Debug\Input.obj ..\objs\Debug\Language.obj ..\objs\Debug\Map.obj ..\objs\Debug\Object.obj ..\objs\Debug\OpenPop.obj ..\objs\Debug\PathFinder.obj ..\objs\Debug\Player.obj ..\objs\Debug\Sprites.obj ..\objs\Debug\Unit.obj ..\objs\Debug\Video.obj 
+         LINK : ..\bin\OpenPop_Debug.exe not found or not built by the last incremental link; performing full link
+     1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
+     1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
+         OpenPop.vcxproj -> C:\OpenPop\projects\..\bin\OpenPop_Debug.exe
+     1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
+     1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
+       CopyFilesToOutputDirectory:
+         Copying file from "..\objs\Debug\OpenPop_Debug.pdb" to "..\bin\OpenPop_Debug.pdb".
+       _AfterBuild:
+         Touching "..\objs\Debug\LastSuccessfulBuild.timestamp".
+     1>Done Building Project "C:\OpenPop\projects\OpenPop.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.76

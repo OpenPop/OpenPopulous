@@ -1,11 +1,14 @@
 #include <stdio.h>
-
 #include "Game.h"
 #include "Map.h"
+#include "Object.h"
+#include "Unit.h"
+
+Game* gGame;
 
 Game::Game()
 {
-	
+	LoadMap("levels\\levl2131.dat");
 }
 
 Game::~Game()
@@ -20,6 +23,7 @@ void Game::LoadMap(char *filename)
 	FILE *file;
 
 	file = fopen(filename, "rb");
+	
 	if (file > 0) {
 		//Get file length
 		fseek(file, 0, SEEK_END);
@@ -28,6 +32,7 @@ void Game::LoadMap(char *filename)
 
 		//Get buffer
 		buffer = (char*)malloc(fsize);
+	
 		if (!fread(buffer, fsize, 1, file) > 0) {
 			//Error loading
 			fclose(file);
@@ -52,10 +57,38 @@ void Game::LoadOldMapFormat(char *buffer, int length)
 {
 	int pos = 0;
 
-	Map *map = new Map();
+	mMap = new Map();
 
 	//Setup land size, array and then copy the heights over
-	map->mSize = 128;
-	map->mLandHeight = new unsigned short[128 * 128];
-	memcpy(map->mLandHeight, buffer, 128 * 128 * 2);
+	mMap->InitMap(128);
+
+	unsigned short *lb = (unsigned short*)(buffer);
+	
+	for (int y = 0; y < 128; y++) {
+		for (int x = 0; x < 128; x++) {
+			mMap->SetLandHeight(x, y, lb[(y * 128) + x]);
+		}
+	}
+
+	pos = 0x14043;
+
+	for (int i = 0; i < 2000; i++) {
+		char type = buffer[pos];
+		char group = buffer[pos + 1];
+
+		if (type == 1 && group == 1) {
+			//Wildman
+			Unit* wildman = new Unit(UNIT_WILDMAN);
+			wildman->mX = (unsigned char)buffer[pos + 4];
+			wildman->mZ = (unsigned char)buffer[pos + 6];
+			mMap->AddObject(wildman);
+		}
+		
+		pos += 55;
+	}
+}
+
+void Game::Update()
+{
+	mMap->Update();
 }

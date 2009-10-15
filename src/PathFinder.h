@@ -15,29 +15,55 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GAME_H_
-#define _GAME_H_
+#ifndef _PATH_FINDER_H_
+#define _PATH_FINDER_H_
 
-#include "Player.h"
-#include "Map.h"
+#include <vector>
 
-class Game
+class Unit;
+class PathFinder
 {
 public:
-	Map		*mMap;
-	Player	*mPlayer[MAX_PLAYERS];
+	//Travel states
+	enum TRAVEL_STATE
+	{
+		TRAVEL_STATE_ARRIVED,
+		TRAVEL_STATE_ON_THE_WAY,
+		TRAVEL_STATE_BLOCKED,
+	};
+
+	//Node structure
+	struct Node
+	{
+		int		x;
+		int		y;
+		Node*	next;
+		Node*	prev;
+		float	heuristic;
+		bool	exploredCell;
+	};
+
+	typedef std::vector<Node*> NodeList;
+
+	Unit*	mUnit;
+	int		mDestX;
+	int		mDestY;
+	bool	mDirect;
+
+private:
+	NodeList	openNodes;
+	NodeList	closedNodes;
+	Node		*nodePool;
+	int			nodePoolCount;
+
+	float		CalculateHeuristic(int x, int y, int destX, int destY);
+	Node*		NewNode();
 
 public:
-	Game();
-	~Game();
+	PathFinder(Unit* unit);
+	~PathFinder();
 
-	void LoadMap(char *filename);
-	void LoadNewMapFormat(char *buffer, int length);
-	void LoadOldMapFormat(char *buffer, int length);
-
-	void Update();
+	TRAVEL_STATE CalculatePath();
 };
-
-extern Game* gGame;
 
 #endif

@@ -15,29 +15,22 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GAME_H_
-#define _GAME_H_
+#ifndef _GRAPHICS_H_
+#define _GRAPHICS_H_
 
-#include "Player.h"
-#include "Map.h"
+#include <sdl/sdl.h>
 
-class Game
+namespace Sprites
 {
-public:
-	Map		*mMap;
-	Player	*mPlayer[MAX_PLAYERS];
+	class SpriteCollection;
+}
 
-public:
-	Game();
-	~Game();
-
-	void LoadMap(char *filename);
-	void LoadNewMapFormat(char *buffer, int length);
-	void LoadOldMapFormat(char *buffer, int length);
-
-	void Update();
-};
-
-extern Game* gGame;
+namespace Graphics
+{
+	int GetScreenWidth();
+	int GetScreenHeight();
+	void DrawPixel(int x, int y, int col);
+	void DrawSprite(int destX, int destY, const Sprites::SpriteCollection *collection, int sprite);
+}
 
 #endif
