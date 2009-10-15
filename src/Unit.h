@@ -43,27 +43,26 @@ typedef std::vector<UnitInstruction> InstructionList;
 //Unit types
 enum UNIT_TYPES
 {
-	UNIT_NONE,
-	UNIT_WILDMAN,
+	UNIT_WILDMAN = 1,
 	UNIT_BRAVE,
 	UNIT_WARRIOR,
 	UNIT_PREACHER,
 	UNIT_FIREWARRIOR,
 	UNIT_SPY,
 	UNIT_SHAMAN,
-	UNIT_AOD // Angel of Death
+	UNIT_AOD, // Angel of Death
 };
 
 //Unit flags
 enum UNIT_FLAGS
 {
-	UNIT_IDLE			=	2^0,
-	UNIT_PATROLLING		=	2^1,
-	UNIT_ATTACKING		=	2^2,
-	UNIT_DEAD			=	2^3,
-	UNIT_GHOST			=	2^4,
-	UNIT_SHIELDED		=	2^5,
-	UNIT_INVISIBLE		=	2^6,
+	UNIT_IDLE			=	0,
+	UNIT_PATROLLING		=	1,
+	UNIT_ATTACKING		=	2,
+	UNIT_DEAD			=	3,
+	UNIT_GHOST			=	4,
+	UNIT_SHIELDED		=	5,
+	UNIT_INVISIBLE		=	6,
 };
 
 //The unit class which will be inherited by unit type classes
