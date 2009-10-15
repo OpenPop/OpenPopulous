@@ -8,10 +8,6 @@
 #include "Video.h"
 #include "Language.h"
 
-#define SCREEN_WIDTH	800								// We want our screen width 800 pixels
-#define SCREEN_HEIGHT	600								// We want our screen height 600 pixels
-#define SCREEN_DEPTH	32								// We want 32 bits per pixel
-
 int pressed_button;
 
 //Ted's ////////////////////////////////////

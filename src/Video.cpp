@@ -13,13 +13,20 @@ using namespace std;
 SDL_Surface *main_screen;
 int test_draw_cnt = 0;
 
+#define SCREEN_WIDTH	768
+#define SCREEN_HEIGHT	768
+#define SCREEN_DEPTH	32
+
 bool InitVideo()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) > 0) {
 		//return false;
 	}
 
-	main_screen = SDL_SetVideoMode(768, 768, 32, SDL_DOUBLEBUF | SDL_HWSURFACE);
+	main_screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_DEPTH, SDL_DOUBLEBUF | SDL_HWSURFACE);
+
+	SDL_WM_SetCaption("OpenPop","");
+
 	if (main_screen == NULL) {
 		return false;
 	}

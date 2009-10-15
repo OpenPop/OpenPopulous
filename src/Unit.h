@@ -43,6 +43,7 @@ typedef std::vector<UnitInstruction> InstructionList;
 //Unit types
 enum UNIT_TYPES
 {
+	UNIT_NONE,
 	UNIT_WILDMAN,
 	UNIT_BRAVE,
 	UNIT_WARRIOR,
@@ -50,6 +51,7 @@ enum UNIT_TYPES
 	UNIT_FIREWARRIOR,
 	UNIT_SPY,
 	UNIT_SHAMAN,
+	UNIT_AOD // Angel of Death
 };
 
 //Unit flags
