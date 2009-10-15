@@ -1,4 +1,4 @@
-﻿Build started 15/10/2009 12:54:03.
+﻿Build started 15/10/2009 2:08:44.
      1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 3 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
@@ -24,4 +24,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.76
+Time Elapsed 00:00:00.87
