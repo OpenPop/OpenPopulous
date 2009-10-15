@@ -22,7 +22,6 @@
 
 //global structs definitions
 
-//vector type for 3d coords (rename someday)
 typedef struct{
     float x;
     float y;
@@ -36,7 +35,7 @@ class Object
 public:
 	float		mAngle;
 	float		mX, mY, mZ;
-	int			mOwnership;
+	int			mTribe;
 
 public:
 	Object();

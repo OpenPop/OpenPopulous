@@ -52,6 +52,23 @@ void TestDraw()
 	SDL_Flip(main_screen);
 }
 
+enum TRIBES{
+	TRIBE_BLUE,
+	TRIBE_RED,
+	TRIBE_YELLOW,
+	TRIBE_GREEN,
+};
+
+// TODO: Read this from palettes
+
+enum TRIBE_COLOURS{
+	TRIBECOL_NEUTRAL = 0xFFFFFF,
+	TRIBECOL_BLUE    = 0xFF0000,
+	TRIBECOL_RED     = 0x0000FF,
+	TRIBECOL_YELLOW  = 0x00FFFF,
+	TRIBECOL_GREEN   = 0x228b22,
+};
+
 void Draw2DMap()
 {
 	int scale = 3;
@@ -77,11 +94,19 @@ void Draw2DMap()
 		for (int y = 0; y <= scale; y++) {
 			for (int x = 0; x <= scale; x++) {
 				int colour;
-				if (x == 0 || y == 0 || x == scale || y == scale)
-					colour = 0x000000;
-				else
-					colour = 0xFFFFFF;
-				
+
+				if(obj->mTribe == TRIBE_BLUE){
+					colour = TRIBECOL_BLUE; 
+				}else if(obj->mTribe == TRIBE_RED){
+					colour = TRIBECOL_RED; 
+				}else if(obj->mTribe == TRIBE_YELLOW){
+					colour = TRIBECOL_YELLOW; 
+				}else if(obj->mTribe == TRIBE_GREEN){
+					colour = TRIBECOL_GREEN; 
+				}else{
+					colour = TRIBECOL_NEUTRAL;
+				}
+
 				Graphics::DrawPixel((obj->mX * scale) + x, (obj->mZ * scale) + y, colour);
 			}
 		}

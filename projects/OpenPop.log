@@ -1,15 +1,16 @@
-﻿Build started 15/10/2009 7:55:12.
-     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 23 (build target(s)).
+﻿Build started 15/10/2009 9:22:10.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 70 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
          Touching "..\objs\Debug\lastbuild.timestamp".
        ClCompile:
-         Game.cpp
+         Video.cpp
      1>c:\openpop\src\building.h(57): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
      1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\game.cpp(25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\archivos de programa\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-     1>c:\openpop\src\game.cpp(36): warning C4804: '>' : unsafe use of type 'bool' in operation
+     1>c:\openpop\src\sprites.h(29): warning C4099: 'Sprites::SpriteCollection' : type name first seen using 'class' now seen using 'struct'
+                 c:\openpop\src\graphics.h(25) : see declaration of 'Sprites::SpriteCollection'
+     1>c:\openpop\src\video.cpp(110): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\openpop\src\video.cpp(110): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
        Link:
@@ -18,6 +19,20 @@
          
          "/OUT:..\bin\OpenPop_Debug.exe" sdl.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST "/ManifestFile:..\objs\Debug\OpenPop_Debug.exe.intermediate.manifest" "/MANIFESTUAC:level='asInvoker' uiAccess='false'" /DEBUG "/PDB:..\bin\OpenPop_Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT ..\objs\Debug\Building.obj ..\objs\Debug\Camera.obj ..\objs\Debug\Game.obj ..\objs\Debug\Graphics.obj ..\objs\Debug\Input.obj ..\objs\Debug\Language.obj ..\objs\Debug\Map.obj ..\objs\Debug\Object.obj ..\objs\Debug\OpenPop.obj ..\objs\Debug\PathFinder.obj ..\objs\Debug\Player.obj ..\objs\Debug\Sprites.obj ..\objs\Debug\Unit.obj ..\objs\Debug\Video.obj 
          LINK : ..\bin\OpenPop_Debug.exe not found or not built by the last incremental link; performing full link
+     1>Video.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Unit.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Sprites.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Player.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>PathFinder.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>OpenPop.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Object.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Map.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Language.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Input.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Graphics.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Game.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Camera.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+     1>Building.obj : warning LNK4020: a type record in 'C:\OpenPop\bin\OpenPop_Debug.pdb' is corrupted; some symbols and types may not be accessible from the debugger
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
          OpenPop.vcxproj -> C:\OpenPop\projects\..\bin\OpenPop_Debug.exe
@@ -31,4 +46,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.87
+Time Elapsed 00:00:03.39
