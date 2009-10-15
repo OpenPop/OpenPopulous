@@ -35,6 +35,16 @@ public:
 	Map();
 	~Map();
 
+	void InitMap(int size);
+
+	int GetLandIndex(int x, int y);
+	unsigned short GetLandHeight(int x, int y);
+	unsigned short SetLandHeight(int x, int y, unsigned short value);
+
+	void AddObject(Object* obj);
+	Object* ObjectAt(int i);
+	int TotalObjects();
+
 	void Draw();
 	void Update();
 };

@@ -17,14 +17,24 @@
 
 #include "Unit.h"
 
-Unit::Unit()
+Unit::Unit(int type)
 {
-
+	mType = type;
 }
 
 Unit::~Unit()
 {
 
+}
+
+void Unit::ClearInstructions()
+{
+
+}
+
+void Unit::AddInstruction(UnitInstruction instruction)
+{
+	
 }
 
 void Unit::Draw()
@@ -34,5 +44,7 @@ void Unit::Draw()
 
 void Unit::Update()
 {
-	
+	if (mType == UNIT_WILDMAN) {
+		
+	}
 }

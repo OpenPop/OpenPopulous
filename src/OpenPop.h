@@ -26,9 +26,4 @@ void Deinitalization();
 
 void QuitGame();
 
-//Windows main
-//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
-
-int StartOpenPop(int argc, char* argv[]);
-
 #endif

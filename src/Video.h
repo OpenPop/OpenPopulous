@@ -22,7 +22,9 @@
 
 bool InitVideo();
 void TestDraw();
-void DrawPixel(int x, int y, int col);
+void Draw2DMap();
+SDL_Color GetLandColour(unsigned short height);
+SDL_Color HSLtoRGB(int hue, int sat, int lum);
 
 extern SDL_Surface *main_screen;
 

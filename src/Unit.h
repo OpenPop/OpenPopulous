@@ -40,6 +40,18 @@ struct UnitInstruction
 
 typedef std::vector<UnitInstruction> InstructionList;
 
+//Unit types
+enum UNIT_TYPES
+{
+	UNIT_WILDMAN,
+	UNIT_BRAVE,
+	UNIT_WARRIOR,
+	UNIT_PREACHER,
+	UNIT_FIREWARRIOR,
+	UNIT_SPY,
+	UNIT_SHAMAN,
+};
+
 //Unit flags
 enum UNIT_FLAGS
 {
@@ -56,6 +68,7 @@ enum UNIT_FLAGS
 class Unit : public Object
 {
 public:
+	int					mType;
 	int					mFlags;
 	int					mGhostTime;			//How long before the ghost disappears (game turns)
 	int					mInvisibleTime;		//How long the unit's invisibillity has left (game turns)
@@ -68,11 +81,16 @@ public:
 	InstructionList		mInstructions;		//The unit's instruction line
 
 public:
-	Unit();
-	virtual ~Unit();
+	Unit(int type);
+	~Unit();
 
-	virtual void Draw();
-	virtual void Update();
+	void Draw();
+	void Update();
+
+	void ClearInstructions();
+	void AddInstruction(UnitInstruction instruction);
+
+	//Pathfinding
 };
 
 typedef std::vector<Unit*> UnitList;

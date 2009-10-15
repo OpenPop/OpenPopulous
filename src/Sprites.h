@@ -18,26 +18,29 @@
 #ifndef _SPRITES_H_
 #define _SPRITES_H_
 
-struct PopPalette
+namespace Sprites
 {
-	unsigned int		entry[256];
-};
+	struct PopPalette
+	{
+		unsigned int		entry[256];
+	};
 
-struct SpriteCollection
-{
-	unsigned int		num_sprites;
-	unsigned int		*offsets;
-	unsigned short		*widths;
-	unsigned short		*heights;
-	unsigned int		buffer_size;
-	char				*buffer;
-};
+	struct SpriteCollection
+	{
+		unsigned int		num_sprites;
+		unsigned int		*offsets;
+		unsigned short		*widths;
+		unsigned short		*heights;
+		unsigned int		buffer_size;
+		char				*buffer;
+	};
 
-extern PopPalette *pal;
-extern SpriteCollection *hfx, *hspr;
+	extern PopPalette *pal;
+	extern SpriteCollection *hfx, *hspr;
 
-void LoadSpriteCollections();
-void FreeSpriteCollections();
-void DrawSprite(int destX, int destY, const SpriteCollection *collection, int sprite);
+	void LoadSpriteCollections();
+	void FreeSpriteCollections();
+	void DrawSprite(int destX, int destY, const SpriteCollection *collection, int sprite);
+}
 
 #endif
