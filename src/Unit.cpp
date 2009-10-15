@@ -45,6 +45,6 @@ void Unit::Draw()
 void Unit::Update()
 {
 	if (mType == UNIT_WILDMAN) {
-		
+		// TODO: Do random stuff here?
 	}
 }

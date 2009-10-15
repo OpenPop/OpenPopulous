@@ -75,15 +75,26 @@ void Game::LoadOldMapFormat(char *buffer, int length)
 	for (int i = 0; i < 2000; i++) {
 		char type = buffer[pos];
 		char group = buffer[pos + 1];
+	
+		Unit* unit = new Unit(UNIT_NONE);	
 
-		if (type == 1 && group == 1) {
-			//Wildman
-			Unit* wildman = new Unit(UNIT_WILDMAN);
-			wildman->mX = (unsigned char)buffer[pos + 4];
-			wildman->mZ = (unsigned char)buffer[pos + 6];
-			mMap->AddObject(wildman);
+		if (group == 1) {
+			if(type == 1)      unit = new Unit(UNIT_WILDMAN);
+			else if(type == 2) unit = new Unit(UNIT_BRAVE);
+			else if(type == 3) unit = new Unit(UNIT_WARRIOR);
+			else if(type == 4) unit = new Unit(UNIT_PREACHER);
+			else if(type == 5) unit = new Unit(UNIT_SPY);
+			else if(type == 6) unit = new Unit(UNIT_FIREWARRIOR);
+			else if(type == 7) unit = new Unit(UNIT_SHAMAN);
+			else if(type == 8) unit = new Unit(UNIT_AOD);
 		}
-		
+
+		if(unit->mType != UNIT_NONE){
+			unit->mX = (unsigned char)buffer[pos + 4];
+			unit->mZ = (unsigned char)buffer[pos + 6];
+			mMap->AddObject(unit);
+		}
+
 		pos += 55;
 	}
 }

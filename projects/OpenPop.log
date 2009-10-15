@@ -1,10 +1,17 @@
-﻿Build started 15/10/2009 2:08:44.
-     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 3 (build target(s)).
+﻿Build started 15/10/2009 7:55:12.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 23 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
          Touching "..\objs\Debug\lastbuild.timestamp".
        ClCompile:
-         Skipping task because its outputs are up-to-date.
+         Game.cpp
+     1>c:\openpop\src\building.h(57): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\openpop\src\game.cpp(25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\archivos de programa\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>c:\openpop\src\game.cpp(36): warning C4804: '>' : unsafe use of type 'bool' in operation
+     1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
+     1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
        Link:
          Microsoft (R) Incremental Linker Version 10.00.20506.01
          Copyright (C) Microsoft Corporation.  All rights reserved.
@@ -24,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.87
+Time Elapsed 00:00:01.87
