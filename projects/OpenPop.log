@@ -1,12 +1,16 @@
-﻿Build started 17/10/2009 12:00:19.
-     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 52 (build target(s)).
+﻿Build started 17/10/2009 12:13:45.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 53 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
          Touching "..\objs\Debug\lastbuild.timestamp".
        ClCompile:
+         OpenPop.cpp
+     1>c:\openpop\src\building.h(57): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
          Input.cpp
      1>c:\openpop\src\building.h(57): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
      1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         Generating Code...
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
        Link:
@@ -14,6 +18,7 @@
          Copyright (C) Microsoft Corporation.  All rights reserved.
          
          "/OUT:..\bin\OpenPop_Debug.exe" sdl.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST "/ManifestFile:..\objs\Debug\OpenPop_Debug.exe.intermediate.manifest" "/MANIFESTUAC:level='asInvoker' uiAccess='false'" /DEBUG "/PDB:..\bin\OpenPop_Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT ..\objs\Debug\Building.obj ..\objs\Debug\Camera.obj ..\objs\Debug\Game.obj ..\objs\Debug\Graphics.obj ..\objs\Debug\Input.obj ..\objs\Debug\Language.obj ..\objs\Debug\Map.obj ..\objs\Debug\Object.obj ..\objs\Debug\OpenPop.obj ..\objs\Debug\PathFinder.obj ..\objs\Debug\Player.obj ..\objs\Debug\Sprites.obj ..\objs\Debug\Unit.obj ..\objs\Debug\Video.obj 
+         LINK : ..\bin\OpenPop_Debug.exe not found or not built by the last incremental link; performing full link
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
          OpenPop.vcxproj -> C:\OpenPop\projects\..\bin\OpenPop_Debug.exe
@@ -27,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.31
+Time Elapsed 00:00:04.65
