@@ -14,13 +14,10 @@ bool ready_to_quit;
 
 void Initialization()
 {
-	InitVideo();
-
-	//Load sprites
 	LoadLanguage();
 	Sprites::LoadSpriteCollections();
-
 	gGame = new Game();
+	InitVideo();
 }
 
 void GameLoop()

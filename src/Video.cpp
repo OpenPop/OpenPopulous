@@ -24,11 +24,11 @@ unsigned int TRIBECOL_YELLOW;
 unsigned int TRIBECOL_GREEN;
 
 void LoadTribeCols(){
-	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 1)]; // neutral tribe starts at 175
-	TRIBECOL_BLUE    = Sprites::pal -> entry [216 + (8 * 1)]; // other tribes start at 216
-	TRIBECOL_RED     = Sprites::pal -> entry [216 + (8 * 2)]; // 2 = 2nd tribe
-	TRIBECOL_YELLOW  = Sprites::pal -> entry [216 + (8 * 3)]; // 8 = last entry in gradient
-	TRIBECOL_GREEN   = Sprites::pal -> entry [216 + (8 * 4)];
+	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 0) + 5]; // neutral tribe starts at 175
+	TRIBECOL_BLUE    = Sprites::pal -> entry [215 + (8 * 0) + 5]; // other tribes start at 215
+	TRIBECOL_RED     = Sprites::pal -> entry [215 + (8 * 3) + 5]; // 3 = 3rd tribe
+	TRIBECOL_YELLOW  = Sprites::pal -> entry [215 + (8 * 2) + 5]; // 5 = entry in gradient
+	TRIBECOL_GREEN   = Sprites::pal -> entry [215 + (8 * 1) + 5];
 }
 
 bool InitVideo()
@@ -85,8 +85,8 @@ void Draw2DMap()
 
 		for (int y = 0; y <= scale; y++) {
 			for (int x = 0; x <= scale; x++) {
-				int colour;
-
+				unsigned int colour;
+	
 				if(obj->mTribe == TRIBE_BLUE){
 					colour = TRIBECOL_BLUE; 
 				}else if(obj->mTribe == TRIBE_RED){
