@@ -2,6 +2,8 @@
 
 #include "Input.h"
 #include "OpenPop.h"
+#include "Game.h"
+#include "Map.h"
 
 void CheckInput()
 {
@@ -18,8 +20,14 @@ void CheckInput()
 						QuitGame();
 						break;
 				}
+
 				break;
-			case SDL_MOUSEBUTTONDOWN:
+			case SDL_MOUSEBUTTONUP:
+				switch(event.button.button){
+					case SDL_BUTTON_LEFT:
+						break;
+				}
+
 				break;
 		}
 	}
