@@ -10,8 +10,6 @@
 
 int pressed_button;
 
-//Ted's ////////////////////////////////////
-
 bool ready_to_quit;
 
 void Initialization()
@@ -39,7 +37,7 @@ void GameLoop()
 
 			gGame->Update();
 
-			TestDraw();
+			Draw();
 		}
 	}
 }

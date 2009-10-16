@@ -17,15 +17,28 @@ int test_draw_cnt = 0;
 #define SCREEN_HEIGHT	768
 #define SCREEN_DEPTH	32
 
+unsigned int TRIBECOL_NEUTRAL;
+unsigned int TRIBECOL_BLUE;
+unsigned int TRIBECOL_RED;
+unsigned int TRIBECOL_YELLOW;
+unsigned int TRIBECOL_GREEN;
+
+void LoadTribeCols(){
+	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 1)]; // neutral tribe starts at 175
+	TRIBECOL_BLUE    = Sprites::pal -> entry [216 + (8 * 1)]; // other tribes start at 216
+	TRIBECOL_RED     = Sprites::pal -> entry [216 + (8 * 2)]; // 2 = 2nd tribe
+	TRIBECOL_YELLOW  = Sprites::pal -> entry [216 + (8 * 3)]; // 8 = last entry in gradient
+	TRIBECOL_GREEN   = Sprites::pal -> entry [216 + (8 * 4)];
+}
+
 bool InitVideo()
 {
-	if (SDL_Init(SDL_INIT_VIDEO) > 0) {
-		//return false;
-	}
 
 	main_screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_DEPTH, SDL_DOUBLEBUF | SDL_HWSURFACE);
 
 	SDL_WM_SetCaption("OpenPop","");
+
+	LoadTribeCols();
 
 	if (main_screen == NULL) {
 		return false;
@@ -34,19 +47,8 @@ bool InitVideo()
 	return true;
 }
 
-void TestDraw()
+void Draw()
 {
-	//void *buffer = main_screen->pixels;
-
-	//int bpp = main_screen->format->BytesPerPixel;
-	//int width = main_screen->w;
-	//int height = main_screen->h;
-	//
-	//memset(buffer, 0, width * height * bpp);
-
-	//test_draw_cnt = (test_draw_cnt + 1) % 8;
-	//Graphics::DrawSprite(200, 200, Sprites::hspr, 7618 + test_draw_cnt);
-
 	Draw2DMap();
 
 	SDL_Flip(main_screen);
@@ -57,16 +59,6 @@ enum TRIBES{
 	TRIBE_RED,
 	TRIBE_YELLOW,
 	TRIBE_GREEN,
-};
-
-// TODO: Read this from palettes
-
-enum TRIBE_COLOURS{
-	TRIBECOL_NEUTRAL = 0xFFFFFF,
-	TRIBECOL_BLUE    = 0xFF0000,
-	TRIBECOL_RED     = 0x0000FF,
-	TRIBECOL_YELLOW  = 0x00FFFF,
-	TRIBECOL_GREEN   = 0x228b22,
 };
 
 void Draw2DMap()

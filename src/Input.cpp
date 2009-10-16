@@ -19,7 +19,7 @@ void CheckInput()
 						break;
 				}
 				break;
-			default:
+			case SDL_MOUSEBUTTONDOWN:
 				break;
 		}
 	}
