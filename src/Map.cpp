@@ -37,6 +37,16 @@ void Map::AddObject(Object* obj)
 	mObjects.push_back(obj);
 }
 
+Object* Map::ObjectAtXY(int x, int y){
+	int SizeOfmObjects = sizeof(mObjects) / sizeof(mObjects[0]);
+
+	for(int i=0; i<SizeOfmObjects; i++){
+		if(mObjects[i]->mX == x && mObjects[i]->mY == y){
+			return mObjects[i];
+		}
+	}
+}
+
 Object* Map::ObjectAt(int i)
 {
 	return mObjects[i];

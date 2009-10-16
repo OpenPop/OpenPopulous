@@ -43,6 +43,7 @@ public:
 
 	void AddObject(Object* obj);
 	Object* ObjectAt(int i);
+	Object* ObjectAtXY(int x, int y);
 	int TotalObjects();
 
 	void Draw();
