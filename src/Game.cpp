@@ -3,6 +3,8 @@
 #include "Map.h"
 #include "Object.h"
 #include "Unit.h"
+#include "Sprites.h"
+#include "Video.h"
 
 Game* gGame;
 

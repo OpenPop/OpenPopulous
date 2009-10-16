@@ -21,7 +21,7 @@
 #include <sdl/sdl.h>
 
 bool InitVideo();
-void TestDraw();
+void Draw();
 void Draw2DMap();
 SDL_Color GetLandColour(unsigned short height);
 SDL_Color HSLtoRGB(int hue, int sat, int lum);
