@@ -1,16 +1,10 @@
-﻿Build started 17/10/2009 12:13:45.
-     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 53 (build target(s)).
+﻿Build started 17/10/2009 2:55:47.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 9 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
          Touching "..\objs\Debug\lastbuild.timestamp".
        ClCompile:
-         OpenPop.cpp
-     1>c:\openpop\src\building.h(57): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-         Input.cpp
-     1>c:\openpop\src\building.h(57): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-         Generating Code...
+         Map.cpp
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
        Link:
@@ -32,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.65
+Time Elapsed 00:00:01.67

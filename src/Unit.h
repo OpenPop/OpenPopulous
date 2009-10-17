@@ -40,7 +40,6 @@ struct UnitInstruction
 
 typedef std::vector<UnitInstruction> InstructionList;
 
-//Unit types
 enum UNIT_TYPES
 {
 	UNIT_WILDMAN = 1,
@@ -53,16 +52,15 @@ enum UNIT_TYPES
 	UNIT_AOD, // Angel of Death
 };
 
-//Unit flags
 enum UNIT_FLAGS
 {
-	UNIT_IDLE			=	0,
-	UNIT_PATROLLING		=	1,
-	UNIT_ATTACKING		=	2,
-	UNIT_DEAD			=	3,
-	UNIT_GHOST			=	4,
-	UNIT_SHIELDED		=	5,
-	UNIT_INVISIBLE		=	6,
+	UNIT_IDLE,
+	UNIT_PATROLLING,
+	UNIT_ATTACKING,
+	UNIT_DEAD,
+	UNIT_GHOST,
+	UNIT_SHIELDED,
+	UNIT_INVISIBLE,
 };
 
 //The unit class which will be inherited by unit type classes
@@ -71,7 +69,7 @@ class Unit : public Object
 public:
 	int					mType;
 	int					mFlags;
-	int					mGhostTime;			//How long before the ghost disappears (game turns)
+	int					mGhostTime;			//How long before the ghost disappears (game turns)	
 	int					mInvisibleTime;		//How long the unit's invisibillity has left (game turns)
 	int					mShieldTime;		//How long the unit's shield has left (game turns)
 	int					mHealth;			//The unit's health
