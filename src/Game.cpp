@@ -79,9 +79,9 @@ void Game::LoadOldMapFormat(char *buffer, int length)
 		char group = buffer[pos + 1];
 		
 
-		if(group == 1){
+		if(group == GROUP_UNIT){
 			Unit* unit = new Unit(type);
-
+			unit->mType = type;
 			unit->mTribe = (unsigned char)buffer[pos + 2];
 			unit->mX =     (unsigned char)buffer[pos + 4];
 			unit->mZ =     (unsigned char)buffer[pos + 6];

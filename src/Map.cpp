@@ -41,10 +41,13 @@ Object* Map::ObjectAtXY(int x, int y){
 	int SizeOfmObjects = sizeof(mObjects) / sizeof(mObjects[0]);
 
 	for(int i=0; i<SizeOfmObjects; i++){
-		if(mObjects[i]->mX == x && mObjects[i]->mY == y){
+		Object* obj = mObjects[i];
+		if(obj->mX == x && obj->mY == y){
 			return mObjects[i];
 		}
 	}
+
+	return 0;
 }
 
 Object* Map::ObjectAt(int i)

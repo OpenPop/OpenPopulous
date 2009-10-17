@@ -20,15 +20,15 @@
 
 #include <vector>
 
-//global structs definitions
-
 typedef struct{
     float x;
     float y;
     float z;
 }t_vector;
 
-//Object class, root of the class tree
+enum OBJECT_GROUPS{
+	GROUP_UNIT = 1,
+};
 
 class Object
 {
