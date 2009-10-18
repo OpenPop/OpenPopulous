@@ -10,12 +10,21 @@ Game* gGame;
 
 Game::Game()
 {
+	LoadTribeCols();
 	LoadMap("levels\\levl2131.dat");
 }
 
 Game::~Game()
 {
 
+}
+
+void LoadTribeCols(){
+	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 0) + 5]; // neutral tribe starts at 175
+	TRIBECOL_BLUE    = Sprites::pal -> entry [215 + (8 * 0) + 5]; // other tribes start at 215
+	TRIBECOL_RED     = Sprites::pal -> entry [215 + (8 * 3) + 5]; // 3 = 3rd tribe
+	TRIBECOL_YELLOW  = Sprites::pal -> entry [215 + (8 * 2) + 5]; // 5 = entry in gradient
+	TRIBECOL_GREEN   = Sprites::pal -> entry [215 + (8 * 1) + 5];
 }
 
 void Game::LoadMap(char *filename)
@@ -78,15 +87,20 @@ void Game::LoadOldMapFormat(char *buffer, int length)
 		char type = buffer[pos];
 		char group = buffer[pos + 1];
 		
+		Object* obj = 0;
 
 		if(group == GROUP_UNIT){
-			Unit* unit = new Unit(type);
-			unit->mType = type;
-			unit->mTribe = (unsigned char)buffer[pos + 2];
-			unit->mX =     (unsigned char)buffer[pos + 4];
-			unit->mZ =     (unsigned char)buffer[pos + 6];
+			obj = new Unit(type);
+		}else if(group == GROUP_BUILDING){
+			obj = new Building(type);
+		}
 
-			mMap->AddObject(unit);
+		if(obj != 0){
+			obj->mTribe = (unsigned char)buffer[pos + 2];
+			obj->mX =     (unsigned char)buffer[pos + 4];
+			obj->mZ =     (unsigned char)buffer[pos + 6];
+	
+			mMap->AddObject(obj);
 		}
 
 		pos += 55;

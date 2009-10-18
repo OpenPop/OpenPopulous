@@ -67,7 +67,6 @@ enum UNIT_FLAGS
 class Unit : public Object
 {
 public:
-	int					mType;
 	int					mFlags;
 	int					mGhostTime;			//How long before the ghost disappears (game turns)	
 	int					mInvisibleTime;		//How long the unit's invisibillity has left (game turns)

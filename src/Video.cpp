@@ -17,28 +17,12 @@ int test_draw_cnt = 0;
 #define SCREEN_HEIGHT	768
 #define SCREEN_DEPTH	32
 
-unsigned int TRIBECOL_NEUTRAL;
-unsigned int TRIBECOL_BLUE;
-unsigned int TRIBECOL_RED;
-unsigned int TRIBECOL_YELLOW;
-unsigned int TRIBECOL_GREEN;
-
-void LoadTribeCols(){
-	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 0) + 5]; // neutral tribe starts at 175
-	TRIBECOL_BLUE    = Sprites::pal -> entry [215 + (8 * 0) + 5]; // other tribes start at 215
-	TRIBECOL_RED     = Sprites::pal -> entry [215 + (8 * 3) + 5]; // 3 = 3rd tribe
-	TRIBECOL_YELLOW  = Sprites::pal -> entry [215 + (8 * 2) + 5]; // 5 = entry in gradient
-	TRIBECOL_GREEN   = Sprites::pal -> entry [215 + (8 * 1) + 5];
-}
-
 bool InitVideo()
 {
 
 	main_screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_DEPTH, SDL_DOUBLEBUF | SDL_HWSURFACE);
 
 	SDL_WM_SetCaption("OpenPop","");
-
-	LoadTribeCols();
 
 	if (main_screen == NULL) {
 		return false;
@@ -54,17 +38,8 @@ void Draw()
 	SDL_Flip(main_screen);
 }
 
-enum TRIBES{
-	TRIBE_BLUE,
-	TRIBE_RED,
-	TRIBE_YELLOW,
-	TRIBE_GREEN,
-};
-
 void Draw2DMap()
 {
-	int scale = 3;
-
 	Map* map = gGame->mMap;
 
 	for (int y = 0; y < map->mSize; y++) {
@@ -82,26 +57,7 @@ void Draw2DMap()
 
 	for (int i = 0; i < map->TotalObjects(); i++) {
 		Object* obj = map->ObjectAt(i);
-
-		for (int y = 0; y <= scale; y++) {
-			for (int x = 0; x <= scale; x++) {
-				unsigned int colour;
-	
-				if(obj->mTribe == TRIBE_BLUE){
-					colour = TRIBECOL_BLUE; 
-				}else if(obj->mTribe == TRIBE_RED){
-					colour = TRIBECOL_RED; 
-				}else if(obj->mTribe == TRIBE_YELLOW){
-					colour = TRIBECOL_YELLOW; 
-				}else if(obj->mTribe == TRIBE_GREEN){
-					colour = TRIBECOL_GREEN; 
-				}else{
-					colour = TRIBECOL_NEUTRAL;
-				}
-
-				Graphics::DrawPixel((obj->mX * scale) + x, (obj->mZ * scale) + y, colour);
-			}
-		}
+		obj->Draw();
 	}
 }
 
