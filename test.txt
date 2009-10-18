@@ -1,1 +1,4 @@
-Hello, this is a test!
+<<<<<<< .mine
+Hello=======
+Hello, this is a test!>>>>>>> .r29
+What is this ".r29"?
