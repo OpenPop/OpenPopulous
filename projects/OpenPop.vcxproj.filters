@@ -18,12 +18,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Video">
       <UniqueIdentifier>{126ae92d-d11f-47ee-aa28-aa6cbec58625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Video\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +31,7 @@
       <Filter>Game\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Video\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Game.cpp">
       <Filter>Game\Source Files</Filter>
@@ -40,10 +40,10 @@
       <Filter>Video</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Input.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Video\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Language.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Video\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Map.cpp">
       <Filter>Game\Source Files</Filter>
@@ -52,7 +52,7 @@
       <Filter>Game\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\OpenPop.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Video\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\PathFinder.cpp">
       <Filter>Game\Source Files</Filter>
@@ -61,13 +61,16 @@
       <Filter>Game\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Sprites.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Video\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Tribes.cpp">
+      <Filter>Game\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Unit.cpp">
       <Filter>Game\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Video.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Video\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Sprites.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Tribes.h">
+      <Filter>Game\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Unit.h">
       <Filter>Game\Header Files</Filter>

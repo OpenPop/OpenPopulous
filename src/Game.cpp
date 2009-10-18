@@ -5,6 +5,7 @@
 #include "Unit.h"
 #include "Sprites.h"
 #include "Video.h"
+#include "Tribes.h"
 
 Game* gGame;
 
@@ -17,14 +18,6 @@ Game::Game()
 Game::~Game()
 {
 
-}
-
-void LoadTribeCols(){
-	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 0) + 5]; // neutral tribe starts at 175
-	TRIBECOL_BLUE    = Sprites::pal -> entry [215 + (8 * 0) + 5]; // other tribes start at 215
-	TRIBECOL_RED     = Sprites::pal -> entry [215 + (8 * 3) + 5]; // 3 = 3rd tribe
-	TRIBECOL_YELLOW  = Sprites::pal -> entry [215 + (8 * 2) + 5]; // 5 = entry in gradient
-	TRIBECOL_GREEN   = Sprites::pal -> entry [215 + (8 * 1) + 5];
 }
 
 void Game::LoadMap(char *filename)

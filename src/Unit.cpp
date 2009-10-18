@@ -16,7 +16,7 @@
 ***********************************************************************/
 
 #include "Unit.h"
-#include "OpenPop.h"
+#include "Tribes.h"
 #include "Graphics.h"
 
 Unit::Unit(int type)
@@ -44,20 +44,20 @@ void Unit::Draw()
 	for (int y = 0; y <= scale; y++) {
 			for (int x = 0; x <= scale; x++) {
 				unsigned int colour;
-	
-				if(mTribe == gGame->TRIBE_BLUE){
-					colour = gGame->TRIBECOL_BLUE; 
-				}else if(mTribe == gGame->TRIBE_RED){
-					colour = gGame->TRIBECOL_RED; 
-				}else if(mTribe == gGame->TRIBE_YELLOW){
-					colour = gGame->TRIBECOL_YELLOW; 
-				}else if(mTribe == gGame->TRIBE_GREEN){
-					colour = gGame->TRIBECOL_GREEN; 
+				
+				if(mTribe == TRIBE_BLUE){
+					colour = TRIBECOL_BLUE; 
+				}else if(mTribe == TRIBE_RED){
+					colour = TRIBECOL_RED; 
+				}else if(mTribe == TRIBE_YELLOW){
+					colour = TRIBECOL_YELLOW; 
+				}else if(mTribe == TRIBE_GREEN){
+					colour = TRIBECOL_GREEN; 
 				}else{
-					colour = gGame->TRIBECOL_NEUTRAL;
+					colour = TRIBECOL_NEUTRAL;
 				}
 
-				Graphics::DrawPixel((mX * scale) + x, (obj->mZ * scale) + y, colour);
+				Graphics::DrawPixel((mX * scale) + x, (mZ * scale) + y, colour);
 		}
 	}
 }

@@ -15,25 +15,13 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GRAPHICS_H_
-#define _GRAPHICS_H_
+#include "Tribes.h"
+#include "Sprites.h"
 
-#include <sdl/sdl.h>
-
-namespace Sprites
-{
-	class SpriteCollection;
+void LoadTribeCols(){
+	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 0) + 5]; // neutral tribe starts at 175
+	TRIBECOL_BLUE    = Sprites::pal -> entry [215 + (8 * 0) + 5]; // other tribes start at 215
+	TRIBECOL_RED     = Sprites::pal -> entry [215 + (8 * 3) + 5]; // 3 = 3rd tribe
+	TRIBECOL_YELLOW  = Sprites::pal -> entry [215 + (8 * 2) + 5]; // 5 = entry in gradient
+	TRIBECOL_GREEN   = Sprites::pal -> entry [215 + (8 * 1) + 5];
 }
-
-namespace Graphics
-{
-	int GetScreenWidth();
-	int GetScreenHeight();
-	void DrawPixel(int x, int y, int col);
-	void DrawSprite(int destX, int destY, const Sprites::SpriteCollection *collection, int sprite);
-
-}
-
-int scale = 3;
-
-#endif

@@ -26,20 +26,6 @@ class Game
 public:
 	Map		*mMap;
 	Player	*mPlayer[MAX_PLAYERS];
-
-	unsigned int TRIBECOL_NEUTRAL;
-	unsigned int TRIBECOL_BLUE;
-	unsigned int TRIBECOL_RED;
-	unsigned int TRIBECOL_YELLOW;
-	unsigned int TRIBECOL_GREEN;
-
-	enum TRIBES{
-		TRIBE_BLUE,
-		TRIBE_RED,
-		TRIBE_YELLOW,
-		TRIBE_GREEN,
-	};
-
 public:
 	Game();
 	~Game();
