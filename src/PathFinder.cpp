@@ -49,8 +49,6 @@ PathFinder::TRAVEL_STATE PathFinder::CalculatePath()
 			path_found = false;
 			break;
 		}
-		
-
 	}
 
 	return TRAVEL_STATE_BLOCKED;

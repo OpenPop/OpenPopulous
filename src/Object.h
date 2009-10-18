@@ -28,11 +28,13 @@ typedef struct{
 
 enum OBJECT_GROUPS{
 	GROUP_UNIT = 1,
+	GROUP_BUILDING,
 };
 
 class Object
 {
 public:
+	int 		mType;
 	float		mAngle;
 	float		mX, mY, mZ;
 	int			mTribe;

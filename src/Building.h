@@ -26,18 +26,16 @@
 //Building types
 enum BUILDING
 {
-	BUILDING_SMALL_HUT		=	0,
-	BUILDING_MEDIUM_HUT		=	1,
-	BUILDING_LARGE_HUT		=	2,
-	BUILDING_GUARD_TOWER	=	3,
-	BUILDING_WARRIOR		=	4,
-	BUILDING_TEMPLE			=	5,
-	BUILDING_FIREWARRIOR	=	6,
-	BUILDING_SPY			=	7,
-	BUILDING_BOAT			=	8,
-	BUILDING_BALLOON		=	9,
-
-	MAX_BUILDINGS			=	10,
+	BUILDING_SMALL_HUT,
+	BUILDING_MEDIUM_HUT,
+	BUILDING_LARGE_HUT,
+	BUILDING_TOWER,
+	BUILDING_WARRIOR,
+	BUILDING_TEMPLE	,
+	BUILDING_FIREWARRIOR,
+	BUILDING_SPY,
+	BUILDING_BOAT,
+	BUILDING_BALLOON,
 };
 
 struct BuildingAvailability
@@ -61,17 +59,17 @@ struct BuildingAvailability
 struct BuildingStatus
 {
 	BuildingAvailability	AvailableBuildings;
-	char					BuildingShots[MAX_BUILDINGS];
+	int 					BuildingShots;
 };
 
 //Building flags
 enum BUILDING_FLAGS
 {
-	BUILDING_PLAN			=	0,
-	BUILDING_BUILDING		=	1,
-	BUILDING_DISMANTALING	=	2,
-	BUILDING_BURNING		=	3,
-	BUILDING_SHAKING		=	4,
+	BUILDING_PLAN,
+	BUILDING_BUILDING,
+	BUILDING_DISMANTALING,
+	BUILDING_BURNING,
+	BUILDING_SHAKING,
 };
 
 //The building class which will be inherited by building type classes
@@ -86,11 +84,11 @@ public:
 	UnitList	mInsiders;			//The list of units inside the hut
 
 public:
-	Building();
-	virtual ~Building();
+	Building(int type);
+	~Building();
 
-	virtual void Draw();
-	virtual void Update();
+	void Draw();
+	void Update();
 };
 
 typedef std::vector<Building*> BuildingList;
