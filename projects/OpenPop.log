@@ -1,112 +1,33 @@
-﻿Build started 18/10/2009 2:20:57.
-     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 19 (build target(s)).
+﻿Build started 18/10/2009 5:23:17.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 42 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
          Touching "..\objs\Debug\lastbuild.timestamp".
        ClCompile:
-         Unit.cpp
-     1>c:\openpop\src\unit.cpp(44): error C2065: 'scale' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(45): error C2065: 'scale' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(48): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(48): error C2227: left of '->TRIBE_BLUE' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(49): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(49): error C2227: left of '->TRIBECOL_BLUE' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(50): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(50): error C2227: left of '->TRIBE_RED' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(51): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(51): error C2227: left of '->TRIBECOL_RED' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(52): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(52): error C2227: left of '->TRIBE_YELLOW' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(53): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(53): error C2227: left of '->TRIBECOL_YELLOW' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(54): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(54): error C2227: left of '->TRIBE_GREEN' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(55): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(55): error C2227: left of '->TRIBECOL_GREEN' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(57): error C2065: 'gGame' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(57): error C2227: left of '->TRIBECOL_NEUTRAL' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(60): error C2065: 'scale' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(60): error C2065: 'obj' : undeclared identifier
-     1>c:\openpop\src\unit.cpp(60): error C2227: left of '->mZ' must point to class/struct/union/generic type
-                 type is ''unknown-type''
-     1>c:\openpop\src\unit.cpp(60): error C2065: 'scale' : undeclared identifier
-         Game.cpp
-     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\game.h(30): error C2864: 'Game::TRIBECOL_NEUTRAL' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(31): error C2864: 'Game::TRIBECOL_BLUE' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(32): error C2864: 'Game::TRIBECOL_RED' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(33): error C2864: 'Game::TRIBECOL_YELLOW' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(34): error C2864: 'Game::TRIBECOL_GREEN' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.cpp(13): error C3861: 'LoadTribeCols': identifier not found
-     1>c:\openpop\src\game.cpp(23): error C2065: 'TRIBECOL_NEUTRAL' : undeclared identifier
-     1>c:\openpop\src\game.cpp(24): error C2065: 'TRIBECOL_BLUE' : undeclared identifier
-     1>c:\openpop\src\game.cpp(25): error C2065: 'TRIBECOL_RED' : undeclared identifier
-     1>c:\openpop\src\game.cpp(26): error C2065: 'TRIBECOL_YELLOW' : undeclared identifier
-     1>c:\openpop\src\game.cpp(27): error C2065: 'TRIBECOL_GREEN' : undeclared identifier
-     1>c:\openpop\src\game.cpp(47): warning C4804: '>' : unsafe use of type 'bool' in operation
-         Generating Code...
-         Compiling...
-         Input.cpp
-     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\game.h(30): error C2864: 'Game::TRIBECOL_NEUTRAL' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(31): error C2864: 'Game::TRIBECOL_BLUE' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(32): error C2864: 'Game::TRIBECOL_RED' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(33): error C2864: 'Game::TRIBECOL_YELLOW' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(34): error C2864: 'Game::TRIBECOL_GREEN' : only static const integral data members can be initialized within a class
-         Generating Code...
-         Compiling...
-         OpenPop.cpp
-     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\game.h(30): error C2864: 'Game::TRIBECOL_NEUTRAL' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(31): error C2864: 'Game::TRIBECOL_BLUE' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(32): error C2864: 'Game::TRIBECOL_RED' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(33): error C2864: 'Game::TRIBECOL_YELLOW' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(34): error C2864: 'Game::TRIBECOL_GREEN' : only static const integral data members can be initialized within a class
-         Generating Code...
-         Compiling...
-         PathFinder.cpp
-     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\game.h(30): error C2864: 'Game::TRIBECOL_NEUTRAL' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(31): error C2864: 'Game::TRIBECOL_BLUE' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(32): error C2864: 'Game::TRIBECOL_RED' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(33): error C2864: 'Game::TRIBECOL_YELLOW' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(34): error C2864: 'Game::TRIBECOL_GREEN' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\pathfinder.cpp(41): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\openpop\src\pathfinder.cpp(42): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\openpop\src\pathfinder.cpp(43): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\openpop\src\pathfinder.cpp(43): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\openpop\src\pathfinder.cpp(59): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\openpop\src\pathfinder.cpp(60): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
-         Compiling...
-         Video.cpp
-     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>c:\openpop\src\game.h(30): error C2864: 'Game::TRIBECOL_NEUTRAL' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(31): error C2864: 'Game::TRIBECOL_BLUE' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(32): error C2864: 'Game::TRIBECOL_RED' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(33): error C2864: 'Game::TRIBECOL_YELLOW' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\game.h(34): error C2864: 'Game::TRIBECOL_GREEN' : only static const integral data members can be initialized within a class
-     1>c:\openpop\src\sprites.h(29): warning C4099: 'Sprites::SpriteCollection' : type name first seen using 'class' now seen using 'struct'
-                 c:\openpop\src\graphics.h(25) : see declaration of 'Sprites::SpriteCollection'
-         Generating Code...
+         Skipping task because its outputs are up-to-date.
+       Link:
+         Microsoft (R) Incremental Linker Version 10.00.20506.01
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         "/OUT:..\bin\OpenPop_Debug.exe" sdl.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST "/ManifestFile:..\objs\Debug\OpenPop_Debug.exe.intermediate.manifest" "/MANIFESTUAC:level='asInvoker' uiAccess='false'" /DEBUG "/PDB:..\bin\OpenPop_Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT ..\objs\Debug\Building.obj ..\objs\Debug\Camera.obj ..\objs\Debug\Game.obj ..\objs\Debug\Graphics.obj ..\objs\Debug\Input.obj ..\objs\Debug\Language.obj ..\objs\Debug\Map.obj ..\objs\Debug\Object.obj ..\objs\Debug\OpenPop.obj ..\objs\Debug\PathFinder.obj ..\objs\Debug\Player.obj ..\objs\Debug\Sprites.obj ..\objs\Debug\Tribes.obj ..\objs\Debug\Unit.obj ..\objs\Debug\Video.obj 
+     1>Sprites.obj : error LNK2005: "int scale" (?scale@@3HA) already defined in Graphics.obj
+     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_BLUE" (?TRIBECOL_BLUE@@3IA) already defined in Game.obj
+     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_GREEN" (?TRIBECOL_GREEN@@3IA) already defined in Game.obj
+     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_NEUTRAL" (?TRIBECOL_NEUTRAL@@3IA) already defined in Game.obj
+     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_RED" (?TRIBECOL_RED@@3IA) already defined in Game.obj
+     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_YELLOW" (?TRIBECOL_YELLOW@@3IA) already defined in Game.obj
+     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_BLUE" (?TRIBECOL_BLUE@@3IA) already defined in Game.obj
+     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_GREEN" (?TRIBECOL_GREEN@@3IA) already defined in Game.obj
+     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_NEUTRAL" (?TRIBECOL_NEUTRAL@@3IA) already defined in Game.obj
+     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_RED" (?TRIBECOL_RED@@3IA) already defined in Game.obj
+     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_YELLOW" (?TRIBECOL_YELLOW@@3IA) already defined in Game.obj
+     1>Unit.obj : error LNK2005: "int scale" (?scale@@3HA) already defined in Graphics.obj
+     1>Video.obj : error LNK2005: "int scale" (?scale@@3HA) already defined in Graphics.obj
+     1>..\bin\OpenPop_Debug.exe : fatal error LNK1169: one or more multiply defined symbols found
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
      1>Done Building Project "C:\OpenPop\projects\OpenPop.vcxproj" (build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:09.31
+Time Elapsed 00:00:00.82

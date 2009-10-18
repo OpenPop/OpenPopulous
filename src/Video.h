@@ -28,6 +28,4 @@ SDL_Color HSLtoRGB(int hue, int sat, int lum);
 
 extern SDL_Surface *main_screen;
 
-int scale = 3;
-
 #endif

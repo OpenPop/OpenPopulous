@@ -15,25 +15,22 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GRAPHICS_H_
-#define _GRAPHICS_H_
+#ifndef _TRIBES_H_
+#define _TRIBES_H_
 
-#include <sdl/sdl.h>
+enum TRIBES{
+	TRIBE_BLUE,
+	TRIBE_RED,
+	TRIBE_YELLOW,
+	TRIBE_GREEN,
+};
 
-namespace Sprites
-{
-	class SpriteCollection;
-}
+unsigned int TRIBECOL_NEUTRAL;
+unsigned int TRIBECOL_BLUE;
+unsigned int TRIBECOL_RED;
+unsigned int TRIBECOL_YELLOW;
+unsigned int TRIBECOL_GREEN;
 
-namespace Graphics
-{
-	int GetScreenWidth();
-	int GetScreenHeight();
-	void DrawPixel(int x, int y, int col);
-	void DrawSprite(int destX, int destY, const Sprites::SpriteCollection *collection, int sprite);
-
-}
-
-int scale = 3;
+void LoadTribeCols();
 
 #endif
