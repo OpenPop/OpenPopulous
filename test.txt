@@ -1,4 +1,3 @@
-<<<<<<< .mine
-Hello=======
-Hello, this is a test!>>>>>>> .r29
 What is this ".r29"?
+
+There was a conflict because you and I edited at same time. r29 meant revision 29.
