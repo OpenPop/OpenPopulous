@@ -45,16 +45,16 @@ void Unit::Draw()
 			for (int x = 0; x <= scale; x++) {
 				unsigned int colour;
 				
-				if(mTribe == TRIBE_BLUE){
-					colour = TRIBECOL_BLUE; 
-				}else if(mTribe == TRIBE_RED){
-					colour = TRIBECOL_RED; 
-				}else if(mTribe == TRIBE_YELLOW){
-					colour = TRIBECOL_YELLOW; 
-				}else if(mTribe == TRIBE_GREEN){
-					colour = TRIBECOL_GREEN; 
+				if(mTribe == Tribes::TRIBE_BLUE){
+					colour = Tribes::TRIBECOL_BLUE; 
+				}else if(mTribe == Tribes::TRIBE_RED){
+					colour = Tribes::TRIBECOL_RED; 
+				}else if(mTribe == Tribes::TRIBE_YELLOW){
+					colour = Tribes::TRIBECOL_YELLOW; 
+				}else if(mTribe == Tribes::TRIBE_GREEN){
+					colour = Tribes::TRIBECOL_GREEN; 
 				}else{
-					colour = TRIBECOL_NEUTRAL;
+					colour = Tribes::TRIBECOL_NEUTRAL;
 				}
 
 				Graphics::DrawPixel((mX * scale) + x, (mZ * scale) + y, colour);

@@ -1,5 +1,5 @@
-﻿Build started 18/10/2009 5:23:17.
-     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 42 (build target(s)).
+﻿Build started 18/10/2009 11:17:16.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 23 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
          Touching "..\objs\Debug\lastbuild.timestamp".
@@ -11,23 +11,23 @@
          
          "/OUT:..\bin\OpenPop_Debug.exe" sdl.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST "/ManifestFile:..\objs\Debug\OpenPop_Debug.exe.intermediate.manifest" "/MANIFESTUAC:level='asInvoker' uiAccess='false'" /DEBUG "/PDB:..\bin\OpenPop_Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT ..\objs\Debug\Building.obj ..\objs\Debug\Camera.obj ..\objs\Debug\Game.obj ..\objs\Debug\Graphics.obj ..\objs\Debug\Input.obj ..\objs\Debug\Language.obj ..\objs\Debug\Map.obj ..\objs\Debug\Object.obj ..\objs\Debug\OpenPop.obj ..\objs\Debug\PathFinder.obj ..\objs\Debug\Player.obj ..\objs\Debug\Sprites.obj ..\objs\Debug\Tribes.obj ..\objs\Debug\Unit.obj ..\objs\Debug\Video.obj 
      1>Sprites.obj : error LNK2005: "int scale" (?scale@@3HA) already defined in Graphics.obj
-     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_BLUE" (?TRIBECOL_BLUE@@3IA) already defined in Game.obj
-     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_GREEN" (?TRIBECOL_GREEN@@3IA) already defined in Game.obj
-     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_NEUTRAL" (?TRIBECOL_NEUTRAL@@3IA) already defined in Game.obj
-     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_RED" (?TRIBECOL_RED@@3IA) already defined in Game.obj
-     1>Tribes.obj : error LNK2005: "unsigned int TRIBECOL_YELLOW" (?TRIBECOL_YELLOW@@3IA) already defined in Game.obj
-     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_BLUE" (?TRIBECOL_BLUE@@3IA) already defined in Game.obj
-     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_GREEN" (?TRIBECOL_GREEN@@3IA) already defined in Game.obj
-     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_NEUTRAL" (?TRIBECOL_NEUTRAL@@3IA) already defined in Game.obj
-     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_RED" (?TRIBECOL_RED@@3IA) already defined in Game.obj
-     1>Unit.obj : error LNK2005: "unsigned int TRIBECOL_YELLOW" (?TRIBECOL_YELLOW@@3IA) already defined in Game.obj
      1>Unit.obj : error LNK2005: "int scale" (?scale@@3HA) already defined in Graphics.obj
      1>Video.obj : error LNK2005: "int scale" (?scale@@3HA) already defined in Graphics.obj
-     1>..\bin\OpenPop_Debug.exe : fatal error LNK1169: one or more multiply defined symbols found
+     1>Tribes.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_GREEN" (?TRIBECOL_GREEN@Tribes@@2IA)
+     1>Unit.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_GREEN" (?TRIBECOL_GREEN@Tribes@@2IA)
+     1>Tribes.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_YELLOW" (?TRIBECOL_YELLOW@Tribes@@2IA)
+     1>Unit.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_YELLOW" (?TRIBECOL_YELLOW@Tribes@@2IA)
+     1>Tribes.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_RED" (?TRIBECOL_RED@Tribes@@2IA)
+     1>Unit.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_RED" (?TRIBECOL_RED@Tribes@@2IA)
+     1>Tribes.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_BLUE" (?TRIBECOL_BLUE@Tribes@@2IA)
+     1>Unit.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_BLUE" (?TRIBECOL_BLUE@Tribes@@2IA)
+     1>Tribes.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_NEUTRAL" (?TRIBECOL_NEUTRAL@Tribes@@2IA)
+     1>Unit.obj : error LNK2001: unresolved external symbol "public: static unsigned int Tribes::TRIBECOL_NEUTRAL" (?TRIBECOL_NEUTRAL@Tribes@@2IA)
+     1>..\bin\OpenPop_Debug.exe : fatal error LNK1120: 5 unresolved externals
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
      1>Done Building Project "C:\OpenPop\projects\OpenPop.vcxproj" (build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.82
+Time Elapsed 00:00:00.78
