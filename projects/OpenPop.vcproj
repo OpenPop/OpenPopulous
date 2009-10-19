@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="OpenPop"
 	ProjectGUID="{9E1646FC-22D3-4B5E-BA28-AE033A391C27}"
 	RootNamespace="OpenPop"
@@ -17,7 +17,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\objs\$(ConfigurationName)"
+			OutputDirectory="..\bin\"
 			IntermediateDirectory="..\objs\$(ConfigurationName)"
 			ConfigurationType="1"
 			CharacterSet="2"
@@ -186,6 +186,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\Tribes.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Video.cpp"
 				>
 			</File>
@@ -212,7 +216,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\sdl\sdl.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Sprites.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Tribes.h"
 				>
 			</File>
 			<File
