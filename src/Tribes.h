@@ -18,22 +18,19 @@
 #ifndef _TRIBES_H_
 #define _TRIBES_H_
 
-class Tribes{
-public:
-	static enum TRIBES{
-		TRIBE_BLUE,
-		TRIBE_RED,
-		TRIBE_YELLOW,
-		TRIBE_GREEN,
-	};
-	
-	static unsigned int TRIBECOL_NEUTRAL;
-	static unsigned int TRIBECOL_BLUE;
-	static unsigned int TRIBECOL_RED;
-	static unsigned int TRIBECOL_YELLOW;
-	static unsigned int TRIBECOL_GREEN;
-
-	static void LoadTribeCols();
+extern enum TRIBES{
+	TRIBE_BLUE,
+	TRIBE_RED,
+	TRIBE_YELLOW,
+	TRIBE_GREEN,
 };
+	
+extern unsigned int TRIBECOL_NEUTRAL;
+extern unsigned int TRIBECOL_BLUE;
+extern unsigned int TRIBECOL_RED;
+extern unsigned int TRIBECOL_YELLOW;
+extern unsigned int TRIBECOL_GREEN;
+
+extern void LoadTribeCols();
 
 #endif

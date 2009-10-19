@@ -34,6 +34,6 @@ namespace Graphics
 
 }
 
-extern int scale = 3;
+extern int scale;
 
 #endif

@@ -18,10 +18,16 @@
 #include "Tribes.h"
 #include "Sprites.h"
 
-void Tribes::LoadTribeCols(){
-	Tribes::TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 0) + 5]; // neutral tribe starts at 175
-	Tribes::TRIBECOL_BLUE    = Sprites::pal -> entry [215 + (8 * 0) + 5]; // other tribes start at 215
-	Tribes::TRIBECOL_RED     = Sprites::pal -> entry [215 + (8 * 3) + 5]; // 3 = 3rd tribe
-	Tribes::TRIBECOL_YELLOW  = Sprites::pal -> entry [215 + (8 * 2) + 5]; // 5 = entry in gradient
-	Tribes::TRIBECOL_GREEN   = Sprites::pal -> entry [215 + (8 * 1) + 5];
+unsigned int TRIBECOL_NEUTRAL;
+unsigned int TRIBECOL_BLUE;
+unsigned int TRIBECOL_RED;
+unsigned int TRIBECOL_YELLOW;
+unsigned int TRIBECOL_GREEN;
+
+void LoadTribeCols(){
+	TRIBECOL_NEUTRAL = Sprites::pal -> entry [175 + (8 * 0) + 5]; // neutral tribe starts at 175
+	TRIBECOL_BLUE    = Sprites::pal -> entry [215 + (8 * 0) + 5]; // other tribes start at 215
+	TRIBECOL_RED     = Sprites::pal -> entry [215 + (8 * 3) + 5]; // 3 = 3rd tribe
+	TRIBECOL_YELLOW  = Sprites::pal -> entry [215 + (8 * 2) + 5]; // 5 = entry in gradient
+	TRIBECOL_GREEN   = Sprites::pal -> entry [215 + (8 * 1) + 5];
 }

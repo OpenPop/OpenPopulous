@@ -2,6 +2,8 @@
 #include "Sprites.h"
 #include "Video.h"
 
+int scale = 3;
+
 namespace Graphics
 {
 	int GetScreenWidth()
