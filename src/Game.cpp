@@ -29,7 +29,7 @@ Game* gGame;
 
 Game::Game()
 {
-	Tribes::LoadTribeCols();
+	LoadTribeCols();
 	LoadMap("levels\\levl2131.dat");
 }
 
