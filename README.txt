@@ -37,6 +37,6 @@ can be found at http://popre.net/forum/.
 3.0) Credits:
 ---- --------
 
-See list of ocntributors at:
+See list of contributors at:
 
 http://sourceforge.net/project/memberlist.php?group_id=217921

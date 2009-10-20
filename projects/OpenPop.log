@@ -1,31 +1,29 @@
-﻿Build started 19/10/2009 5:56:31.
-     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 9 (build target(s)).
+﻿Build started 20/10/2009 2:11:38.
+     1>Project "C:\OpenPop\projects\OpenPop.vcxproj" on node 1 (build target(s)).
        Skipping target "IsProjectFileNewer" because all output files are up-to-date with respect to the input files.
      1>_PrepareForBuild:
          Touching "..\objs\Debug\lastbuild.timestamp".
        ClCompile:
-         Graphics.cpp
-     1>c:\openpop\src\sprites.h(29): warning C4099: 'Sprites::SpriteCollection' : type name first seen using 'class' now seen using 'struct'
-                 c:\openpop\src\graphics.h(25) : see declaration of 'Sprites::SpriteCollection'
-         Generating Code...
-         Compiling...
          Video.cpp
      1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
      1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
      1>c:\openpop\src\sprites.h(29): warning C4099: 'Sprites::SpriteCollection' : type name first seen using 'class' now seen using 'struct'
                  c:\openpop\src\graphics.h(25) : see declaration of 'Sprites::SpriteCollection'
-         Unit.cpp
-     1>c:\openpop\src\unit.cpp(60): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\openpop\src\unit.cpp(60): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         Sprites.cpp
+         Player.cpp
+     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         OpenPop.cpp
+     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         Object.cpp
+         Map.cpp
+         Input.cpp
+     1>c:\openpop\src\building.h(55): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\openpop\src\spell.h(111): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         Graphics.cpp
      1>c:\openpop\src\sprites.h(29): warning C4099: 'Sprites::SpriteCollection' : type name first seen using 'class' now seen using 'struct'
                  c:\openpop\src\graphics.h(25) : see declaration of 'Sprites::SpriteCollection'
-     1>c:\openpop\src\sprites.cpp(60): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\archivos de programa\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-     1>c:\openpop\src\sprites.cpp(94): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\openpop\src\sprites.cpp(130): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\archivos de programa\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-     1>c:\openpop\src\sprites.cpp(128): warning C4101: 'buffer' : unreferenced local variable
+         Camera.cpp
          Generating Code...
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
@@ -34,6 +32,7 @@
          Copyright (C) Microsoft Corporation.  All rights reserved.
          
          "/OUT:..\bin\OpenPop_Debug.exe" sdl.lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST "/ManifestFile:..\objs\Debug\OpenPop_Debug.exe.intermediate.manifest" "/MANIFESTUAC:level='asInvoker' uiAccess='false'" /DEBUG "/PDB:..\bin\OpenPop_Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 /ERRORREPORT:PROMPT ..\objs\Debug\Building.obj ..\objs\Debug\Camera.obj ..\objs\Debug\Game.obj ..\objs\Debug\Graphics.obj ..\objs\Debug\Input.obj ..\objs\Debug\Language.obj ..\objs\Debug\Map.obj ..\objs\Debug\Object.obj ..\objs\Debug\OpenPop.obj ..\objs\Debug\PathFinder.obj ..\objs\Debug\Player.obj ..\objs\Debug\Sprites.obj ..\objs\Debug\Tribes.obj ..\objs\Debug\Unit.obj ..\objs\Debug\Video.obj 
+         LINK : ..\bin\OpenPop_Debug.exe not found or not built by the last incremental link; performing full link
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\FileTrackerUI.dll failed.
      1>FileTracker : warning : Attempt to load UI satellite dll from c:\WINDOWS\Microsoft.NET\Framework\v4.0.20506\3082\TrackerUI.dll failed.
          OpenPop.vcxproj -> C:\OpenPop\projects\..\bin\OpenPop_Debug.exe
@@ -42,9 +41,9 @@
        CopyFilesToOutputDirectory:
          Copying file from "..\objs\Debug\OpenPop_Debug.pdb" to "..\bin\OpenPop_Debug.pdb".
        _AfterBuild:
-         Creating "..\objs\Debug\LastSuccessfulBuild.timestamp" because "AlwaysCreate" was specified.
+         Touching "..\objs\Debug\LastSuccessfulBuild.timestamp".
      1>Done Building Project "C:\OpenPop\projects\OpenPop.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.10
+Time Elapsed 00:00:14.84
