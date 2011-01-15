@@ -15,23 +15,34 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GRAPHICS_PALETTEFILE_H_
-#define _GRAPHICS_PALETTEFILE_H_
+#ifndef _GRAPHICS_SURFACE_H_
+#define _GRAPHICS_SURFACE_H_
 
-#include <string>
+#include <d3d9.h>
 
 namespace Graphics
 {
 
-class PaletteFile
+class PaletteFile;
+class RawFile;
+class Renderer;
+class Surface
 {
 public:
-	int mColours[256];
+	Renderer*				mRenderer;
+	LPDIRECT3DSURFACE9		mD3DSurface;
+	int						mWidth;
+	int						mHeight;
 
-	PaletteFile(std::string filename);
-	~PaletteFile();
+	Surface(Graphics::Renderer* renderer);
+	~Surface();
+
+	void Init();
+	void Clear(D3DCOLOR colour);
+	void DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y);
+	void DrawPixel(int x, int y, int colour);
 };
 
-} //namespace Graphics
+}
 
 #endif

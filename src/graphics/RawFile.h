@@ -18,6 +18,8 @@
 #ifndef _GRAPHICS_RAWFILE_H_
 #define _GRAPHICS_RAWFILE_H_
 
+#include <string>
+
 namespace Graphics
 {
 
@@ -25,7 +27,11 @@ namespace Graphics
 class RawFile
 {
 public:
-	RawFile();
+	int		mWidth;
+	int		mHeight;
+	char*	mBuffer;
+
+	RawFile(std::string filename, int width, int height);
 	
 private:
 
