@@ -4,6 +4,7 @@
 #include "..\Graphics\PaletteFile.h"
 #include "..\Graphics\RawFile.h"
 #include "..\Graphics\SpriteFile.h"
+#include "..\Graphics\Font.h"
 #include "..\Widgets\Screen.h"
 #include "MainMenu.h"
 
@@ -12,7 +13,7 @@ using namespace Widgets;
 
 PaletteFile* pal;
 RawFile* raw;
-SpriteFile* font;
+Font* font;
 
 MainMenu::MainMenu(OpenPop* openpop) :
 	Screen(openpop)
@@ -21,7 +22,9 @@ MainMenu::MainMenu(OpenPop* openpop) :
 
 	pal = new PaletteFile(popdir + "Data\\fenew\\fepal0.dat");
 	raw = new RawFile(popdir + "Data\\fenew\\febackg0.dat", 640, 480);
-	font = new SpriteFile(popdir + "Data\\fenew\\Felo33WE.spr");
+	
+
+	font = new Font(popdir + "Data\\fenew\\Felo33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
 }
 
 MainMenu::~MainMenu()
@@ -37,13 +40,7 @@ void MainMenu::Draw(Renderer *renderer)
 
 	//surface->Clear(D3DCOLOR_XRGB(255, 0, 0));
 	surface->DrawRAW(pal, raw, 0, 0);
-	surface->DrawSprite(pal, font, 47, 200, 200);		//O
-	surface->DrawSprite(pal, font, 48, 217, 200);		//P
-	surface->DrawSprite(pal, font, 37, 230, 200);		//E
-	surface->DrawSprite(pal, font, 46, 240, 200);		//N
-	surface->DrawSprite(pal, font, 48, 260, 200);		//P
-	surface->DrawSprite(pal, font, 47, 273, 200);		//O
-	surface->DrawSprite(pal, font, 48, 290, 200);		//P
+	font->DrawString(surface, "OPENPOP", 200, 200);
 
 	RECT rect;
 	rect.left = 0;
