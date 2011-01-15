@@ -231,6 +231,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\graphics\SpriteFile.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\graphics\SpriteFile.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\graphics\Surface.cpp"
 				>
 			</File>

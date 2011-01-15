@@ -15,34 +15,25 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GRAPHICS_SURFACE_H_
-#define _GRAPHICS_SURFACE_H_
+#ifndef _GRAPHICS_SPRITEFILE_H_
+#define _GRAPHICS_SPRITEFILE_H_
 
-#include <d3d9.h>
+#include <string>
 
 namespace Graphics
 {
 
-class PaletteFile;
-class RawFile;
-class SpriteFile;
-class Renderer;
-class Surface
+class SpriteFile
 {
 public:
-	Renderer*				mRenderer;
-	LPDIRECT3DSURFACE9		mD3DSurface;
-	int						mWidth;
-	int						mHeight;
+	int			mSprites;
+	short*		mWidths;
+	short*		mHeights;
+	int*		mOffsets;
+	char*		mBuffer;
 
-	Surface(Graphics::Renderer* renderer);
-	~Surface();
-
-	void Init();
-	void Clear(D3DCOLOR colour);
-	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int x, int y);
-	void DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y);
-	void DrawPixel(int x, int y, int colour);
+	SpriteFile(std::string filename);
+	~SpriteFile();
 };
 
 }
