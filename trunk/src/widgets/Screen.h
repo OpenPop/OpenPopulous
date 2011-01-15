@@ -15,23 +15,29 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GRAPHICS_PALETTEFILE_H_
-#define _GRAPHICS_PALETTEFILE_H_
+#ifndef _WIDGETS_SCREEN_H_
+#define _WIDGETS_SCREEN_H_
 
-#include <string>
+class OpenPop;
 
-namespace Graphics
+namespace Graphics {
+	Renderer;
+}
+
+namespace Widgets
 {
 
-class PaletteFile
+class Screen
 {
 public:
-	int mColours[256];
+	OpenPop*	mOpenPop;
 
-	PaletteFile(std::string filename);
-	~PaletteFile();
+	Screen(OpenPop* openpop);
+	~Screen();
+
+	virtual void Draw(Graphics::Renderer* renderer);
 };
 
-} //namespace Graphics
+}
 
 #endif

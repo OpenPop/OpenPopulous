@@ -42,7 +42,7 @@
 				Optimization="0"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="0"
+				RuntimeLibrary="1"
 				WarningLevel="3"
 				DebugInformationFormat="4"
 			/>
@@ -57,9 +57,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="d3d9.lib"
 				OutputFile="..\bin\$(ProjectName)_debug.exe"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)$(TargetName).pdb"
+				SubSystem="2"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -165,7 +167,15 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\src\graphics\PaletteFile.cpp"
+				RelativePath="..\src\menus\MainMenu.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\OpenPop.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\Screen.cpp"
 				>
 			</File>
 		</Filter>
@@ -175,7 +185,15 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\src\graphics\PaletteFile.h"
+				RelativePath="..\src\menus\MainMenu.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\OpenPop.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\Screen.h"
 				>
 			</File>
 		</Filter>
@@ -189,11 +207,35 @@
 			Name="Graphics"
 			>
 			<File
+				RelativePath="..\src\graphics\PaletteFile.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\graphics\PaletteFile.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\graphics\RawFile.cpp"
 				>
 			</File>
 			<File
 				RelativePath="..\src\graphics\RawFile.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\graphics\Renderer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\graphics\Renderer.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\graphics\Surface.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\graphics\Surface.h"
 				>
 			</File>
 		</Filter>
@@ -208,6 +250,18 @@
 				RelativePath="..\src\os\Win32.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\src\os\Win32.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Widgets"
+			>
+		</Filter>
+		<Filter
+			Name="Menus"
+			>
 		</Filter>
 	</Files>
 	<Globals>

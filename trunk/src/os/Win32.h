@@ -15,23 +15,12 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GRAPHICS_PALETTEFILE_H_
-#define _GRAPHICS_PALETTEFILE_H_
+#ifndef _OS_WIN32_H_
+#define _OS_WIN32_H_
 
-#include <string>
-
-namespace Graphics
+namespace OS
 {
-
-class PaletteFile
-{
-public:
-	int mColours[256];
-
-	PaletteFile(std::string filename);
-	~PaletteFile();
-};
-
-} //namespace Graphics
+	int osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
+} //namespace OS
 
 #endif

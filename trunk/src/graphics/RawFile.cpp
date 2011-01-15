@@ -17,11 +17,28 @@ You should have received a copy of the GNU General Public License
 along with poplib. If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <iostream>
+#include <fstream>
 #include "RawFile.h"
 
+using namespace std;
 using namespace Graphics;
 
-RawFile::RawFile()
+RawFile::RawFile(string filename, int width, int height)
 {
-	
+	mWidth = width;
+	mHeight = height;
+
+	mBuffer = new char[width * height];
+
+	ifstream fs;
+	fs.open(filename.c_str(), ios::binary);
+
+	for (int y = 0; y < mHeight; y++) {
+		for (int x = 0; x < mWidth; x++) {
+			fs.read((char*)&mBuffer[y * mWidth + x], sizeof(char));
+		}
+	}
+
+	fs.close();
 }
