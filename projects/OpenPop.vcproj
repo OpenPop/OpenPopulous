@@ -207,6 +207,14 @@
 			Name="Graphics"
 			>
 			<File
+				RelativePath="..\src\graphics\Font.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\graphics\Font.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\graphics\PaletteFile.cpp"
 				>
 			</File>
