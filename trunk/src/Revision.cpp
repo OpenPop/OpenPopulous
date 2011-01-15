@@ -15,32 +15,10 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#include "..\OpenPop.h"
-#include "..\Graphics\Renderer.h"
-#include "Screen.h"
+#include "Revision.h"
 
-using namespace Graphics;
-using namespace Widgets;
+const char _openpop_title[] = "OpenPop";
 
-Screen::Screen(OpenPop* openpop)
-{
-	mOpenPop = openpop;
-	mBackground = NULL;
-}
+const char _openpop_revision[] = "rev 50";
 
-Screen::~Screen()
-{
-}
-
-void Screen::Draw(Renderer* renderer)
-{
-	if (mBackground != NULL)
-		renderer->DrawRAW(mPalette, mBackground, 0, 0);
-
-	WidgetContainer::Draw(renderer);
-}
-
-void Screen::MouseMove(int x, int y)
-{
-	WidgetContainer::MouseMove(x, y);
-}
+const char _openpop_build_date[] = __DATE__ " " __TIME__;

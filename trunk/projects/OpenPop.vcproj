@@ -167,15 +167,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\src\menus\MainMenu.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\OpenPop.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\widgets\Screen.cpp"
+				RelativePath="..\src\Revision.cpp"
 				>
 			</File>
 		</Filter>
@@ -185,15 +181,11 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\src\menus\MainMenu.h"
-				>
-			</File>
-			<File
 				RelativePath="..\src\OpenPop.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\widgets\Screen.h"
+				RelativePath="..\src\Revision.h"
 				>
 			</File>
 		</Filter>
@@ -274,10 +266,50 @@
 		<Filter
 			Name="Widgets"
 			>
+			<File
+				RelativePath="..\src\widgets\Screen.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\Screen.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\TextLink.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\TextLink.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\Widget.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\Widget.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\WidgetContainer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\widgets\WidgetContainer.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Menus"
 			>
+			<File
+				RelativePath="..\src\menus\MainMenu.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\menus\MainMenu.h"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

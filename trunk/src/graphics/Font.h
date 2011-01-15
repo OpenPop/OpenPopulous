@@ -36,6 +36,8 @@ public:
 	~Font();
 
 	void DrawString(Surface* surface, std::string text, int x, int y);
+	int MeasureString(std::string text);
+	int GetHeight();
 };
 
 }

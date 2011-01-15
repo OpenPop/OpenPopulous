@@ -1,4 +1,25 @@
+/********************************************************************** 
+  This file is part of OpenPop
+
+  OpenPop is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  any later version.
+
+  OpenPop is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
+***********************************************************************/
+
 #include <d3d9.h>
+#include "PaletteFile.h"
+#include "RawFile.h"
+#include "SpriteFile.h"
+#include "Font.h"
 #include "Surface.h"
 #include "Renderer.h"
 
@@ -44,6 +65,11 @@ int Renderer::Init()
 
 	mD3DDEV->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &mBackBuffer);
 
+	mForeground = new Surface(this);
+	mForeground->mWidth = 640;
+	mForeground->mHeight = 480;
+	mForeground->Init();
+
 	return 1;
 }
 
@@ -65,6 +91,13 @@ bool Renderer::StartDraw()
 
 void Renderer::EndDraw()
 {
+	RECT rect;
+	rect.left = 0;
+	rect.top = 0;
+	rect.right = 640;
+	rect.bottom = 480;
+	BlitSurface(mForeground, rect);
+
 	if (!mDrawing)
 		return;
 
@@ -91,7 +124,7 @@ int Renderer::CreateSurface(LPDIRECT3DSURFACE9& surface, int width, int height)
 	return mD3DDEV->CreateOffscreenPlainSurface(
 		width,
 		height,
-		D3DFMT_X8R8G8B8,
+		D3DFMT_A8R8G8B8,
 		D3DPOOL_DEFAULT,
 		&surface,
 		NULL);
@@ -100,6 +133,21 @@ int Renderer::CreateSurface(LPDIRECT3DSURFACE9& surface, int width, int height)
 void Renderer::BlitSurface(Surface* surface, RECT rect)
 {
 	mD3DDEV->StretchRect(surface->mD3DSurface, NULL, mBackBuffer, &rect, D3DTEXF_NONE);
+}
+
+void Renderer::DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int x, int y)
+{
+	mForeground->DrawSprite(pal, sfile, index, x, y);
+}
+
+void Renderer::DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y)
+{
+	mForeground->DrawRAW(pal, raw, x, y);
+}
+
+void Renderer::DrawString(Font* font, std::string text, int x, int y)
+{
+	font->DrawString(mForeground, text, x, y);
 }
 
 }

@@ -19,10 +19,15 @@
 #define _GRAPHICS_RENDERER_H_
 
 #include <d3d9.h>
+#include <string>
 
 namespace Graphics
 {
 class Surface;
+class PaletteFile;
+class SpriteFile;
+class RawFile;
+class Font;
 class Renderer
 {
 public:
@@ -30,6 +35,7 @@ public:
 	LPDIRECT3D9				mD3D;
 	LPDIRECT3DDEVICE9		mD3DDEV;
 	LPDIRECT3DSURFACE9		mBackBuffer;
+	Surface*				mForeground;
 
 	Renderer();
 	~Renderer();
@@ -41,6 +47,9 @@ public:
 
 	int CreateSurface(LPDIRECT3DSURFACE9& surface, int width, int height);
 	void BlitSurface(Surface* surface, RECT rect);
+	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int x, int y);
+	void DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y);
+	void DrawString(Font* font, std::string, int x, int y);
 
 private:
 	bool mDrawing;
