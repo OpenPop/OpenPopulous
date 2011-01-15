@@ -15,32 +15,38 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#include "..\OpenPop.h"
-#include "..\Graphics\Renderer.h"
-#include "Screen.h"
+#ifndef _WIDGETS_TEXTLINK_H_
+#define _WIDGETS_TEXTLINK_H_
 
-using namespace Graphics;
-using namespace Widgets;
+#include <string>
+#include "Widget.h"
 
-Screen::Screen(OpenPop* openpop)
-{
-	mOpenPop = openpop;
-	mBackground = NULL;
+namespace Graphics {
+	Renderer;
+	Font;
 }
 
-Screen::~Screen()
+namespace Widgets
 {
+
+class TextLink :
+	public Widget
+{
+public:
+	std::string			mText;
+	Graphics::Font*		mFont;
+	Graphics::Font*		mHighlightFont;
+
+	bool				mHighlighted;
+
+	TextLink();
+	~TextLink();
+
+	virtual void Draw(Graphics::Renderer* renderer);
+
+	void AutoSize();
+};
+
 }
 
-void Screen::Draw(Renderer* renderer)
-{
-	if (mBackground != NULL)
-		renderer->DrawRAW(mPalette, mBackground, 0, 0);
-
-	WidgetContainer::Draw(renderer);
-}
-
-void Screen::MouseMove(int x, int y)
-{
-	WidgetContainer::MouseMove(x, y);
-}
+#endif

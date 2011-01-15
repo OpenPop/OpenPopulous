@@ -32,6 +32,8 @@ class OpenPop
 {
 public:
 	HWND					hWnd;
+	int						mLastTick;
+	int						mFrameRate;
 	Widgets::Screen*		mCurrentScreen;
 
 	OpenPop();
@@ -41,6 +43,8 @@ public:
 	void Run();
 	void Draw();
 	void Close();
+
+	void MouseMove(int x, int y);
 
 private:
 	Graphics::Renderer* mRenderer;

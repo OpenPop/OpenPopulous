@@ -1,4 +1,22 @@
+/********************************************************************** 
+  This file is part of OpenPop
+
+  OpenPop is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  any later version.
+
+  OpenPop is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
+***********************************************************************/
+
 #include <windows.h>
+#include <windowsx.h>
 
 #include "..\OpenPop.h"
 #include "Win32.h"
@@ -27,8 +45,8 @@ int osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int
 	HWND hWnd;
 
 	RECT rect = RECT();
-	rect.right = 800;
-	rect.bottom = 600;
+	rect.right = 640;
+	rect.bottom = 480;
 	
 	AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, NULL);
 
@@ -90,6 +108,11 @@ LRESULT WINAPI WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			game->Close();
 			PostQuitMessage(0);
 			return 0;
+		case WM_MOUSEMOVE:
+			int x = GET_X_LPARAM(lParam);
+			int y = GET_Y_LPARAM(lParam);
+			game->MouseMove(x, y);
+			break;
 	}
 
 	return DefWindowProc(hWnd, msg, wParam, lParam);

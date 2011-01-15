@@ -15,32 +15,37 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#include "..\OpenPop.h"
 #include "..\Graphics\Renderer.h"
-#include "Screen.h"
+#include "..\Graphics\Font.h"
+#include "Widget.h"
+#include "TextLink.h"
 
 using namespace Graphics;
 using namespace Widgets;
 
-Screen::Screen(OpenPop* openpop)
+TextLink::TextLink()
 {
-	mOpenPop = openpop;
-	mBackground = NULL;
+	
 }
 
-Screen::~Screen()
+TextLink::~TextLink()
 {
 }
 
-void Screen::Draw(Renderer* renderer)
+void TextLink::Draw(Renderer* renderer)
 {
-	if (mBackground != NULL)
-		renderer->DrawRAW(mPalette, mBackground, 0, 0);
+	Widget::Draw(renderer);
 
-	WidgetContainer::Draw(renderer);
+	mHighlighted = mMouseOver;
+
+	if (mHighlighted)
+		renderer->DrawString(mHighlightFont, mText, mX, mY);
+	else
+		renderer->DrawString(mFont, mText, mX, mY);
 }
 
-void Screen::MouseMove(int x, int y)
+void TextLink::AutoSize()
 {
-	WidgetContainer::MouseMove(x, y);
+	mWidth = mFont->MeasureString(mText);
+	mHeight = mFont->GetHeight();
 }

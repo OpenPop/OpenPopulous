@@ -18,24 +18,32 @@
 #ifndef _WIDGETS_SCREEN_H_
 #define _WIDGETS_SCREEN_H_
 
+#include "WidgetContainer.h"
+
 class OpenPop;
 
 namespace Graphics {
 	Renderer;
+	RawFile;
+	PaletteFile;
 }
 
 namespace Widgets
 {
 
-class Screen
+class Screen :
+	public WidgetContainer
 {
 public:
-	OpenPop*	mOpenPop;
+	OpenPop*					mOpenPop;
+	Graphics::RawFile*			mBackground;
+	Graphics::PaletteFile*		mPalette;
 
 	Screen(OpenPop* openpop);
 	~Screen();
 
 	virtual void Draw(Graphics::Renderer* renderer);
+	virtual void MouseMove(int x, int y);
 };
 
 }
