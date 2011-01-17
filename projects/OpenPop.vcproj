@@ -43,6 +43,9 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderThrough=""
+				PrecompiledHeaderFile="..\src\stdafx.h"
 				WarningLevel="3"
 				DebugInformationFormat="4"
 			/>
@@ -186,6 +189,10 @@
 			</File>
 			<File
 				RelativePath="..\src\Revision.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\stdafx.h"
 				>
 			</File>
 		</Filter>

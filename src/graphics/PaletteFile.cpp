@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include <iostream>
 #include <fstream>
 #include "PaletteFile.h"
@@ -27,8 +29,8 @@ PaletteFile::PaletteFile(string filename)
 	ifstream fs;
 	fs.open(filename.c_str(), ios::binary);
 
-	for (int i = 0; i < 256; i++) {
-		fs.read((char*)&mColours[i], sizeof(int));
+	for (sint32 i = 0; i < 256; i++) {
+		fs.read((char*)&mColours[i], sizeof(sint32));
 	}
 
 	fs.close();

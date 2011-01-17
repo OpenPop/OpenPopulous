@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include "Renderer.h"
 #include "PaletteFile.h"
 #include "RawFile.h"
@@ -42,23 +44,23 @@ void Surface::Clear(D3DCOLOR colour)
 	mRenderer->mD3DDEV->ColorFill(mD3DSurface, NULL, colour);
 }
 
-void Surface::DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int destX, int destY)
+void Surface::DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 destX, sint32 destY)
 {
 	HDC hDC;
 	mD3DSurface->GetDC(&hDC);
 
 	//Get sprite info.
-	int offset = sfile->mOffsets[index];
-	int width = sfile->mWidths[index];
-	int height = sfile->mHeights[index];
+	sint32 offset = sfile->mOffsets[index];
+	sint32 width = sfile->mWidths[index];
+	sint32 height = sfile->mHeights[index];
 
 	//Draw sprite with transparancy
-	char *sbuffer = sfile->mBuffer;
-	int pos = offset;
-	signed char counter;
-	for (int y = destY; y < destY + height; y++) {
+	sint8 *sbuffer = sfile->mBuffer;
+	sint32 pos = offset;
+	sint8 counter;
+	for (sint32 y = destY; y < destY + height; y++) {
 		//Set x to the start of destX
-		int x = destX;
+		sint32 x = destX;
 
 		//Loop through the pixels
 		do {
@@ -70,9 +72,9 @@ void Surface::DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int des
 
 			//Check if counter is positive
 			if (counter > 0) {
-				for (int i = 0; i < counter; i++) {
+				for (sint32 i = 0; i < counter; i++) {
 					//Draw so many of the next pixels
-					SetPixel(hDC, x, y, pal->mColours[(unsigned char)sbuffer[pos]]);
+					SetPixel(hDC, x, y, pal->mColours[(uint8)sbuffer[pos]]);
 
 					//Increment position
 					pos++;
@@ -92,13 +94,13 @@ void Surface::DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int des
 	mD3DSurface->ReleaseDC(hDC);
 }
 
-void Surface::DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y)
+void Surface::DrawRAW(PaletteFile* pal, RawFile* raw, sint32 x, sint32 y)
 {
 	HDC hDC;
 	mD3DSurface->GetDC(&hDC);
 	
-	for (int rx = 0; rx < raw->mWidth; rx++) {
-		for (int ry = 0; ry < raw->mHeight; ry++) {
+	for (sint32 rx = 0; rx < raw->mWidth; rx++) {
+		for (sint32 ry = 0; ry < raw->mHeight; ry++) {
 			SetPixel(hDC, x + rx, y+ ry, pal->mColours[raw->mBuffer[ry * raw->mWidth + rx]]);
 		}
 	}
@@ -106,7 +108,7 @@ void Surface::DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y)
 	mD3DSurface->ReleaseDC(hDC);
 }
 
-void Surface::DrawPixel(int x, int y, int colour)
+void Surface::DrawPixel(sint32 x, sint32 y, sint32 colour)
 {
 	HDC hDC;
 	mD3DSurface->GetDC(&hDC);

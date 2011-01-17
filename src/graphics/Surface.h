@@ -32,17 +32,17 @@ class Surface
 public:
 	Renderer*				mRenderer;
 	LPDIRECT3DSURFACE9		mD3DSurface;
-	int						mWidth;
-	int						mHeight;
+	sint32						mWidth;
+	sint32						mHeight;
 
 	Surface(Graphics::Renderer* renderer);
 	~Surface();
 
 	void Init();
 	void Clear(D3DCOLOR colour);
-	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int x, int y);
-	void DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y);
-	void DrawPixel(int x, int y, int colour);
+	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 x, sint32 y);
+	void DrawRAW(PaletteFile* pal, RawFile* raw, sint32 x, sint32 y);
+	void DrawPixel(sint32 x, sint32 y, sint32 colour);
 };
 
 }

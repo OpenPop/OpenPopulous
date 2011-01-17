@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include <d3d9.h>
 #include "PaletteFile.h"
 #include "RawFile.h"
@@ -34,7 +36,7 @@ Renderer::~Renderer()
 {
 }
 
-int Renderer::Init()
+sint32 Renderer::Init()
 {
 	mD3D = Direct3DCreate9(D3D_SDK_VERSION);
 	if (mD3D == NULL) {
@@ -119,7 +121,7 @@ void Renderer::Close()
 		mD3D->Release();
 }
 
-int Renderer::CreateSurface(LPDIRECT3DSURFACE9& surface, int width, int height)
+sint32 Renderer::CreateSurface(LPDIRECT3DSURFACE9& surface, sint32 width, sint32 height)
 {
 	return mD3DDEV->CreateOffscreenPlainSurface(
 		width,
@@ -135,17 +137,17 @@ void Renderer::BlitSurface(Surface* surface, RECT rect)
 	mD3DDEV->StretchRect(surface->mD3DSurface, NULL, mBackBuffer, &rect, D3DTEXF_NONE);
 }
 
-void Renderer::DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int x, int y)
+void Renderer::DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 x, sint32 y)
 {
 	mForeground->DrawSprite(pal, sfile, index, x, y);
 }
 
-void Renderer::DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y)
+void Renderer::DrawRAW(PaletteFile* pal, RawFile* raw, sint32 x, sint32 y)
 {
 	mForeground->DrawRAW(pal, raw, x, y);
 }
 
-void Renderer::DrawString(Font* font, std::string text, int x, int y)
+void Renderer::DrawString(Font* font, std::string text, sint32 x, sint32 y)
 {
 	font->DrawString(mForeground, text, x, y);
 }

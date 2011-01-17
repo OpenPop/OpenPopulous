@@ -40,16 +40,16 @@ public:
 	Renderer();
 	~Renderer();
 
-	int Init();
+	sint32 Init();
 	bool StartDraw();
 	void EndDraw();
 	void Close();
 
-	int CreateSurface(LPDIRECT3DSURFACE9& surface, int width, int height);
+	sint32 CreateSurface(LPDIRECT3DSURFACE9& surface, sint32 width, sint32 height);
 	void BlitSurface(Surface* surface, RECT rect);
-	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, int index, int x, int y);
-	void DrawRAW(PaletteFile* pal, RawFile* raw, int x, int y);
-	void DrawString(Font* font, std::string, int x, int y);
+	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 x, sint32 y);
+	void DrawRAW(PaletteFile* pal, RawFile* raw, sint32 x, sint32 y);
+	void DrawString(Font* font, std::string, sint32 x, sint32 y);
 
 private:
 	bool mDrawing;

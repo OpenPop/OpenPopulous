@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include "..\OpenPop.h"
 #include "..\Graphics\Renderer.h"
 #include "Widget.h"
@@ -42,7 +44,7 @@ void WidgetContainer::Draw(Renderer* renderer)
 	}
 }
 
-void WidgetContainer::MouseMove(int x, int y)
+void WidgetContainer::MouseMove(sint32 x, sint32 y)
 {
 	Widget* overWidget = GetWidgetAt(x, y);
 
@@ -68,7 +70,7 @@ void WidgetContainer::RemoveWidget(Widget* w)
 	mWidgets.remove(w);
 }
 
-Widget* WidgetContainer::GetWidgetAt(int x, int y)
+Widget* WidgetContainer::GetWidgetAt(sint32 x, sint32 y)
 {
 	WidgetList::iterator it;
 

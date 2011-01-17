@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include <iostream>
 #include <fstream>
 #include "RawFile.h"
@@ -22,19 +24,19 @@
 using namespace std;
 using namespace Graphics;
 
-RawFile::RawFile(string filename, int width, int height)
+RawFile::RawFile(string filename, sint32 width, sint32 height)
 {
 	mWidth = width;
 	mHeight = height;
 
-	mBuffer = new char[width * height];
+	mBuffer = new sint8[width * height];
 
 	ifstream fs;
 	fs.open(filename.c_str(), ios::binary);
 
-	for (int y = 0; y < mHeight; y++) {
-		for (int x = 0; x < mWidth; x++) {
-			fs.read((char*)&mBuffer[y * mWidth + x], sizeof(char));
+	for (sint32 y = 0; y < mHeight; y++) {
+		for (sint32 x = 0; x < mWidth; x++) {
+			fs.read((char*)&mBuffer[y * mWidth + x], sizeof(sint8));
 		}
 	}
 
