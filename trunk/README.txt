@@ -1,5 +1,5 @@
 OpenPop README
-Last updated:    2008-11-19
+Last updated:    2011-01-17
 Release version: <Not Available>
 ------------------------------------------------------------------------
 
@@ -37,6 +37,6 @@ can be found at http://popre.net/forum/.
 3.0) Credits:
 ---- --------
 
-See list of ocntributors at:
+See list of contributors at:
 
 http://sourceforge.net/project/memberlist.php?group_id=217921
