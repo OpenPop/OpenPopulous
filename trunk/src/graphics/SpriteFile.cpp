@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include <iostream>
 #include <fstream>
 #include "SpriteFile.h"
@@ -22,7 +24,7 @@
 using namespace std;
 using namespace Graphics;
 
-const int SpriteFileMagicNumber = 0x50534642;
+const uint32 SpriteFileMagicNumber = 0x42465350;
 
 SpriteFile::SpriteFile(string filename)
 {
@@ -30,29 +32,29 @@ SpriteFile::SpriteFile(string filename)
 	fs.open(filename.c_str(), ios::binary);
 
 	fs.seekg(0, ios::end);
-	int size = fs.tellg();
+	sint32 size = fs.tellg();
 	fs.seekg(0, ios::beg);
 
-	mBuffer = new char[size];
+	mBuffer = new sint8[size];
 	
-	fs.read(mBuffer, size);
+	fs.read((char*)mBuffer, size);
 
 	fs.close();
 
-	if (!((int*)&mBuffer[0]) == SpriteFileMagicNumber) {
+	if (*((uint32*)&mBuffer[0]) != SpriteFileMagicNumber) {
 		return;
 	}
 
-	mSprites = ((int*)mBuffer)[1];
-	mWidths = new short[mSprites];
-	mHeights = new short[mSprites];
-	mOffsets = new int[mSprites];
+	mSprites = ((sint32*)mBuffer)[1];
+	mWidths = new uint16[mSprites];
+	mHeights = new uint16[mSprites];
+	mOffsets = new uint32[mSprites];
 
-	int pos = 8;
-	for (int i = 0; i < mSprites; i++) {
+	sint32 pos = 8;
+	for (uint32 i = 0; i < mSprites; i++) {
 		mWidths[i] = *((short*)&mBuffer[pos]); pos += 2;
 		mHeights[i] = *((short*)&mBuffer[pos]); pos += 2;
-		mOffsets[i] = *((int*)&mBuffer[pos]); pos += 4;
+		mOffsets[i] = *((sint32*)&mBuffer[pos]); pos += 4;
 	}
 }
 

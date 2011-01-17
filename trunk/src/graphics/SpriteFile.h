@@ -26,11 +26,11 @@ namespace Graphics
 class SpriteFile
 {
 public:
-	int			mSprites;
-	short*		mWidths;
-	short*		mHeights;
-	int*		mOffsets;
-	char*		mBuffer;
+	uint32		mSprites;
+	uint16*		mWidths;
+	uint16*		mHeights;
+	uint32*		mOffsets;
+	sint8*		mBuffer;
 
 	SpriteFile(std::string filename);
 	~SpriteFile();

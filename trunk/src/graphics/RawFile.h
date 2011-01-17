@@ -27,11 +27,11 @@ namespace Graphics
 class RawFile
 {
 public:
-	int		mWidth;
-	int		mHeight;
-	char*	mBuffer;
+	sint32		mWidth;
+	sint32		mHeight;
+	sint8*		mBuffer;
 
-	RawFile(std::string filename, int width, int height);
+	RawFile(std::string filename, sint32 width, sint32 height);
 	
 private:
 

@@ -20,7 +20,7 @@
 
 namespace OS
 {
-	int osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
+	sint32 osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, sint32 nCmdShow);
 } //namespace OS
 
 #endif

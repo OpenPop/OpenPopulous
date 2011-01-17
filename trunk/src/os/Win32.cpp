@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include <windows.h>
 #include <windowsx.h>
 
@@ -23,7 +25,7 @@
 
 #define APPTITLE		"OpenPop"
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+sint32 WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, sint32 nCmdShow)
 {
 	OS::osWinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 }
@@ -36,7 +38,7 @@ OpenPop* game;
 LRESULT WINAPI WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 ATOM RegisterOpenPopClass(HINSTANCE hInstance);
 
-int osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+sint32 osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, sint32 nCmdShow)
 {
 	MSG msg;
 
@@ -63,7 +65,7 @@ int osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int
 		hInstance,
 		NULL);
 
-	//int error = GetLastError();
+	//sint32 error = GetLastError();
 
 	if (!hWnd)
 		return FALSE;
@@ -80,7 +82,7 @@ int osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int
 		return 0;
 
 	//main message loop
-	int done = 0;
+	sint32 done = 0;
 	while (!done) {
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 			//look for quit message
@@ -109,8 +111,8 @@ LRESULT WINAPI WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			PostQuitMessage(0);
 			return 0;
 		case WM_MOUSEMOVE:
-			int x = GET_X_LPARAM(lParam);
-			int y = GET_Y_LPARAM(lParam);
+			sint32 x = GET_X_LPARAM(lParam);
+			sint32 y = GET_Y_LPARAM(lParam);
 			game->MouseMove(x, y);
 			break;
 	}

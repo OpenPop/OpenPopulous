@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include "..\OpenPop.h"
 #include "..\Graphics\Renderer.h"
 #include "Screen.h"
@@ -40,7 +42,7 @@ void Screen::Draw(Renderer* renderer)
 	WidgetContainer::Draw(renderer);
 }
 
-void Screen::MouseMove(int x, int y)
+void Screen::MouseMove(sint32 x, sint32 y)
 {
 	WidgetContainer::MouseMove(x, y);
 }

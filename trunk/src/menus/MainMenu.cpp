@@ -15,7 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#include "..\Revision.h"
+#include "..\stdafx.h"
+
 #include "..\OpenPop.h"
 #include "..\Graphics\Renderer.h"
 #include "..\Graphics\Surface.h"
@@ -49,17 +50,17 @@ MainMenu::MainMenu(OpenPop* openpop) :
 	mPalette = pal;
 	mBackground = raw;
 
-	int numItems = 7;
+	sint32 numItems = 7;
 	std::string items[] = { "New Game", "Tutorial", "Load Game", "Multiplayer", "Options", "Credits", "Exit" };
 
 	Font* f1 = new Font(popdir + "Data\\fenew\\Feft33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
 	Font* f2 = new Font(popdir + "Data\\fenew\\Fehi33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
 
-	int menuSpacing = 10;
-	int ymenuHeight = (numItems * f1->GetHeight()) + (numItems * menuSpacing);
-	int ystart = (480 / 5 * 3) - (ymenuHeight / 2);
+	sint32 menuSpacing = 10;
+	sint32 ymenuHeight = (numItems * f1->GetHeight()) + (numItems * menuSpacing);
+	sint32 ystart = (480 / 5 * 3) - (ymenuHeight / 2);
 
-	for (int i = 0; i < numItems; i++) {
+	for (sint32 i = 0; i < numItems; i++) {
 		TextLink* w = new TextLink();
 		w->mFont = new Font(popdir + "Data\\fenew\\Feft33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
 		w->mHighlightFont = new Font(popdir + "Data\\fenew\\Fehi33WE.spr", popdir + "Data\\fenew\\fepal0.dat");

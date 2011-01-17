@@ -26,7 +26,7 @@ namespace Graphics
 class PaletteFile
 {
 public:
-	int mColours[256];
+	sint32 mColours[256];
 
 	PaletteFile(std::string filename);
 	~PaletteFile();

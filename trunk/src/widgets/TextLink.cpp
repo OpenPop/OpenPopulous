@@ -15,6 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
+
 #include "..\Graphics\Renderer.h"
 #include "..\Graphics\Font.h"
 #include "Widget.h"

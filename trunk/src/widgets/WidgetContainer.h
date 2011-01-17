@@ -40,12 +40,12 @@ public:
 	~WidgetContainer();
 
 	virtual void Draw(Graphics::Renderer* renderer);
-	virtual void MouseMove(int x, int y);
+	virtual void MouseMove(sint32 x, sint32 y);
 
 	void AddWidget(Widget* w);
 	void RemoveWidget(Widget* w);
 
-	Widget* GetWidgetAt(int x, int y);
+	Widget* GetWidgetAt(sint32 x, sint32 y);
 };
 
 }

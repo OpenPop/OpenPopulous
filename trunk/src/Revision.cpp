@@ -15,6 +15,7 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "stdafx.h"
 #include "Revision.h"
 
 const char _openpop_title[] = "OpenPop";

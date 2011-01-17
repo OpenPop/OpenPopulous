@@ -43,7 +43,7 @@ public:
 	~Screen();
 
 	virtual void Draw(Graphics::Renderer* renderer);
-	virtual void MouseMove(int x, int y);
+	virtual void MouseMove(sint32 x, sint32 y);
 };
 
 }

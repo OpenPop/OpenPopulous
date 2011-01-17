@@ -15,6 +15,7 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "stdafx.h"
 #include "Graphics\Renderer.h"
 #include "Widgets\Screen.h"
 #include "Menus\MainMenu.h"
@@ -36,7 +37,7 @@ OpenPop::~OpenPop()
 		delete mRenderer;
 }
 
-int OpenPop::Init()
+sint32 OpenPop::Init()
 {
 	mRenderer = new Renderer();
 	mRenderer->hWnd = hWnd;
@@ -49,8 +50,8 @@ int OpenPop::Init()
 
 void OpenPop::Run()
 {
-	int currentTick = GetTickCount();
-	int difference = currentTick - mLastTick;
+	sint32 currentTick = GetTickCount();
+	sint32 difference = currentTick - mLastTick;
 	if (difference == 0)
 		difference = 1;
 
@@ -81,7 +82,7 @@ void OpenPop::Close()
 		mRenderer->Close();
 }
 
-void OpenPop::MouseMove(int x, int y)
+void OpenPop::MouseMove(sint32 x, sint32 y)
 {
 	if (mCurrentScreen != NULL) {
 		mCurrentScreen->MouseMove(x, y);

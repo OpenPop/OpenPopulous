@@ -15,6 +15,7 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
+#include "..\stdafx.h"
 #include "Surface.h"
 #include "PaletteFile.h"
 #include "SpriteFile.h"
@@ -33,9 +34,9 @@ Font::~Font()
 {
 }
 
-void Font::DrawString(Surface* surface, string text, int x, int y)
+void Font::DrawString(Surface* surface, string text, sint32 x, sint32 y)
 {
-	for (int i = 0; i < text.length(); i++) {
+	for (sint32 i = 0; i < text.length(); i++) {
 		char c = text[i];
 		c -= 32;
 
@@ -46,10 +47,10 @@ void Font::DrawString(Surface* surface, string text, int x, int y)
 	}
 }
 
-int Font::MeasureString(std::string text)
+sint32 Font::MeasureString(std::string text)
 {
-	int x = 0;
-	for (int i = 0; i < text.length(); i++) {
+	sint32 x = 0;
+	for (sint32 i = 0; i < text.length(); i++) {
 		char c = text[i];
 		c -= 32;
 
@@ -60,7 +61,7 @@ int Font::MeasureString(std::string text)
 	return x;
 }
 
-int Font::GetHeight()
+sint32 Font::GetHeight()
 {
 	return mSpriteFile->mHeights[0];
 }
