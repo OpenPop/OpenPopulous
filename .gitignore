@@ -1,1 +1,3 @@
-bin
+objs
+openpoptest
+test.txt
