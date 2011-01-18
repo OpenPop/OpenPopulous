@@ -41,9 +41,12 @@ public:
 
 	virtual void Draw(Graphics::Renderer* renderer);
 	virtual void MouseMove(sint32 x, sint32 y);
+	virtual void MouseDown(sint32 button, sint32 x, sint32 y);
+	virtual void MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y);
 
 	void AddWidget(Widget* w);
 	void RemoveWidget(Widget* w);
+	void RemoveAllWidgets();
 
 	Widget* GetWidgetAt(sint32 x, sint32 y);
 };

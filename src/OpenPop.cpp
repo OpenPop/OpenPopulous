@@ -88,3 +88,10 @@ void OpenPop::MouseMove(sint32 x, sint32 y)
 		mCurrentScreen->MouseMove(x, y);
 	}
 }
+
+void OpenPop::MouseDown(sint32 button, sint32 x, sint32 y)
+{
+	if (mCurrentScreen != NULL) {
+		mCurrentScreen->MouseDown(button, x, y);
+	}
+}

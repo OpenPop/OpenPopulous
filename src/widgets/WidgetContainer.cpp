@@ -60,6 +60,18 @@ void WidgetContainer::MouseMove(sint32 x, sint32 y)
 	}
 }
 
+void WidgetContainer::MouseDown(sint32 button, sint32 x, sint32 y)
+{
+	Widget* overWidget = GetWidgetAt(x, y);
+	if (overWidget != NULL)
+		MouseDown(overWidget, button, x, y);
+}
+
+void WidgetContainer::MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y)
+{
+	
+}
+
 void WidgetContainer::AddWidget(Widget* w)
 {
 	mWidgets.push_front(w);
@@ -68,6 +80,11 @@ void WidgetContainer::AddWidget(Widget* w)
 void WidgetContainer::RemoveWidget(Widget* w)
 {
 	mWidgets.remove(w);
+}
+
+void WidgetContainer::RemoveAllWidgets()
+{
+	mWidgets.clear();
 }
 
 Widget* WidgetContainer::GetWidgetAt(sint32 x, sint32 y)

@@ -105,15 +105,21 @@ sint32 osWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, 
 
 LRESULT WINAPI WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+	sint32 x, y;
 	switch (msg) {
 		case WM_DESTROY:
 			game->Close();
 			PostQuitMessage(0);
 			return 0;
 		case WM_MOUSEMOVE:
-			sint32 x = GET_X_LPARAM(lParam);
-			sint32 y = GET_Y_LPARAM(lParam);
+			x = GET_X_LPARAM(lParam);
+			y = GET_Y_LPARAM(lParam);
 			game->MouseMove(x, y);
+			break;
+		case WM_LBUTTONDOWN:
+			x = GET_X_LPARAM(lParam);
+			y = GET_Y_LPARAM(lParam);
+			game->MouseDown(0, x, y);
 			break;
 	}
 

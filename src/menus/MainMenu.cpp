@@ -32,46 +32,20 @@
 using namespace Graphics;
 using namespace Widgets;
 
-PaletteFile* pal;
-RawFile* raw;
-Font* font;
-
 MainMenu::MainMenu(OpenPop* openpop) :
 	Screen(openpop)
 {
 	std::string popdir = "C:\\Program Files\\Bullfrog\\Populous\\";
 
-	pal = new PaletteFile(popdir + "Data\\fenew\\fepal0.dat");
-	raw = new RawFile(popdir + "Data\\fenew\\febackg0.dat", 640, 480);
-	
+	mPalette = new PaletteFile(popdir + "Data\\fenew\\fepal0.dat");
+	mBackground = new RawFile(popdir + "Data\\fenew\\febackg0.dat", 640, 480);
 
-	font = new Font(popdir + "Data\\fenew\\Felo20WE.spr", popdir + "Data\\fenew\\fepal0.dat");
+	mSmallTextFont = new Font(popdir + "Data\\fenew\\Felo20WE.spr", popdir + "Data\\fenew\\fepal0.dat");
+	mTextLinkFont = new Font(popdir + "Data\\fenew\\Feft33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
+	mTextLinkHighlightFont = new Font(popdir + "Data\\fenew\\Fehi33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
 
-	mPalette = pal;
-	mBackground = raw;
-
-	sint32 numItems = 7;
-	std::string items[] = { "New Game", "Tutorial", "Load Game", "Multiplayer", "Options", "Credits", "Exit" };
-
-	Font* f1 = new Font(popdir + "Data\\fenew\\Feft33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	Font* f2 = new Font(popdir + "Data\\fenew\\Fehi33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-
-	sint32 menuSpacing = 10;
-	sint32 ymenuHeight = (numItems * f1->GetHeight()) + (numItems * menuSpacing);
-	sint32 ystart = (480 / 5 * 3) - (ymenuHeight / 2);
-
-	for (sint32 i = 0; i < numItems; i++) {
-		TextLink* w = new TextLink();
-		w->mFont = new Font(popdir + "Data\\fenew\\Feft33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-		w->mHighlightFont = new Font(popdir + "Data\\fenew\\Fehi33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-		w->mText = items[i];
-		w->AutoSize();
-
-		w->mX = (640 / 2) - (w->mWidth / 2);
-		w->mY = ystart + (i * f1->GetHeight()) + (i * menuSpacing);
-
-		AddWidget(w);
-	}
+	SetMenuMain();
+	//SetMenuSP();
 }
 
 MainMenu::~MainMenu()
@@ -83,5 +57,70 @@ void MainMenu::Draw(Renderer *renderer)
 	Screen::Draw(renderer);
 
 	std::string szVersion = std::string(_openpop_title) + " " + _openpop_revision + " @ " + _openpop_build_date;
-	renderer->DrawString(font, szVersion, 2, 460);
+	renderer->DrawString(mSmallTextFont, szVersion, 2, 460);
+}
+
+void MainMenu::SetMenuMain()
+{
+	std::string items[] = { "Single Player", "Multiplayer", "Options", "Rolling Demo", "Credits", "Exit" };
+	uint32 numItems = sizeof(items) / sizeof(items[0]);
+
+	uint32 menuSpacing = 10;
+	uint32 ymenuHeight = (numItems * mTextLinkFont->GetHeight()) + (numItems * menuSpacing);
+	uint32 ystart = (480 / 5 * 3) - (ymenuHeight / 2);
+
+	for (uint32 i = 0; i < numItems; i++) {
+		TextLink* w = new TextLink();
+		w->mID = i;
+		w->mFont = mTextLinkFont;
+		w->mHighlightFont = mTextLinkHighlightFont;
+		w->mText = items[i];
+		w->AutoSize();
+
+		w->mX = (640 / 2) - (w->mWidth / 2);
+		w->mY = ystart + (i * mTextLinkFont->GetHeight()) + (i * menuSpacing);
+
+		AddWidget(w);
+	}
+
+	mMenuType = 0;
+}
+
+void MainMenu::SetMenuSP()
+{
+	std::string items[] = { "Tutorial", "The Beginning", "Undiscovered Worlds", "Skirmish", "Load Game", "Back" };
+	uint32 numItems = sizeof(items) / sizeof(items[0]);
+
+	uint32 menuSpacing = 10;
+	uint32 ymenuHeight = (numItems * mTextLinkFont->GetHeight()) + (numItems * menuSpacing);
+	uint32 ystart = (480 / 5 * 3) - (ymenuHeight / 2);
+
+	for (uint32 i = 0; i < numItems; i++) {
+		TextLink* w = new TextLink();
+		w->mID = i;
+		w->mFont = mTextLinkFont;
+		w->mHighlightFont = mTextLinkHighlightFont;
+		w->mText = items[i];
+		w->AutoSize();
+
+		w->mX = (640 / 2) - (w->mWidth / 2);
+		w->mY = ystart + (i * mTextLinkFont->GetHeight()) + (i * menuSpacing);
+
+		AddWidget(w);
+	}
+
+	mMenuType = 1;
+}
+
+void MainMenu::MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y)
+{
+	WidgetContainer::MouseDown(widget, button, x, y);
+
+	if (widget->mID == 0 && mMenuType == 0) {
+		RemoveAllWidgets();
+		SetMenuSP();
+	} else if (widget->mID == 5 && mMenuType == 1) {
+		RemoveAllWidgets();
+		SetMenuMain();
+	}
 }

@@ -45,6 +45,7 @@ public:
 	void Close();
 
 	void MouseMove(sint32 x, sint32 y);
+	void MouseDown(sint32 button, sint32 x, sint32 y);
 
 private:
 	Graphics::Renderer* mRenderer;

@@ -22,10 +22,12 @@ class OpenPop;
 
 namespace Graphics {
 	Renderer;
+	Font;
 }
 
 namespace Widgets {
 	class Screen;
+	class Widget;
 }
 
 class MainMenu :
@@ -36,6 +38,19 @@ public:
 	~MainMenu();
 
 	void Draw(Graphics::Renderer *renderer);
+
+private:
+	Graphics::Font*		mTextLinkFont;
+	Graphics::Font*		mTextLinkHighlightFont;
+	Graphics::Font*		mTextLinkShadowFont;
+	Graphics::Font*		mSmallTextFont;
+
+	uint32				mMenuType;
+
+	void SetMenuMain();
+	void SetMenuSP();
+
+	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
 };
 
 #endif

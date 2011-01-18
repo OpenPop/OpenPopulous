@@ -28,11 +28,12 @@ namespace Widgets
 class Widget
 {
 public:
+	sint32			mID;
 	sint32			mX;
 	sint32			mY;
 	sint32			mWidth;
 	sint32			mHeight;
-	bool		mMouseOver;
+	bool			mMouseOver;
 
 	Widget();
 	~Widget();
