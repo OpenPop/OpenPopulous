@@ -15,49 +15,32 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_MAINMENU_H_
-#define _MENUS_MAINMENU_H_
+#ifndef _GAME_ROUTE_H_
+#define _GAME_ROUTE_H_
 
-class OpenPop;
+#include <list>
 
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-}
-
-namespace Menus
+namespace Game
 {
 
-class MainMenu :
-	public Widgets::Screen
+struct RoutePoint
+{
+	uint32		mX;
+	uint32		mY;
+};
+typedef std::list<RoutePoint> RoutePointList;
+
+class Route
 {
 public:
-	MainMenu(OpenPop* openpop);
-	~MainMenu();
+	uint32				mDestX;
+	uint32				mDestY;
+	RoutePointList		mRoutePoints;
 
-	void Draw(Graphics::Renderer *renderer);
+	Route();
+	~Route();
 
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
-
-	uint32				mMenuType;
-
-	void SetMenu(std::string* items, int numItems);
-	void SetMenuMain();
-	void SetMenuSP();
-	void SetMenuMP();
-	void SetMenuME();
-
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	void Calculate();
 };
 
 }

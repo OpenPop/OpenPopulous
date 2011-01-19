@@ -15,49 +15,19 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_MAINMENU_H_
-#define _MENUS_MAINMENU_H_
+#ifndef _GAME_TRIBE_H_
+#define _GAME_TRIBE_H_
 
-class OpenPop;
-
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-}
-
-namespace Menus
+namespace Game
 {
 
-class MainMenu :
-	public Widgets::Screen
+class Tribe
 {
 public:
-	MainMenu(OpenPop* openpop);
-	~MainMenu();
+	uint8			mID;		//1 - Dakini, 2 - Chumara etc.
 
-	void Draw(Graphics::Renderer *renderer);
-
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
-
-	uint32				mMenuType;
-
-	void SetMenu(std::string* items, int numItems);
-	void SetMenuMain();
-	void SetMenuSP();
-	void SetMenuMP();
-	void SetMenuME();
-
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	Tribe();
+	~Tribe();
 };
 
 }

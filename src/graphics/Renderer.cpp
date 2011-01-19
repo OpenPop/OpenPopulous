@@ -137,6 +137,11 @@ void Renderer::BlitSurface(Surface* surface, RECT rect)
 	mD3DDEV->StretchRect(surface->mD3DSurface, NULL, mBackBuffer, &rect, D3DTEXF_NONE);
 }
 
+void Renderer::DrawSprite(PaletteFile* pal, SpriteFile* sfile, SpriteFile* asfile, sint32 index, sint32 x, sint32 y)
+{
+	mForeground->DrawSprite(pal, sfile, asfile, index, x, y);
+}
+
 void Renderer::DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 x, sint32 y)
 {
 	mForeground->DrawSprite(pal, sfile, index, x, y);

@@ -15,49 +15,32 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_MAINMENU_H_
-#define _MENUS_MAINMENU_H_
+#ifndef _GAME_BUILDING_H_
+#define _GAME_BUILDING_H_
 
-class OpenPop;
+#include <list>
 
-namespace Graphics {
-	Renderer;
-	Font;
-}
+#include "Object.h"
 
-namespace Widgets {
-	class Screen;
-	class Widget;
-}
-
-namespace Menus
+namespace Game
 {
 
-class MainMenu :
-	public Widgets::Screen
+class Unit;
+class Building
+	: public Object
 {
 public:
-	MainMenu(OpenPop* openpop);
-	~MainMenu();
+	uint32					mWood;
+	uint32					mMaxWood;
+	uint32					mMaxCapacity;
+	std::list<Unit*>		mUnits;
 
-	void Draw(Graphics::Renderer *renderer);
+	uint32					mFireTime;
 
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
+	Building();
+	~Building();
 
-	uint32				mMenuType;
-
-	void SetMenu(std::string* items, int numItems);
-	void SetMenuMain();
-	void SetMenuSP();
-	void SetMenuMP();
-	void SetMenuME();
-
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	virtual void Update();
 };
 
 }

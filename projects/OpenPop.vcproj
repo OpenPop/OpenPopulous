@@ -201,6 +201,18 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath="..\media\openpop.ico"
+				>
+			</File>
+			<File
+				RelativePath="..\src\os\openpopres.rc"
+				>
+			</File>
+			<File
+				RelativePath="..\src\os\resource.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Graphics"
@@ -257,6 +269,14 @@
 		<Filter
 			Name="Language"
 			>
+			<File
+				RelativePath="..\src\language\Language.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\language\Language.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="OS"
@@ -315,6 +335,66 @@
 			</File>
 			<File
 				RelativePath="..\src\menus\MainMenu.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\menus\PreGameLobby.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\menus\PreGameLobby.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Game"
+			>
+			<File
+				RelativePath="..\src\game\Building.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Building.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Object.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Object.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Player.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Player.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Route.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Route.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Tribe.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Tribe.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Unit.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\Unit.h"
 				>
 			</File>
 		</Filter>

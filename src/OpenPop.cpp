@@ -16,18 +16,26 @@
 ***********************************************************************/
 
 #include "stdafx.h"
+
 #include "Graphics\Renderer.h"
 #include "Widgets\Screen.h"
 #include "Menus\MainMenu.h"
+#include "Language\Language.h"
 #include "OpenPop.h"
 
 using namespace Graphics;
 using namespace Widgets;
+using namespace Menus;
+using namespace Languages;
 
 OpenPop::OpenPop()
 {
 	mLastTick = 0;
 	mFrameRate = 0;
+
+	std::string popdir = "C:\\Program Files\\Bullfrog\\Populous\\";
+	mCurrentLanguage = new Language(popdir + "language\\lang00.dat");
+
 	mCurrentScreen = new MainMenu(this);
 }
 
@@ -80,6 +88,16 @@ void OpenPop::Close()
 {
 	if (mRenderer != NULL)
 		mRenderer->Close();
+}
+
+std::string OpenPop::GetText(uint32 index)
+{
+	return mCurrentLanguage->GetText(index);
+}
+
+void OpenPop::ChangeScreen(Screen* screen)
+{
+	mCurrentScreen = screen;
 }
 
 void OpenPop::MouseMove(sint32 x, sint32 y)

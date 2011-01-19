@@ -15,8 +15,8 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_MAINMENU_H_
-#define _MENUS_MAINMENU_H_
+#ifndef _MENUS_PREGAMELOBBY_H_
+#define _MENUS_PREGAMELOBBY_H_
 
 class OpenPop;
 
@@ -28,17 +28,18 @@ namespace Graphics {
 namespace Widgets {
 	class Screen;
 	class Widget;
+	class TextLink;
 }
 
 namespace Menus
 {
 
-class MainMenu :
+class PreGameLobby :
 	public Widgets::Screen
 {
 public:
-	MainMenu(OpenPop* openpop);
-	~MainMenu();
+	PreGameLobby(OpenPop* openpop);
+	~PreGameLobby();
 
 	void Draw(Graphics::Renderer *renderer);
 
@@ -49,13 +50,10 @@ private:
 	Graphics::Font*		mLargeTextFont;
 	Graphics::Font*		mSmallTextFont;
 
-	uint32				mMenuType;
+	Graphics::SpriteFile*	mTestSpritesS;
+	Graphics::SpriteFile*	mTestSpritesA;
 
-	void SetMenu(std::string* items, int numItems);
-	void SetMenuMain();
-	void SetMenuSP();
-	void SetMenuMP();
-	void SetMenuME();
+	Widgets::TextLink*	mBackLink;
 
 	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
 };

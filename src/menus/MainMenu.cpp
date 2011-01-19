@@ -27,10 +27,13 @@
 #include "..\Widgets\Screen.h"
 #include "..\Widgets\Widget.h"
 #include "..\Widgets\TextLink.h"
+#include "..\Language\Language.h"
+#include "PreGameLobby.h"
 #include "MainMenu.h"
 
 using namespace Graphics;
 using namespace Widgets;
+using namespace Menus;
 
 MainMenu::MainMenu(OpenPop* openpop) :
 	Screen(openpop)
@@ -51,13 +54,21 @@ MainMenu::MainMenu(OpenPop* openpop) :
 
 MainMenu::~MainMenu()
 {
+	delete mPalette;
+	delete mBackground;
+
+	delete mLargeTextFont;
+	delete mSmallTextFont;
+	delete mTextLinkFont;
+	delete mTextLinkHighlightFont;
+	delete mTextLinkShadowFont;
 }
 
 void MainMenu::Draw(Renderer *renderer)
 {
 	Screen::Draw(renderer);
 
-	std::string items[] = { "OpenPop", "Single Player", "Multiplayer", "Map Editor" };
+	std::string items[] = { "OpenPop", "Single Player", LANG(307), "Map Editor" };
 	std::string title = items[mMenuType];
 	sint32 x = (640 / 2) - (mLargeTextFont->MeasureString(title) / 2);
 	renderer->DrawString(mLargeTextFont, title, x, 40);
@@ -92,7 +103,7 @@ void MainMenu::SetMenu(std::string* items, int numItems)
 
 void MainMenu::SetMenuMain()
 {
-	std::string items[] = { "Single Player", "Multiplayer", "Map Editor", "Options", "Rolling Demo", "Credits", "Exit" };
+	std::string items[] = { "Single Player", LANG(307), "Map Editor", LANG(326), LANG(334), LANG(445), LANG(279) };
 	SetMenu(items, sizeof(items) / sizeof(items[0]));
 
 	mMenuType = 0;
@@ -100,7 +111,7 @@ void MainMenu::SetMenuMain()
 
 void MainMenu::SetMenuSP()
 {
-	std::string items[] = { "Tutorial", "The Beginning", "Undiscovered Worlds", "Skirmish", "Load Game", "Back" };
+	std::string items[] = { LANG(299), "The Beginning", "Undiscovered Worlds", "Skirmish", LANG(300), LANG(328) };
 	SetMenu(items, sizeof(items) / sizeof(items[0]));
 
 	mMenuType = 1;
@@ -108,7 +119,7 @@ void MainMenu::SetMenuSP()
 
 void MainMenu::SetMenuMP()
 {
-	std::string items[] = { "Play Online", "Host Address", "Local Area Network", "Back" };
+	std::string items[] = { "Play Online", "Host Address", "Local Area Network", LANG(328) };
 	SetMenu(items, sizeof(items) / sizeof(items[0]));
 
 	mMenuType = 2;
@@ -116,7 +127,7 @@ void MainMenu::SetMenuMP()
 
 void MainMenu::SetMenuME()
 {
-	std::string items[] = { "Create New Map", "Edit Map", "Back" };
+	std::string items[] = { "Create New Map", "Edit Map", LANG(328) };
 	SetMenu(items, sizeof(items) / sizeof(items[0]));
 
 	mMenuType = 3;
@@ -144,5 +155,9 @@ void MainMenu::MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y)
 	} else if (widget->mID == 2 && mMenuType == 3) {
 		RemoveAllWidgets();
 		SetMenuMain();
+	} else if (widget->mID == 3 && mMenuType == 1) {
+		RemoveAllWidgets();
+		mOpenPop->ChangeScreen(new PreGameLobby(mOpenPop));
+		delete this;
 	}
 }

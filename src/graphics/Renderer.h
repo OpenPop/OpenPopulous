@@ -47,6 +47,7 @@ public:
 
 	sint32 CreateSurface(LPDIRECT3DSURFACE9& surface, sint32 width, sint32 height);
 	void BlitSurface(Surface* surface, RECT rect);
+	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, SpriteFile* asfile, sint32 index, sint32 x, sint32 y);
 	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 x, sint32 y);
 	void DrawRAW(PaletteFile* pal, RawFile* raw, sint32 x, sint32 y);
 	void DrawString(Font* font, std::string, sint32 x, sint32 y);

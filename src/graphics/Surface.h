@@ -40,6 +40,7 @@ public:
 
 	void Init();
 	void Clear(D3DCOLOR colour);
+	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, SpriteFile* asfile, sint32 index, sint32 x, sint32 y);
 	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 x, sint32 y);
 	void DrawRAW(PaletteFile* pal, RawFile* raw, sint32 x, sint32 y);
 	void DrawPixel(sint32 x, sint32 y, sint32 colour);

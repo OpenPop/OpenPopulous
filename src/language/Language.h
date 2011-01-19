@@ -15,49 +15,25 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_MAINMENU_H_
-#define _MENUS_MAINMENU_H_
+#ifndef _LANGUAGE_LANGUAGE_H_
+#define _LANGUAGE_LANGUAGE_H_
 
-class OpenPop;
+#include <string>
 
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-}
-
-namespace Menus
+namespace Languages
 {
 
-class MainMenu :
-	public Widgets::Screen
+class Language
 {
 public:
-	MainMenu(OpenPop* openpop);
-	~MainMenu();
+	Language(std::string filename);
+	~Language();
 
-	void Draw(Graphics::Renderer *renderer);
+	std::string GetText(uint32 index);
 
 private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
-
-	uint32				mMenuType;
-
-	void SetMenu(std::string* items, int numItems);
-	void SetMenuMain();
-	void SetMenuSP();
-	void SetMenuMP();
-	void SetMenuME();
-
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	char16*			mBuffer;
+	uint32*			mOffsets;
 };
 
 }

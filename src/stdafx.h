@@ -20,6 +20,8 @@
 
 #include "Revision.h"
 
+#define		LANG(x)					mOpenPop->GetText(x)
+
 //Common typedefs
 typedef		unsigned __int8			uint8;
 typedef		signed __int8			sint8;
@@ -29,5 +31,7 @@ typedef		unsigned __int32		uint32;
 typedef		signed __int32			sint32;
 typedef		unsigned __int64		uint64;
 typedef		signed __int64			sint64;
+typedef		char					char8;
+typedef		wchar_t					char16;
 
 #endif

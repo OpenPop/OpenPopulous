@@ -15,49 +15,56 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _OPENPOP_H_
-#define _OPENPOP_H_
+#include "..\stdafx.h"
 
 #include <windows.h>
-#include <string>
+#include <iostream>
+#include <fstream>
+#include "Language.h"
 
-namespace Graphics {
-	class Renderer;
-}
+using namespace std;
+using namespace Languages;
 
-namespace Widgets {
-	class Screen;
-}
-
-namespace Languages {
-	class Language;
-}
-
-class OpenPop
+Language::Language(string filename)
 {
-public:
-	HWND						hWnd;
-	sint32						mLastTick;
-	sint32						mFrameRate;
-	Widgets::Screen*			mCurrentScreen;
-	Languages::Language*		mCurrentLanguage;
+	ifstream fs;
+	fs.open(filename.c_str(), ios::binary);
 
-	OpenPop();
-	~OpenPop();
+	fs.seekg(0, ios::end);
+	sint32 size = fs.tellg();
+	fs.seekg(0, ios::beg);
 
-	sint32 Init();
-	void Run();
-	void Draw();
-	void Close();
+	mBuffer = (char16*)(new sint8[size]);
+	
+	fs.read((char8*)mBuffer, size);
 
-	std::string GetText(uint32 index);
-	void ChangeScreen(Widgets::Screen* screen);
+	fs.close();
 
-	void MouseMove(sint32 x, sint32 y);
-	void MouseDown(sint32 button, sint32 x, sint32 y);
+	//Read offsets
+	mOffsets = new uint32[1400];
+	mOffsets[0] = 0;
+	int index = 1;
+	for (uint32 i = 0; i < size / 2; i++) {
+		if (mBuffer[i] == 0) {
+			mOffsets[index] = i+1;
+			index++;
+		}
+	}
+}
 
-private:
-	Graphics::Renderer* mRenderer;
-};
+Language::~Language()
+{
 
-#endif
+}
+
+string Language::GetText(uint32 index)
+{
+	string rtn_str;
+	char16* str = &mBuffer[mOffsets[index]];
+
+	for (int i = 0; i < lstrlenW(str); i++) {
+		rtn_str += str[i];
+	}
+
+	return rtn_str;
+}

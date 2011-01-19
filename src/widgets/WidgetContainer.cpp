@@ -84,6 +84,13 @@ void WidgetContainer::RemoveWidget(Widget* w)
 
 void WidgetContainer::RemoveAllWidgets()
 {
+	WidgetList::iterator it;
+
+	for (it = mWidgets.begin(); it != mWidgets.end(); it++) {
+		Widget* w = *it;
+		delete w;
+	}
+
 	mWidgets.clear();
 }
 
