@@ -43,12 +43,16 @@ private:
 	Graphics::Font*		mTextLinkFont;
 	Graphics::Font*		mTextLinkHighlightFont;
 	Graphics::Font*		mTextLinkShadowFont;
+	Graphics::Font*		mLargeTextFont;
 	Graphics::Font*		mSmallTextFont;
 
 	uint32				mMenuType;
 
+	void SetMenu(std::string* items, int numItems);
 	void SetMenuMain();
 	void SetMenuSP();
+	void SetMenuMP();
+	void SetMenuME();
 
 	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
 };

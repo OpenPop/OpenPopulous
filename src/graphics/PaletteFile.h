@@ -28,6 +28,7 @@ class PaletteFile
 public:
 	sint32 mColours[256];
 
+	PaletteFile();
 	PaletteFile(std::string filename);
 	~PaletteFile();
 };

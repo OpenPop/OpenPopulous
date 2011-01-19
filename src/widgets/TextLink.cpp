@@ -40,6 +40,9 @@ void TextLink::Draw(Renderer* renderer)
 
 	mHighlighted = mMouseOver;
 
+	//Draw shadow
+	//renderer->DrawString(mShadowFont, mText, mX - 5, mY - 5);
+
 	if (mHighlighted)
 		renderer->DrawString(mHighlightFont, mText, mX, mY);
 	else

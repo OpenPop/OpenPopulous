@@ -24,6 +24,18 @@
 using namespace std;
 using namespace Graphics;
 
+PaletteFile::PaletteFile()
+{
+	uint8 col[4];
+	for (uint32 i = 0; i < 256; i++) {
+		col[0] = i;
+		col[1] = i;
+		col[2] = i;
+		col[3] = 0xFF;
+		mColours[i] = *((uint32*)col);
+	}
+}
+
 PaletteFile::PaletteFile(string filename)
 {
 	ifstream fs;

@@ -26,7 +26,11 @@ using namespace Graphics;
 
 Font::Font(string sfile, string pfile)
 {
-	mPaletteFile = new PaletteFile(pfile);
+	if (pfile != "")
+		mPaletteFile = new PaletteFile(pfile);
+	else
+		mPaletteFile = new PaletteFile();
+
 	mSpriteFile = new SpriteFile(sfile);
 }
 

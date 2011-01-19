@@ -36,6 +36,7 @@ public:
 	std::string			mText;
 	Graphics::Font*		mFont;
 	Graphics::Font*		mHighlightFont;
+	Graphics::Font*		mShadowFont;
 
 	bool				mHighlighted;
 

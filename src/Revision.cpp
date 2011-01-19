@@ -20,6 +20,6 @@
 
 const char _openpop_title[] = "OpenPop";
 
-const char _openpop_revision[] = "rev 50";
+const char _openpop_revision[] = "rev 55";
 
 const char _openpop_build_date[] = __DATE__ " " __TIME__;
