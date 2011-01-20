@@ -18,6 +18,7 @@
 #include "..\stdafx.h"
 
 #include "..\OpenPop.h"
+#include "..\Config.h"
 #include "..\Graphics\Renderer.h"
 #include "..\Graphics\Surface.h"
 #include "..\Graphics\PaletteFile.h"
@@ -28,26 +29,26 @@
 #include "..\Widgets\Widget.h"
 #include "..\Widgets\TextLink.h"
 #include "..\Language\Language.h"
+#include "..\Game\GameScreen.h"
 #include "PreGameLobby.h"
 #include "MainMenu.h"
 
 using namespace Graphics;
 using namespace Widgets;
 using namespace Menus;
+using namespace Game;
 
 MainMenu::MainMenu(OpenPop* openpop) :
 	Screen(openpop)
 {
-	std::string popdir = "C:\\Program Files\\Bullfrog\\Populous\\";
+	mPalette = new PaletteFile(gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mBackground = new RawFile(gConfig->GetPopFile("Data\\fenew\\febackg0.dat"), 640, 480);
 
-	mPalette = new PaletteFile(popdir + "Data\\fenew\\fepal0.dat");
-	mBackground = new RawFile(popdir + "Data\\fenew\\febackg0.dat", 640, 480);
-
-	mLargeTextFont = new Font(popdir + "Data\\fenew\\Felo33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mSmallTextFont = new Font(popdir + "Data\\fenew\\Felo20WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mTextLinkFont = new Font(popdir + "Data\\fenew\\Feft33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mTextLinkHighlightFont = new Font(popdir + "Data\\fenew\\Fehi33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mTextLinkShadowFont = new Font(popdir + "Data\\fenew\\Fesd33WE.spr", "");
+	mLargeTextFont = new Font(gConfig->GetPopFile("Data\\fenew\\Felo33WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mSmallTextFont = new Font(gConfig->GetPopFile("Data\\fenew\\Felo20WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mTextLinkFont = new Font(gConfig->GetPopFile("Data\\fenew\\Feft33WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mTextLinkHighlightFont = new Font(gConfig->GetPopFile("Data\\fenew\\Fehi33WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mTextLinkShadowFont = new Font(gConfig->GetPopFile("Data\\fenew\\Fesd33WE.spr"), "");
 
 	SetMenuMain();
 }
@@ -158,6 +159,10 @@ void MainMenu::MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y)
 	} else if (widget->mID == 3 && mMenuType == 1) {
 		RemoveAllWidgets();
 		mOpenPop->ChangeScreen(new PreGameLobby(mOpenPop));
+		delete this;
+	} else if (widget->mID == 4 && mMenuType == 0) {
+		RemoveAllWidgets();
+		mOpenPop->ChangeScreen(new GameScreen(mOpenPop));
 		delete this;
 	}
 }

@@ -18,6 +18,7 @@
 #include "..\stdafx.h"
 
 #include "..\OpenPop.h"
+#include "..\Config.h"
 #include "..\Graphics\Renderer.h"
 #include "..\Graphics\Surface.h"
 #include "..\Graphics\PaletteFile.h"
@@ -40,17 +41,17 @@ PreGameLobby::PreGameLobby(OpenPop* openpop) :
 {
 	std::string popdir = "C:\\Program Files\\Bullfrog\\Populous\\";
 
-	mPalette = new PaletteFile(popdir + "Data\\fenew\\fepal0.dat");
-	mBackground = new RawFile(popdir + "Data\\fenew\\febackg0.dat", 640, 480);
+	mPalette = new PaletteFile(gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mBackground = new RawFile(gConfig->GetPopFile("Data\\fenew\\febackg0.dat"), 640, 480);
 
-	mLargeTextFont = new Font(popdir + "Data\\fenew\\Felo33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mSmallTextFont = new Font(popdir + "Data\\fenew\\Felo20WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mTextLinkFont = new Font(popdir + "Data\\fenew\\Feft33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mTextLinkHighlightFont = new Font(popdir + "Data\\fenew\\Fehi33WE.spr", popdir + "Data\\fenew\\fepal0.dat");
-	mTextLinkShadowFont = new Font(popdir + "Data\\fenew\\Fesd33WE.spr", "");
+	mLargeTextFont = new Font(gConfig->GetPopFile("Data\\fenew\\Felo33WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mSmallTextFont = new Font(gConfig->GetPopFile("Data\\fenew\\Felo20WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mTextLinkFont = new Font(gConfig->GetPopFile("Data\\fenew\\Feft33WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mTextLinkHighlightFont = new Font(gConfig->GetPopFile("Data\\fenew\\Fehi33WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
+	mTextLinkShadowFont = new Font(gConfig->GetPopFile("Data\\fenew\\Fesd33WE.spr"), "");
 
-	mTestSpritesS = new SpriteFile(popdir + "Data\\fenew\\Feboxes.spr");
-	mTestSpritesA = new SpriteFile(popdir + "Data\\fenew\\Feboxsp.spr");
+	mTestSpritesS = new SpriteFile(gConfig->GetPopFile("Data\\fenew\\Feboxes.spr"));
+	mTestSpritesA = new SpriteFile(gConfig->GetPopFile("Data\\fenew\\Feboxsp.spr"));
 
 	mBackLink = new TextLink();
 	mBackLink->mFont = mTextLinkFont;

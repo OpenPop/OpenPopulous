@@ -170,6 +170,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\Config.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\OpenPop.cpp"
 				>
 			</File>
@@ -183,6 +187,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\src\Config.h"
+				>
+			</File>
 			<File
 				RelativePath="..\src\OpenPop.h"
 				>
@@ -358,6 +366,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\game\GameScreen.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\GameScreen.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\game\Object.cpp"
 				>
 			</File>
@@ -395,6 +411,14 @@
 			</File>
 			<File
 				RelativePath="..\src\game\Unit.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\World.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\game\World.h"
 				>
 			</File>
 		</Filter>

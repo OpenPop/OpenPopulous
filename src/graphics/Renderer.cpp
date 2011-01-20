@@ -93,12 +93,14 @@ bool Renderer::StartDraw()
 
 void Renderer::EndDraw()
 {
-	RECT rect;
-	rect.left = 0;
-	rect.top = 0;
-	rect.right = 640;
-	rect.bottom = 480;
-	BlitSurface(mForeground, rect);
+	if (mForeground != NULL) {
+		RECT rect;
+		rect.left = 0;
+		rect.top = 0;
+		rect.right = 640;
+		rect.bottom = 480;
+		BlitSurface(mForeground, rect);
+	}
 
 	if (!mDrawing)
 		return;

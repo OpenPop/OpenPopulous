@@ -21,6 +21,7 @@
 #include "Widgets\Screen.h"
 #include "Menus\MainMenu.h"
 #include "Language\Language.h"
+#include "Config.h"
 #include "OpenPop.h"
 
 using namespace Graphics;
@@ -33,8 +34,7 @@ OpenPop::OpenPop()
 	mLastTick = 0;
 	mFrameRate = 0;
 
-	std::string popdir = "C:\\Program Files\\Bullfrog\\Populous\\";
-	mCurrentLanguage = new Language(popdir + "language\\lang00.dat");
+	mCurrentLanguage = new Language(gConfig->GetPopFile("language\\lang00.dat"));
 
 	mCurrentScreen = new MainMenu(this);
 }
