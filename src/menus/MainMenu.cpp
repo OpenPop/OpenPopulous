@@ -159,10 +159,8 @@ void MainMenu::MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y)
 	} else if (widget->mID == 3 && mMenuType == 1) {
 		RemoveAllWidgets();
 		mOpenPop->ChangeScreen(new PreGameLobby(mOpenPop));
-		delete this;
 	} else if (widget->mID == 4 && mMenuType == 0) {
 		RemoveAllWidgets();
 		mOpenPop->ChangeScreen(new GameScreen(mOpenPop));
-		delete this;
 	}
 }

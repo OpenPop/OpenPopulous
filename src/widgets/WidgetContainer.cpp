@@ -32,6 +32,7 @@ WidgetContainer::WidgetContainer()
 
 WidgetContainer::~WidgetContainer()
 {
+	RemoveAllWidgets();
 }
 
 void WidgetContainer::Draw(Renderer* renderer)

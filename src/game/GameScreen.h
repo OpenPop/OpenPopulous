@@ -22,6 +22,7 @@ class OpenPop;
 
 namespace Graphics {
 	Renderer;
+	PaletteFile;
 }
 
 namespace Widgets {
@@ -31,13 +32,21 @@ namespace Widgets {
 
 namespace Game
 {
+class Panel;
 
 class GameScreen :
 	public Widgets::Screen
 {
 public:
+	Graphics::PaletteFile*		mPaletteFile;
+
+	Panel*						mPanel;
+
 	GameScreen(OpenPop* openpop);
 	~GameScreen();
+
+	void MouseDown(sint32 button, sint32 x, sint32 y);
+
 
 	void Draw(Graphics::Renderer* renderer);
 };

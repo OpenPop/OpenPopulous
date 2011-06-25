@@ -15,49 +15,45 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_PREGAMELOBBY_H_
-#define _MENUS_PREGAMELOBBY_H_
+#ifndef _GAME_SPELLBUTTON_H_
+#define _GAME_SPELLBUTTON_H_
 
 class OpenPop;
 
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-	class TextLink;
-	class Box;
-}
-
-namespace Menus
+namespace Graphics
 {
+	class Renderer;
+	class PaletteFile;
+}
 
-class PreGameLobby :
-	public Widgets::Screen
+namespace Game
+{
+struct Spell;
+class SpellButton
 {
 public:
-	PreGameLobby(OpenPop* openpop);
-	~PreGameLobby();
+	OpenPop*				mOpenPop;
+	Graphics::PaletteFile*	mPaletteFile;
 
-	void Draw(Graphics::Renderer *renderer);
+	sint32			mX;
+	sint32			mY;
+	sint32			mWidth;
+	sint32			mHeight;
 
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
+	sint32			mSpellIDX;
+	uint32			mChargeAmount;
+	uint32			mChargeMax;
+	uint32			mSpellShots;
+	uint32			mSpellRedShots;
+	uint32			mSpellMaxShots;
 
-	Graphics::SpriteFile*	mTestSpritesS;
-	Graphics::SpriteFile*	mTestSpritesA;
+	SpellButton(OpenPop* openPop);
+	~SpellButton();
 
-	Widgets::Box*		mPlayersBox;
-	Widgets::TextLink*	mBackLink;
+	Spell* GetSpell();
 
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	virtual void Update();
+	virtual void Draw(Graphics::Renderer* renderer);
 };
 
 }

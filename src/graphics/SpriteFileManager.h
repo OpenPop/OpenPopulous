@@ -15,49 +15,26 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_PREGAMELOBBY_H_
-#define _MENUS_PREGAMELOBBY_H_
+#ifndef _GRAPHICS_SPRITEFILEMANAGER_H_
+#define _GRAPHICS_SPRITEFILEMANAGER_H_
 
-class OpenPop;
-
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-	class TextLink;
-	class Box;
-}
-
-namespace Menus
+namespace Graphics
 {
+class SpriteFile;
 
-class PreGameLobby :
-	public Widgets::Screen
+class SpriteFileManager
 {
 public:
-	PreGameLobby(OpenPop* openpop);
-	~PreGameLobby();
 
-	void Draw(Graphics::Renderer *renderer);
+	//Widgets
+	SpriteFile*		mFeboxes;
+	SpriteFile*		mFeboxsp;
 
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
+	SpriteFile*		mHFX;
+	SpriteFile*		mHSPR;
 
-	Graphics::SpriteFile*	mTestSpritesS;
-	Graphics::SpriteFile*	mTestSpritesA;
-
-	Widgets::Box*		mPlayersBox;
-	Widgets::TextLink*	mBackLink;
-
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	SpriteFileManager();
+	~SpriteFileManager();
 };
 
 }

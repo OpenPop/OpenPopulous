@@ -24,10 +24,12 @@
 #include "..\Graphics\PaletteFile.h"
 #include "..\Graphics\RawFile.h"
 #include "..\Graphics\SpriteFile.h"
+#include "..\Graphics\SpriteFileManager.h"
 #include "..\Graphics\Font.h"
 #include "..\Widgets\Screen.h"
 #include "..\Widgets\Widget.h"
 #include "..\Widgets\TextLink.h"
+#include "..\Widgets\Box.h"
 #include "..\Language\Language.h"
 #include "MainMenu.h"
 #include "PreGameLobby.h"
@@ -50,8 +52,14 @@ PreGameLobby::PreGameLobby(OpenPop* openpop) :
 	mTextLinkHighlightFont = new Font(gConfig->GetPopFile("Data\\fenew\\Fehi33WE.spr"), gConfig->GetPopFile("Data\\fenew\\fepal0.dat"));
 	mTextLinkShadowFont = new Font(gConfig->GetPopFile("Data\\fenew\\Fesd33WE.spr"), "");
 
-	mTestSpritesS = new SpriteFile(gConfig->GetPopFile("Data\\fenew\\Feboxes.spr"));
-	mTestSpritesA = new SpriteFile(gConfig->GetPopFile("Data\\fenew\\Feboxsp.spr"));
+	mPlayersBox = new Box();
+	mPlayersBox->mPalette = mPalette;
+	mPlayersBox->mAlphaBoxSprites = openpop->mSpriteFileManager->mFeboxsp;
+	mPlayersBox->mBoxSprites = openpop->mSpriteFileManager->mFeboxes;
+	mPlayersBox->mWidth = 512 + 64;
+	mPlayersBox->mHeight = 128;
+	mPlayersBox->mX = (640 / 2) - (mPlayersBox->mWidth / 2);
+	mPlayersBox->mY = 50;
 
 	mBackLink = new TextLink();
 	mBackLink->mFont = mTextLinkFont;
@@ -63,6 +71,7 @@ PreGameLobby::PreGameLobby(OpenPop* openpop) :
 	mBackLink->mX = (640 / 2) - (mBackLink->mWidth / 2);
 	mBackLink->mY = 450;
 
+	AddWidget(mPlayersBox);
 	AddWidget(mBackLink);
 }
 
@@ -75,11 +84,16 @@ void PreGameLobby::Draw(Renderer *renderer)
 {
 	Screen::Draw(renderer);
 
+	
+
 	//for (int i = 0; i < mTestSpritesA->mSprites; i++)
-	//	renderer->DrawSprite(mPalette, mTestSpritesS, mTestSpritesA, i, 10 * i + 10, 10);
+	//	renderer->DrawSprite(mPalette, mTestSpritesS, mTestSpritesA, i, 10 * i + (10 * i) + 10, 10);
+
+	//for (int i = 0; i < mTestSpritesA->mSprites; i++)
+	//	renderer->DrawSprite(mPalette, mTestSpritesA, i, 10 * i + (10 * i) + 10, 100);
 
 	//for (int i = 0; i < mTestSpritesS->mSprites; i++)
-	//	renderer->DrawSprite(mPalette, mTestSpritesS, i, 10 * i + 10, 100);
+	//	renderer->DrawSprite(mPalette, mTestSpritesS, i, 10 * i + (10 * i) + 10, 200);
 }
 
 void PreGameLobby::MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y)
@@ -88,6 +102,5 @@ void PreGameLobby::MouseDown(Widget* widget, sint32 button, sint32 x, sint32 y)
 
 	if (widget == mBackLink) {
 		mOpenPop->ChangeScreen(new MainMenu(mOpenPop));
-		delete this;
 	}
 }

@@ -15,49 +15,19 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_PREGAMELOBBY_H_
-#define _MENUS_PREGAMELOBBY_H_
+#ifndef _GAME_SPELL_H_
+#define _GAME_SPELL_H_
 
-class OpenPop;
-
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-	class TextLink;
-	class Box;
-}
-
-namespace Menus
+namespace Game
 {
 
-class PreGameLobby :
-	public Widgets::Screen
+struct Spell
 {
-public:
-	PreGameLobby(OpenPop* openpop);
-	~PreGameLobby();
-
-	void Draw(Graphics::Renderer *renderer);
-
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
-
-	Graphics::SpriteFile*	mTestSpritesS;
-	Graphics::SpriteFile*	mTestSpritesA;
-
-	Widgets::Box*		mPlayersBox;
-	Widgets::TextLink*	mBackLink;
-
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	bool Permenent;
+	bool Charging;
+	uint8 Shots;
+	uint8 PrizeShots;
+	uint32 Charge;
 };
 
 }

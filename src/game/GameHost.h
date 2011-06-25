@@ -15,49 +15,36 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_PREGAMELOBBY_H_
-#define _MENUS_PREGAMELOBBY_H_
+#ifndef _GAME_GAMEHOST_H_
+#define _GAME_GAMEHOST_H_
 
 class OpenPop;
 
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-	class TextLink;
-	class Box;
-}
-
-namespace Menus
+namespace Game
 {
 
-class PreGameLobby :
-	public Widgets::Screen
+class Player;
+class Tribe;
+class World;
+
+class GameHost
 {
 public:
-	PreGameLobby(OpenPop* openpop);
-	~PreGameLobby();
+	OpenPop*	mOpenPop;
 
-	void Draw(Graphics::Renderer *renderer);
+	Player*		mPlayers[8];
+	Tribe*		mTribes[4];
+	World*		mWorld;
 
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
+	uint8		mPlayerIDX;
 
-	Graphics::SpriteFile*	mTestSpritesS;
-	Graphics::SpriteFile*	mTestSpritesA;
+	GameHost(OpenPop* openPop);
+	~GameHost();
 
-	Widgets::Box*		mPlayersBox;
-	Widgets::TextLink*	mBackLink;
+	Player* GetLocalPlayer();
+	Tribe* GetLocalTribe();
 
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	void Update();
 };
 
 }

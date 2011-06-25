@@ -38,7 +38,6 @@ public:
 	uint32					mSize;
 	WorldTile*				mLandTiles;
 	std::list<Object*>		mObjects;
-	Tribe*					mTribes[4];
 
 	World();
 	~World();

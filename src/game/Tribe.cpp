@@ -17,13 +17,15 @@
 
 #include "..\stdafx.h"
 
+#include <cstring>
+
 #include "Tribe.h"
 
 using namespace Game;
 
 Tribe::Tribe()
 {
-
+	memset(mSpells, 0, sizeof(mSpells));
 }
 
 Tribe::~Tribe()

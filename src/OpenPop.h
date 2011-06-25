@@ -23,6 +23,7 @@
 
 namespace Graphics {
 	class Renderer;
+	class SpriteFileManager;
 }
 
 namespace Widgets {
@@ -33,14 +34,24 @@ namespace Languages {
 	class Language;
 }
 
+namespace Game {
+	class GameHost;
+}
+
 class OpenPop
 {
 public:
-	HWND						hWnd;
-	sint32						mLastTick;
-	sint32						mFrameRate;
-	Widgets::Screen*			mCurrentScreen;
-	Languages::Language*		mCurrentLanguage;
+	HWND							hWnd;
+	sint32							mLastTick;
+	sint32							mFrameRate;
+	uint64							mOpenPopTickCount;
+	Widgets::Screen*				mCurrentScreen;
+	Widgets::Screen*				mChangeScreen;
+	Languages::Language*			mCurrentLanguage;
+
+	Graphics::SpriteFileManager*	mSpriteFileManager;
+
+	Game::GameHost*					mGameHost;
 
 	OpenPop();
 	~OpenPop();

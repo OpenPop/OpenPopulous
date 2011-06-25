@@ -31,6 +31,8 @@ typedef		unsigned __int32		uint32;
 typedef		signed __int32			sint32;
 typedef		unsigned __int64		uint64;
 typedef		signed __int64			sint64;
+typedef		float					real32;
+typedef		double					real64;
 typedef		char					char8;
 typedef		wchar_t					char16;
 

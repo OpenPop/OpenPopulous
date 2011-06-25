@@ -47,10 +47,19 @@ public:
 
 	sint32 CreateSurface(LPDIRECT3DSURFACE9& surface, sint32 width, sint32 height);
 	void BlitSurface(Surface* surface, RECT rect);
+	void FillRect(uint32 colour, sint32 x, sint32 y, sint32 w, sint32 h);
 	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, SpriteFile* asfile, sint32 index, sint32 x, sint32 y);
 	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, sint32 index, sint32 x, sint32 y);
+	void DrawSprite(PaletteFile* pal, SpriteFile* sfile, uint8 alpha, sint32 index, sint32 x, sint32 y);
 	void DrawRAW(PaletteFile* pal, RawFile* raw, sint32 x, sint32 y);
 	void DrawString(Font* font, std::string, sint32 x, sint32 y);
+
+	void DrawBox(PaletteFile* palette, SpriteFile* spriteFile, sint32 x, sint32 y, sint32 width, sint32 height, sint32 nw);
+	void DrawBox(PaletteFile* palette, SpriteFile* spriteFile, uint8 a, sint32 x, sint32 y, sint32 width, sint32 height, sint32 nw);
+	void DrawBox(PaletteFile* palette, SpriteFile* spriteFile, sint32 x, sint32 y, sint32 width, sint32 height, sint32 nw, sint32 n, sint32 ne, sint32 w, sint32 c, sint32 e, sint32 sw, sint32 s, sint32 se);
+	void DrawBox(PaletteFile* palette, SpriteFile* spriteFile, uint8 a, sint32 x, sint32 y, sint32 width, sint32 height, sint32 nw, sint32 n, sint32 ne, sint32 w, sint32 c, sint32 e, sint32 sw, sint32 s, sint32 se);
+
+	uint32 SwapColourBits(uint32 colour);
 
 private:
 	bool mDrawing;

@@ -18,6 +18,9 @@
 #ifndef _GAME_TRIBE_H_
 #define _GAME_TRIBE_H_
 
+#include "Spell_Type.h"
+#include "Spell.h"
+
 namespace Game
 {
 
@@ -25,6 +28,8 @@ class Tribe
 {
 public:
 	uint8			mID;		//1 - Dakini, 2 - Chumara etc.
+
+	Spell			mSpells[SPELL_COUNT];
 
 	Tribe();
 	~Tribe();

@@ -15,27 +15,48 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GAME_PLAYER_H_
-#define _GAME_PLAYER_H_
+#ifndef _GAME_SPELLTYPE_H_
+#define _GAME_SPELLTYPE_H_
 
-#include <string>
-
-#include "Spell.h"
+#include "..\stdafx.h"
 
 namespace Game
 {
+	enum SPELL_TYPES
+	{
+		SPELL_BLAST,
+		SPELL_LIGHTNING,
+		SPELL_TORNADO,
+		SPELL_SWARM,
+		SPELL_INVISIBILITY,
+		SPELL_HYPNOTISE,
+		SPELL_FIRESTORM,
+		SPELL_GHOSTARMY,
+		SPELL_ERODE,
+		SPELL_SWAMP,
+		SPELL_LANDBRIDGE,
+		SPELL_ANGELOFDEATH,
+		SPELL_EARTHQUAKE,
+		SPELL_FLATTEN,
+		SPELL_VOLCANO,
+		SPELL_CONVERT,
+		SPELL_ARMAGEDDON,
+		SPELL_SHIELD,
+		SPELL_BLOODLUST,
+		SPELL_TELEPORT,
+		SPELL_COUNT,
+	};
 
-class Tribe;
-class Player
-{
-public:
-	std::string			mName;
-	sint8				mControlTribe;
+	struct SpellDefinition
+	{
+		uint32 Range;
+		uint32 ManaCost;
+		uint8 MaxShots;
+	};
 
-	Player();
-	~Player();
-};
+	extern SpellDefinition SpellDefs[SPELL_COUNT];
 
+	void InitSpellDefs();
 }
 
 #endif

@@ -18,11 +18,17 @@
 #include "stdafx.h"
 
 #include "Graphics\Renderer.h"
+#include "Graphics\SpriteFileManager.h"
 #include "Widgets\Screen.h"
 #include "Menus\MainMenu.h"
 #include "Language\Language.h"
 #include "Config.h"
 #include "OpenPop.h"
+
+#include "game\GameHost.h"
+#include "game\Spell_Type.h"
+#include "game\GameScreen.h"
+#include "menus\PreGameLobby.h"
 
 using namespace Graphics;
 using namespace Widgets;
@@ -33,10 +39,19 @@ OpenPop::OpenPop()
 {
 	mLastTick = 0;
 	mFrameRate = 0;
+	mOpenPopTickCount = 0;
 
+	mSpriteFileManager = new SpriteFileManager();
 	mCurrentLanguage = new Language(gConfig->GetPopFile("language\\lang00.dat"));
 
-	mCurrentScreen = new MainMenu(this);
+	Game::InitSpellDefs();
+
+	mGameHost = new Game::GameHost(this);
+
+	mChangeScreen = NULL;
+	//mCurrentScreen = new MainMenu(this);
+	//mCurrentScreen = new PreGameLobby(this);
+	mCurrentScreen = new Game::GameScreen(this);
 }
 
 OpenPop::~OpenPop()
@@ -58,6 +73,8 @@ sint32 OpenPop::Init()
 
 void OpenPop::Run()
 {
+	mOpenPopTickCount++;
+
 	sint32 currentTick = GetTickCount();
 	sint32 difference = currentTick - mLastTick;
 	if (difference == 0)
@@ -66,9 +83,17 @@ void OpenPop::Run()
 	mFrameRate = 1000 / difference;
 	mLastTick = currentTick;
 
-	char buf[50];
-	sprintf(buf, "Frame rate: %i", mFrameRate);
-	SetWindowText(hWnd, buf);
+	if (mOpenPopTickCount % 10 == 0) {
+		char buf[50];
+		sprintf(buf, "Frame rate: %i", mFrameRate);
+		SetWindowText(hWnd, buf);
+	}
+
+	if (mChangeScreen != NULL) {
+		delete mCurrentScreen;
+		mCurrentScreen = mChangeScreen;
+		mChangeScreen = NULL;
+	}
 
 	Draw();
 }
@@ -97,7 +122,7 @@ std::string OpenPop::GetText(uint32 index)
 
 void OpenPop::ChangeScreen(Screen* screen)
 {
-	mCurrentScreen = screen;
+	mChangeScreen = screen;
 }
 
 void OpenPop::MouseMove(sint32 x, sint32 y)

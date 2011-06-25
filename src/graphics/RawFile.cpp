@@ -34,11 +34,7 @@ RawFile::RawFile(string filename, sint32 width, sint32 height)
 	ifstream fs;
 	fs.open(filename.c_str(), ios::binary);
 
-	for (sint32 y = 0; y < mHeight; y++) {
-		for (sint32 x = 0; x < mWidth; x++) {
-			fs.read((char*)&mBuffer[y * mWidth + x], sizeof(sint8));
-		}
-	}
+	fs.read((char*)mBuffer, width * height);
 
 	fs.close();
 }

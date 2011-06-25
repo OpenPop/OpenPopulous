@@ -17,48 +17,26 @@
 
 #include "..\stdafx.h"
 
-#include "..\OpenPop.h"
 #include "..\Config.h"
-#include "..\Graphics\Renderer.h"
-#include "..\Graphics\PaletteFile.h"
-#include "..\Graphics\SpriteFile.h"
-#include "..\Graphics\SpriteFileManager.h"
-#include "..\Widgets\Screen.h"
-
-#include "..\Graphics\HFX_Defs.h"
-
-#include "Panel.h"
-#include "GameScreen.h"
+#include "SpriteFile.h"
+#include "SpriteFileManager.h"
 
 using namespace Graphics;
-using namespace Game;
 
-GameScreen::GameScreen(OpenPop* openpop) :
-	Screen(openpop)
+SpriteFileManager::SpriteFileManager()
 {
-	//mPaletteFile = new PaletteFile(gConfig->GetPopFile("Data\\pal0-c.dat"));
+	mFeboxes = new SpriteFile(gConfig->GetPopFile("Data\\fenew\\Feboxes.spr"));
+	mFeboxsp = new SpriteFile(gConfig->GetPopFile("Data\\fenew\\Feboxsp.spr"));
 
-	mPanel = new Panel(openpop);
-	mPanel->mX = 0;
-	mPanel->mY = 0;
-	mPanel->mWidth = 100;
-	mPanel->mHeight = 480;
+	mHFX = new SpriteFile(gConfig->GetPopFile("Data\\hfx0-0.dat"));
+	mHSPR = new SpriteFile(gConfig->GetPopFile("Data\\hspr0-0.dat"));
 }
 
-GameScreen::~GameScreen()
+SpriteFileManager::~SpriteFileManager()
 {
-	delete mPanel;
-}
+	delete mFeboxes;
+	delete mFeboxsp;
 
-void GameScreen::MouseDown(sint32 button, sint32 x, sint32 y)
-{
-	Screen::MouseDown(button, x, y);
-}
-
-
-void GameScreen::Draw(Renderer* renderer)
-{
-	Screen::Draw(renderer);
-
-	mPanel->Draw(renderer);
+	delete mHFX;
+	delete mHSPR;
 }

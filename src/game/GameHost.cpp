@@ -18,47 +18,45 @@
 #include "..\stdafx.h"
 
 #include "..\OpenPop.h"
-#include "..\Config.h"
-#include "..\Graphics\Renderer.h"
-#include "..\Graphics\PaletteFile.h"
-#include "..\Graphics\SpriteFile.h"
-#include "..\Graphics\SpriteFileManager.h"
-#include "..\Widgets\Screen.h"
 
-#include "..\Graphics\HFX_Defs.h"
+#include "Player.h"
+#include "Tribe.h"
+#include "World.h"
+#include "GameHost.h"
 
-#include "Panel.h"
-#include "GameScreen.h"
-
-using namespace Graphics;
 using namespace Game;
 
-GameScreen::GameScreen(OpenPop* openpop) :
-	Screen(openpop)
+GameHost::GameHost(OpenPop* openPop)
 {
-	//mPaletteFile = new PaletteFile(gConfig->GetPopFile("Data\\pal0-c.dat"));
+	mOpenPop = openPop;
 
-	mPanel = new Panel(openpop);
-	mPanel->mX = 0;
-	mPanel->mY = 0;
-	mPanel->mWidth = 100;
-	mPanel->mHeight = 480;
+	mPlayers[0] = new Player();
+	mTribes[0] = new Tribe();
+
+	mPlayers[0]->mName = "Ted";
+	mPlayers[0]->mControlTribe = 0;
+
+	mPlayerIDX = 0;
+
+	mWorld = new World();
 }
 
-GameScreen::~GameScreen()
+GameHost::~GameHost()
 {
-	delete mPanel;
+
 }
 
-void GameScreen::MouseDown(sint32 button, sint32 x, sint32 y)
+Player* GameHost::GetLocalPlayer()
 {
-	Screen::MouseDown(button, x, y);
+	return mPlayers[mPlayerIDX];
 }
 
-
-void GameScreen::Draw(Renderer* renderer)
+Tribe* GameHost::GetLocalTribe()
 {
-	Screen::Draw(renderer);
+	return mTribes[GetLocalPlayer()->mControlTribe];
+}
 
-	mPanel->Draw(renderer);
+void GameHost::Update()
+{
+	mWorld->Update();
 }

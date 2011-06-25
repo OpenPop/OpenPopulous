@@ -15,49 +15,45 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _MENUS_PREGAMELOBBY_H_
-#define _MENUS_PREGAMELOBBY_H_
+#ifndef _GAME_PANEL_H_
+#define _GAME_PANEL_H_
+
+#include <list>
 
 class OpenPop;
 
-namespace Graphics {
-	Renderer;
-	Font;
-}
-
-namespace Widgets {
-	class Screen;
-	class Widget;
-	class TextLink;
-	class Box;
-}
-
-namespace Menus
+namespace Graphics
 {
+	class Renderer;
+	class PaletteFile;
+}
 
-class PreGameLobby :
-	public Widgets::Screen
+namespace Game
+{
+class SpellButton;
+
+class Panel
 {
 public:
-	PreGameLobby(OpenPop* openpop);
-	~PreGameLobby();
+	OpenPop*				mOpenPop;
+	Graphics::PaletteFile*	mPaletteFile;
 
-	void Draw(Graphics::Renderer *renderer);
+	sint32					mX;
+	sint32					mY;
+	sint32					mWidth;
+	sint32					mHeight;
 
-private:
-	Graphics::Font*		mTextLinkFont;
-	Graphics::Font*		mTextLinkHighlightFont;
-	Graphics::Font*		mTextLinkShadowFont;
-	Graphics::Font*		mLargeTextFont;
-	Graphics::Font*		mSmallTextFont;
+	std::list<SpellButton*>		mSpellButtons;
 
-	Graphics::SpriteFile*	mTestSpritesS;
-	Graphics::SpriteFile*	mTestSpritesA;
+	Panel(OpenPop* openPop);
+	~Panel();
 
-	Widgets::Box*		mPlayersBox;
-	Widgets::TextLink*	mBackLink;
+	void SetupSpellButtons();
+	void RemoveSpellButtons();
 
-	void MouseDown(Widgets::Widget* widget, sint32 button, sint32 x, sint32 y);
+	virtual void Update();
+	virtual void Draw(Graphics::Renderer* renderer);
+
 };
 
 }

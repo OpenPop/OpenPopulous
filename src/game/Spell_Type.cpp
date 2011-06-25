@@ -15,27 +15,17 @@
   along with OpenPop.  If not, see <http://www.gnu.org/licenses/>.
 ***********************************************************************/
 
-#ifndef _GAME_PLAYER_H_
-#define _GAME_PLAYER_H_
+#include "..\stdafx.h"
 
-#include <string>
-
-#include "Spell.h"
+#include "Spell_Type.h"
 
 namespace Game
 {
+	SpellDefinition SpellDefs[SPELL_COUNT];
 
-class Tribe;
-class Player
-{
-public:
-	std::string			mName;
-	sint8				mControlTribe;
-
-	Player();
-	~Player();
-};
-
+	void InitSpellDefs()
+	{
+		SpellDefs[SPELL_BLAST].ManaCost = 10000;
+		SpellDefs[SPELL_BLAST].MaxShots = 4;
+	}
 }
-
-#endif
